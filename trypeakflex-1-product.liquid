@@ -1,0 +1,409 @@
+{%- comment -%}
+  PeakFlex knee sleeve page, PART 1 of 2: product area + sticky add-to-cart bar.
+  Paste into a "Custom Liquid" section at the top of the product template.
+  Optional: set discountCode below if the package prices come from a discount code.
+{%- endcomment -%}
+{%- assign tp_cdn = 'https://cdn.shopify.com/s/files/1/1011/0720/4439/files/' -%}
+{%- assign tp_cdn2 = 'https://cdn.shopify.com/s/files/1/0789/7651/6423/files/' -%}
+{%- capture tp_chev -%}<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>{%- endcapture -%}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
+<style>
+.tpf{--ink:rgb(18,18,18);--text:rgba(18,18,18,.9);--navy:rgb(11,46,89);--grey:rgb(95,94,90);--line:rgba(18,18,18,.08);--orange:rgb(207,89,5);--badge:rgb(240,123,22)}
+/* full width, shielded from theme styles */
+body{overflow-x:clip}
+.tpf,.tpf *{box-sizing:border-box;margin:0;padding:0}
+.tpf{position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:#fff}
+.tpf{font-family:"Poppins",sans-serif;font-size:16px;line-height:1.8;letter-spacing:.06em;color:var(--text);text-align:left;-webkit-font-smoothing:antialiased}
+.tpf :where(h1,h2,h3,h4,h5,h6,p){font:inherit;color:inherit;letter-spacing:inherit;text-transform:none}
+.tpf summary,.tpf summary:hover{color:inherit}
+.tpf a{color:inherit}
+.tpf svg{display:inline-block;vertical-align:middle}
+.tpf img{display:block;max-width:100%}
+.tpf button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit;text-transform:none;min-height:0;box-shadow:none}
+.tpf details>summary{list-style:none;cursor:pointer}
+.tpf details>summary::-webkit-details-marker{display:none}
+.tpf .chev{width:16px;height:16px;flex:none;transition:transform .2s}
+.tpf details[open]>summary .chev{transform:rotate(180deg)}
+.tpf .wrap{max-width:1280px;margin:0 auto;padding:0 50px}
+
+/* layout */
+.tpf .hero{padding:24px 0 36px}
+.tpf .grid{display:grid;grid-template-columns:minmax(0,649fr) minmax(0,481fr);gap:50px;align-items:start}
+
+/* gallery */
+.tpf .gal{position:sticky;top:20px}
+.tpf .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:12px}
+.tpf .slides::-webkit-scrollbar,.tpf .thumbs::-webkit-scrollbar{display:none}
+.tpf .slides img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:start}
+.tpf .thumbrow{display:flex;align-items:center;margin-top:10px}
+.tpf .thumbrow .arr{width:44px;height:44px;flex:none;display:grid;place-items:center;color:var(--text)}
+.tpf .thumbrow .arr svg{width:14px;height:14px}
+.tpf .thumbs{flex:1;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:1px 5px;scroll-behavior:smooth}
+.tpf .thumbs button{flex:0 0 102px;height:102px;border-radius:6px;overflow:hidden;border:1px solid transparent;padding:2px}
+.tpf .thumbs button.on{border-color:var(--ink)}
+.tpf .thumbs img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+
+/* info */
+.tpf .rating{display:flex;align-items:center;gap:8px;font-family:sans-serif;font-size:16px;color:#000;line-height:32px}
+.tpf .stars{color:#ffb800;font-size:18px;letter-spacing:1px}
+.tpf h1.title{font-size:33px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
+.tpf .ptext{margin-top:7px}
+.tpf .ptext+.ptext{margin-top:8px}
+.tpf .ptext strong{font-weight:700}
+.tpf .trust{display:flex;align-items:center;gap:6px;margin-top:14px}
+.tpf .trust img{width:150px;height:50px;object-fit:contain}
+.tpf .trust strong{display:block;font-size:14px;font-weight:900;color:var(--navy);line-height:1.45}
+.tpf .trust span{display:block;font-size:12px;color:var(--grey);line-height:1.35}
+.tpf .clin{margin-top:21px}
+.tpf .clin summary{display:flex;align-items:center;gap:10px;height:48px;padding:0 16px;border:1px solid rgba(0,0,0,.25);border-radius:12px;background:#fff}
+.tpf .clin summary img{width:22px;height:22px}
+.tpf .clin summary span{flex:1;font-size:14px;font-weight:500;color:var(--navy);letter-spacing:0}
+.tpf .clin summary .chev{color:var(--grey)}
+.tpf .clin .body{padding:10px 2px 4px;color:var(--grey);line-height:1.6}
+.tpf .clin .intro{font-size:13px}
+.tpf .clin .study{font-size:12.5px;margin-top:10px}
+.tpf .clin .study a{color:rgb(24,95,165);font-weight:500;text-decoration:none;display:block}
+.tpf .clin .disc{font-size:11.5px;color:rgb(136,135,128);margin-top:10px}
+.tpf .benefits{margin-top:12px}
+.tpf .benefits>strong{display:block;font-size:16px;font-weight:700;color:var(--navy)}
+.tpf .benefits ul{list-style:none;margin-top:10px;display:grid;gap:8px}
+.tpf .benefits li{display:flex;gap:11px;line-height:1.35}
+.tpf .benefits li img{width:19px;height:19px;flex:none;margin-top:1px}
+.tpf .optlabel{display:block;font-size:13px;font-weight:600;letter-spacing:.4px;margin-top:15px;margin-bottom:4px}
+.tpf .pills{display:flex;flex-wrap:wrap;gap:9px 10px}
+.tpf .pills button{height:36px;padding:0 20px;border:1px solid rgba(18,18,18,.55);border-radius:40px;background:#fff;color:var(--ink);font-size:14px;letter-spacing:1px;transition:background .15s,color .15s}
+.tpf .pills button.on{background:var(--ink);color:#fff}
+.tpf .sizing{display:inline-flex;align-items:center;gap:8px;margin-top:17px;font-family:Arial,sans-serif;font-size:17px;color:var(--ink);letter-spacing:0;line-height:1.4}
+.tpf .sizing svg{width:22px;height:22px}
+.tpf .pkg-title{display:flex;align-items:center;gap:16px;margin-top:15px;font-size:14px;font-weight:700;color:#000}
+.tpf .pkg-title:before,.tpf .pkg-title:after{content:"";flex:1;height:1px;background:rgba(0,0,0,.25)}
+.tpf .pkgs{display:grid;gap:10px;margin-top:15px}
+.tpf .pkg{position:relative;background:rgb(237,237,237);border:2px solid transparent;border-radius:8px;padding:9px 18px;cursor:pointer;letter-spacing:0}
+.tpf .pkg.on{background:#fff;border-color:#000}
+.tpf .pkg-top{display:flex;align-items:center;gap:18px}
+.tpf .pkg-top>img{width:66px;height:66px;border-radius:6px;object-fit:contain;flex:none}
+.tpf .pkg-info{flex:1;min-width:0}
+.tpf .pkg-name{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:20px;font-weight:700;color:#000;line-height:1.4}
+.tpf .pkg-label{font-size:12px;font-weight:400;background:rgb(217,217,217);border-radius:8px;padding:2px 8px;line-height:1.75}
+.tpf .pkg-sub{font-size:14px;color:rgb(85,85,85);line-height:1.45}
+.tpf .pkg-price{text-align:right;font-size:20px;font-weight:700;color:#000;line-height:1.4}
+.tpf .pkg-price s{display:block;font-size:14px;font-weight:400;color:rgb(85,85,85);line-height:1.45}
+.tpf .pkg-badge{position:absolute;top:-10px;right:14px;background:var(--badge);color:#fff;font-family:sans-serif;font-size:12px;font-weight:700;padding:3px 7px;border-radius:0 0 5px 5px;line-height:1.5}
+.tpf .units{display:none;margin-top:8px}
+.tpf .pkg.on .units{display:block}
+.tpf .units .hint{font-size:12px;color:rgb(85,85,85)}
+.tpf .unit{display:flex;align-items:center;gap:7px;margin-top:7px;font-size:12px;color:#000}
+.tpf .unit span{width:15px}
+.tpf .unit select{height:34px;font:inherit;font-size:14px;color:#000;background:#fff;border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:0 6px;cursor:pointer}
+.tpf .unit .sz{width:150px}.tpf .unit .sd{width:68px}
+.tpf .stock{display:flex;align-items:center;gap:8px;margin-top:15px;font-family:Arial,sans-serif;font-size:15px;color:rgb(230,149,0);line-height:27px}
+.tpf .dot{position:relative;width:12px;height:12px;border-radius:50%;background:rgb(255,165,0);flex:none}
+.tpf .dot:after{content:"";position:absolute;inset:0;border-radius:50%;background:rgb(255,165,0);animation:tpPulse 1.8s ease-out infinite}
+@keyframes tpPulse{from{transform:scale(1);opacity:.6}to{transform:scale(2.6);opacity:0}}
+.tpf .atc{display:flex;align-items:center;justify-content:center;width:100%;height:49px;margin-top:9px;background:var(--orange);color:#fff;border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background .2s}
+.tpf .atc:hover{background:rgb(180,76,3)}
+.tpf .atc[disabled]{opacity:.7;cursor:wait}
+.tpf .tbox{margin-top:15px;border:1px solid rgb(209,213,219);border-radius:12px;overflow:hidden}
+.tpf .tbox .pay{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:20px 16px 20px}
+.tpf .tbox .pay svg{width:38px;height:24px}
+.tpf .hsa{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 20px;border-top:1px solid rgb(209,213,219);font-size:14px;color:rgb(17,24,39)}
+.tpf .hsa b{font-weight:600}
+.tpf .hsa .save{display:inline-flex;align-items:center;gap:6px}
+.tpf .hsa .save svg{width:16px;height:16px;color:rgb(37,99,235)}
+.tpf .hsa button{font-size:14px;font-weight:500;text-decoration:underline;letter-spacing:.06em;color:rgb(17,24,39)}
+.tpf .hsa b,.tpf .hsa .save,.tpf .hsa button{white-space:nowrap}
+.tpf .comment{margin-top:19px;width:100%;height:auto}
+.tpf .tabs{margin-top:16px}
+.tpf .tabs details{border-top:1px solid var(--line)}
+.tpf .tabs details:last-child{border-bottom:1px solid var(--line)}
+.tpf .tabs summary{display:flex;align-items:center;gap:10px;height:48px}
+.tpf .tabs summary svg.ic{width:22px;height:22px;color:var(--ink)}
+.tpf .tabs summary h4{flex:1;font-size:15.6px;font-weight:700;color:var(--ink);letter-spacing:0}
+.tpf .tabs .body{padding:0 10px 16px}
+.tpf .tabs .body p+p{margin-top:16px}
+
+/* modals */
+.tpf dialog{margin:auto;border:0;border-radius:12px;padding:0;max-width:min(560px,92vw);width:100%;color:var(--text);letter-spacing:0}
+.tpf dialog::backdrop{background:rgba(0,0,0,.45)}
+.tpf .dlg{padding:24px;position:relative}
+.tpf .dlg .x{position:absolute;top:10px;right:14px;font-size:20px;line-height:1}
+.tpf .dlg h3{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.tpf .dlg p{font-size:14px;line-height:1.6}
+.tpf .dlg ol{list-style:none;margin:16px 0;display:grid;gap:12px}
+.tpf .dlg li{display:flex;gap:12px;font-size:14px;line-height:1.5}
+.tpf .dlg li b{flex:none;width:26px;height:26px;border-radius:50%;background:rgb(17,24,39);color:#fff;display:grid;place-items:center;font-size:13px}
+.tpf .dlg small{display:block;font-size:12px;color:var(--grey);margin-top:8px}
+.tpf .dlg .btns{display:flex;gap:10px;margin-top:18px}
+.tpf .dlg .btns a,.tpf .dlg .btns button{flex:1;display:flex;align-items:center;justify-content:center;height:44px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid var(--ink)}
+.tpf .dlg .btns a{background:var(--ink);color:#fff}
+.tpf .size-dlg{max-width:min(900px,94vw)}
+.tpf .size-dlg img{width:100%}
+
+/* sticky bar */
+.tpf .sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s}
+.tpf .sticky.show{transform:none}
+.tpf .sticky .wrap{display:flex;align-items:center;gap:15px;height:72px}
+.tpf .sticky img{width:52px;height:52px;object-fit:cover;border-radius:4px}
+.tpf .sticky .meta{flex:1;line-height:1.3}
+.tpf .sticky h4{font-size:19px;font-weight:700;color:var(--ink);letter-spacing:0}
+.tpf .sticky .pr{font-size:18px;font-weight:700;color:var(--ink);letter-spacing:1px}
+.tpf .sticky .pr s{font-size:16px;color:var(--text);margin-left:4px}
+.tpf .sticky button{width:176px;height:52px;background:var(--ink);color:rgb(253,251,247);border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px}
+
+@media (max-width:749px){
+  .tpf{font-size:15px;letter-spacing:.06em}
+  .tpf .wrap{padding:0 15px}
+  .tpf .hero{padding:0 0 30px}
+  .tpf .grid{grid-template-columns:minmax(0,1fr);gap:20px}
+  .tpf .gal{position:static;margin:0 -15px}
+  .tpf .slides{border-radius:0}
+  .tpf .thumbrow{margin-top:8px}
+  .tpf .thumbrow .arr{width:25px}
+  .tpf .thumbs{gap:0}
+  .tpf .thumbs button{flex:0 0 63px;height:63px;border-radius:0;padding:0;border-width:2px}
+  .tpf .thumbs img{border-radius:0}
+  .tpf h1.title{font-size:28px}
+  .tpf .trust img{width:120px;height:40px}
+  .tpf .trust strong{font-size:13px}
+  .tpf .benefits>strong{font-size:15px}
+  .tpf .pkg-top{gap:18px}
+  .tpf .hsa{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;padding:16px 10px}
+  .tpf .hsa button{flex-basis:100%;font-size:11px}
+  .tpf .hsa .save svg{width:13px;height:13px}
+  .tpf .pills{padding-right:6px}
+  .tpf .sticky .wrap{height:auto;padding:12px 15px}
+  .tpf .sticky img,.tpf .sticky .meta{display:none}
+  .tpf .sticky button{width:100%;height:46px}
+}
+</style>
+
+<div class="tpf">
+<script>
+window.TPF = {
+  root: {{ routes.root_url | append: '/' | replace: '//', '/' | json }},
+  discountCode: "",
+  variants: {
+    {%- for v in product.variants -%}
+      {{ v.title | json }}: {{ v.id }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  },
+  sizes: {{ product.options_with_values[0].values | json }},
+  sides: {{ product.options_with_values[1].values | json }}
+};
+</script>
+
+<section class="hero" id="tp-buy">
+  <div class="wrap grid">
+    <div class="gal">
+      <div class="slides" id="tpSlides">
+        {%- assign tp_gallery = 'AB.webp,01_1.webp,AC.webp,02.webp,6_1.webp,2_1.webp,3_2.webp,4_1.webp' | split: ',' -%}
+        {%- for f in tp_gallery -%}
+          <img src="{{ tp_cdn }}{{ f }}" alt="{{ product.title | escape }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+        {%- endfor -%}
+      </div>
+      <div class="thumbrow">
+        <button class="arr" data-thumbs="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+        <div class="thumbs" id="tpThumbs">
+          {%- for f in tp_gallery -%}
+            <button{% if forloop.first %} class="on"{% endif %} data-i="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}"><img src="{{ tp_cdn }}{{ f }}?width=200" alt="" loading="lazy"></button>
+          {%- endfor -%}
+        </div>
+        <button class="arr" data-thumbs="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="rating"><span class="stars">★★★★★</span><span>(4,8/5) - 526 Reviews</span></div>
+      <h1 class="title">{{ product.title | escape }}</h1>
+      <p class="ptext">Relieve <strong>knee pain</strong> and enjoy greater freedom, or get your money back.</p>
+      <p class="ptext">More stability, more safety, and more confidence with every step.</p>
+
+      <div class="trust">
+        <img src="{{ tp_cdn }}Kein_Titel_450_x_150_px.webp" alt="Happy customers">
+        <div><strong>Over 20,000 happy knees</strong><span>More than 121,957 people trust Peakflex</span></div>
+      </div>
+
+      <details class="clin">
+        <summary><img src="{{ tp_cdn }}ChatGPT_Image_26._Mai_2026_12_16_36.webp" alt=""><span>Based on clinical research</span>{{ tp_chev }}</summary>
+        <div class="body">
+          <p class="intro">Compression, lateral stabilization, and patellar support are approaches that have been studied in clinical trials:</p>
+          <p class="study"><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0324864" target="_blank" rel="noopener">PLOS One Netzwerk-Meta-Analyse (2025)</a>— Analysis of 139 randomized controlled trials. Knee braces were identified as the most effective type of intervention for reducing symptoms in knee osteoarthritis.</p>
+          <p class="study"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12260456/" target="_blank" rel="noopener">Ayık et al. (2025)</a>— A randomized study involving 60 patients. Knee braces with lateral stabilizers improved balance and reduced pain in patients with knee osteoarthritis immediately after application.</p>
+          <p class="study"><a href="https://pubmed.ncbi.nlm.nih.gov/24917049/" target="_blank" rel="noopener">Patella Pro Studie, BMC (2014)</a>— A multicenter randomized trial involving 156 patients. Medial patellar stabilization as a clinically evaluated approach for anterior knee pain.</p>
+          <p class="disc">The studies refer to the method (compression, stabilization, and patellar support), not to this specific product.</p>
+        </div>
+      </details>
+
+      <div class="benefits">
+        <strong>Benefits:</strong>
+        <ul>
+          <li><img src="{{ tp_cdn2 }}Design_ohne_Titel_6.webp" alt="">Individually adjustable support, for optimal stability.</li>
+          <li><img src="{{ tp_cdn2 }}Design_ohne_Titel_6.webp" alt="">Carefully developed according to orthopedic principles.</li>
+          <li><img src="{{ tp_cdn2 }}Design_ohne_Titel_6.webp" alt="">Fast relief for a better quality of life in everyday situations.</li>
+        </ul>
+      </div>
+
+      <span class="optlabel">Size</span>
+      <div class="pills" id="tpSize"></div>
+      <span class="optlabel">Side</span>
+      <div class="pills" id="tpSide"></div>
+      <button type="button" class="sizing" data-open="tpSizeDlg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>Sizing chart</button>
+
+      <div class="pkg-title">Select a package</div>
+      <div class="pkgs">
+        <div class="pkg" data-units="1">
+          <div class="pkg-top">
+            <img src="{{ tp_cdn }}Kaching-Bundles-Kaching-Bundles-1-Photoroom_300x300_c8bb800e-d6f6-49ce-9ae4-ed0704cc3889_300x300.avif" alt="">
+            <div class="pkg-info"><div class="pkg-name">1 Piece <span class="pkg-label">Free Shipping</span></div><div class="pkg-sub">You save $20.01</div></div>
+            <div class="pkg-price">$59.99<s>$80.00</s></div>
+          </div>
+        </div>
+        <div class="pkg on" data-units="2">
+          <span class="pkg-badge">2-Pack Special</span>
+          <div class="pkg-top">
+            <img src="{{ tp_cdn }}Kaching-Bundles-Kaching-Bundles-2-Photoroom_300x300_f05129d0-2e03-4f51-b22a-833332f809f9_300x300.avif" alt="">
+            <div class="pkg-info"><div class="pkg-name">2 Pieces <span class="pkg-label">Free Shipping</span></div><div class="pkg-sub">You save 56%</div></div>
+            <div class="pkg-price">$69.99<s>$160.00</s></div>
+          </div>
+          <div class="units"></div>
+        </div>
+        <div class="pkg" data-units="4">
+          <span class="pkg-badge">Best Offer</span>
+          <div class="pkg-top">
+            <img src="{{ tp_cdn }}Kaching-Bundles-Kaching-Bundles-3_300x300_34f9a301-e94f-468e-aaa4-3a2b1ae55305_300x300.avif" alt="">
+            <div class="pkg-info"><div class="pkg-name">2 + 2 FREE <span class="pkg-label">Free Shipping</span></div><div class="pkg-sub">Save 72%</div></div>
+            <div class="pkg-price">$89.99<s>$320.00</s></div>
+          </div>
+          <div class="units"></div>
+        </div>
+      </div>
+
+      <div class="stock"><span class="dot"></span>In stock - few items available</div>
+      <button type="button" class="atc" id="tpAtc">Add to cart</button>
+
+      <div class="tbox">
+        <div class="pay">
+          {%- assign tp_pay = 'paypal,american_express,apple_pay,master,discover,visa' | split: ',' -%}
+          {%- for t in tp_pay -%}{{ t | payment_type_svg_tag }}{%- endfor -%}
+        </div>
+        <div class="hsa">
+          <b>HSA/FSA eligible</b>
+          <span class="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>Save an average of 30%</span>
+          <button type="button" data-open="tpHsaDlg">Learn more</button>
+        </div>
+      </div>
+
+      <img class="comment" src="{{ tp_cdn }}ChatGPT_Image_30._Juni_2026_12_57_42.webp" alt="Customer comment: I'd already tried four different knee braces, but none came close to this one." loading="lazy">
+
+      <div class="tabs">
+        <details>
+          <summary><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg><h4>90-day money-back guarantee</h4>{{ tp_chev }}</summary>
+          <div class="body"><p>At Peakflex, we’re confident that our products can help relieve your pain. That’s why we offer a risk-free 90-day money-back guarantee, which begins only after you receive the product. If, for any reason, you’re not satisfied, please contact us at info@trypeakflex.com and we’ll be happy to assist you!</p></div>
+        </details>
+        <details>
+          <summary><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><h4>Shipping</h4>{{ tp_chev }}</summary>
+          <div class="body"><p>The average delivery time is about 6–12 days. It takes us about 1–3 business days to process your order.</p><p>You will receive a tracking number as soon as we have shipped your order.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog id="tpHsaDlg"><div class="dlg">
+  <button class="x" data-close aria-label="Close">✕</button>
+  <h3>Pay with HSA/FSA and save</h3>
+  <p>Save an average of 30% when you pay with pre-tax HSA/FSA funds. No added costs.</p>
+  <ol>
+    <li><b>1</b><span><strong>At checkout, select Truemed</strong><br>If you're logged into Shop Pay, select "Pay another way" or "More payment options" to find Truemed.</span></li>
+    <li><b>2</b><span><strong>Enter card info and pay</strong><br>Pay with your HSA/FSA card, or use a personal credit or debit card and get reimbursed afterward.</span></li>
+  </ol>
+  <small>Truemed is for qualified customers. HSA/FSA tax savings vary. Learn more at <a href="https://www.truemed.com/disclosures" target="_blank" rel="noopener">truemed.com/disclosures</a></small>
+  <div class="btns"><button type="button" data-close>Continue Shopping</button><a href="{{ routes.cart_url }}">Go to Checkout</a></div>
+</div></dialog>
+
+<dialog id="tpSizeDlg" class="size-dlg"><div class="dlg">
+  <button class="x" data-close aria-label="Close">✕</button>
+  <img src="{{ tp_cdn }}1790367891-ChatGPT_Image_Sep_25_2026_at_10_23_09_PM.webp" alt="Sizing chart" loading="lazy">
+</div></dialog>
+
+<div class="sticky" id="tpSticky">
+  <div class="wrap">
+    <img src="{{ tp_cdn }}AB.webp?width=120" alt="">
+    <div class="meta"><h4>{{ product.title | escape }}</h4><div class="pr">{{ product.price | money }}{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}</div></div>
+    <button type="button" id="tpStickyAtc">Add to cart</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+
+  /* gallery */
+  var slides=$("#tpSlides"),thumbs=$("#tpThumbs");
+  function go(i){slides.scrollTo({left:i*slides.clientWidth,behavior:"smooth"})}
+  $$("button",thumbs).forEach(function(b){b.onclick=function(){go(+b.dataset.i)}});
+  slides.addEventListener("scroll",function(){
+    var i=Math.round(slides.scrollLeft/slides.clientWidth);
+    $$("button",thumbs).forEach(function(b,j){b.classList.toggle("on",i===j)});
+  },{passive:true});
+  $$("[data-thumbs]").forEach(function(b){b.onclick=function(){
+    var n=slides.children.length,i=Math.round(slides.scrollLeft/slides.clientWidth)+(+b.dataset.thumbs);go((i+n)%n);
+    thumbs.scrollBy({left:+b.dataset.thumbs*112})}});
+
+  /* size / side pills */
+  var sel={size:TPF.sizes[0],side:TPF.sides[0]};
+  function pills(el,list,key){
+    el.innerHTML=list.map(function(v,i){return '<button type="button"'+(i?'':' class="on"')+'>'+v+'</button>'}).join("");
+    $$("button",el).forEach(function(b){b.onclick=function(){
+      sel[key]=b.textContent;$$("button",el).forEach(function(x){x.classList.toggle("on",x===b)});
+      $$(".pkg .unit "+(key==="size"?".sz":".sd")).forEach(function(s){s.value=sel[key]});
+    }});
+  }
+  pills($("#tpSize"),TPF.sizes,"size");pills($("#tpSide"),TPF.sides,"side");
+
+  /* packages */
+  function opts(list){return list.map(function(v){return "<option>"+v+"</option>"}).join("")}
+  $$(".tpf .pkg").forEach(function(p){
+    var n=+p.dataset.units,box=$(".units",p);
+    if(box){
+      var h='<div class="hint">Size, Side</div>';
+      for(var i=1;i<=n;i++)h+='<div class="unit"><span>#'+i+'</span><select class="sz" aria-label="Size #'+i+'">'+opts(TPF.sizes)+'</select><select class="sd" aria-label="Side #'+i+'">'+opts(TPF.sides)+'</select></div>';
+      box.innerHTML=h;
+    }
+    p.addEventListener("click",function(e){
+      if(e.target.closest("select"))return;
+      $$(".tpf .pkg").forEach(function(o){o.classList.toggle("on",o===p)});
+    });
+  });
+
+  /* add to cart */
+  var atc=$("#tpAtc");
+  function addToCart(){
+    var p=$(".tpf .pkg.on"),qty={},ids=[];
+    if(+p.dataset.units===1){ids.push(TPF.variants[sel.size+" / "+sel.side])}
+    else $$(".unit",p).forEach(function(u){ids.push(TPF.variants[$(".sz",u).value+" / "+$(".sd",u).value])});
+    ids.forEach(function(id){if(id)qty[id]=(qty[id]||0)+1});
+    var items=Object.keys(qty).map(function(id){return {id:+id,quantity:qty[id]}});
+    atc.disabled=true;atc.textContent="Adding…";
+    fetch(TPF.root+"cart/add.js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({items:items})})
+      .then(function(r){if(!r.ok)throw r;return r.json()})
+      .then(function(){location.href=TPF.discountCode?TPF.root+"discount/"+encodeURIComponent(TPF.discountCode)+"?redirect="+TPF.root+"cart":TPF.root+"cart"})
+      .catch(function(){atc.disabled=false;atc.textContent="Add to cart";alert("Sorry, that size is unavailable. Please choose another.")});
+  }
+  atc.onclick=addToCart;
+  $("#tpStickyAtc").onclick=addToCart;
+
+  /* dialogs */
+  $$("[data-open]").forEach(function(b){b.onclick=function(){var d=document.getElementById(b.dataset.open);d.showModal?d.showModal():d.setAttribute("open","")}});
+  $$(".tpf dialog").forEach(function(d){
+    $$("[data-close]",d).forEach(function(b){b.onclick=function(){d.close()}});
+    d.addEventListener("click",function(e){if(e.target===d)d.close()});
+  });
+
+  /* sticky bar once the main button has scrolled away */
+  var bar=$("#tpSticky");
+  new IntersectionObserver(function(e){bar.classList.toggle("show",!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(atc);
+})();
+</script>
+</div>

@@ -1,0 +1,274 @@
+{%- comment -%}
+  PeakFlex knee sleeve page, PART 2 of 2: story sections, comparison table, testimonials, FAQ, guarantee.
+  Paste into a second "Custom Liquid" section directly below Part 1.
+{%- endcomment -%}
+{%- assign tp_cdn = 'https://cdn.shopify.com/s/files/1/1011/0720/4439/files/' -%}
+{%- assign tp_cdn2 = 'https://cdn.shopify.com/s/files/1/0789/7651/6423/files/' -%}
+{%- capture tp_chev -%}<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>{%- endcapture -%}
+{%- capture tp_yes -%}<svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Yes"><path d="M4 12.5 9.5 18 20 6"/></svg>{%- endcapture -%}
+{%- capture tp_no -%}<svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-label="No"><path d="M6 6l12 12M18 6 6 18"/></svg>{%- endcapture -%}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+.tpc{--ink:rgb(18,18,18);--text:rgba(18,18,18,.9);--line:rgba(18,18,18,.08);--green:rgb(0,150,0)}
+body{overflow-x:clip}
+.tpc,.tpc *{box-sizing:border-box;margin:0;padding:0}
+.tpc{position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:#fff}
+.tpc{font-family:"Poppins",sans-serif;font-size:16px;line-height:1.8;letter-spacing:.06em;color:var(--text);text-align:left;-webkit-font-smoothing:antialiased}
+.tpc :where(h1,h2,h3,h4,h5,h6,p){font:inherit;color:inherit;letter-spacing:inherit;text-transform:none}
+.tpc summary,.tpc summary:hover{color:inherit}
+.tpc svg{display:inline-block;vertical-align:middle}
+.tpc img{display:block;max-width:100%}
+.tpc button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit;min-height:0;box-shadow:none}
+.tpc details>summary{list-style:none;cursor:pointer}
+.tpc details>summary::-webkit-details-marker{display:none}
+.tpc .wrap{max-width:1280px;margin:0 auto;padding:0 50px}
+.tpc .h2{font-size:42.25px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink);text-align:center}
+
+/* image + text */
+.tpc .iwt{padding:96px 0 70px}
+.tpc .iwt .wrap{display:grid;grid-template-columns:367px minmax(0,1fr);align-items:center}
+.tpc .iwt.right .wrap{grid-template-columns:minmax(0,1fr) 367px}
+.tpc .iwt.right .media{order:2}
+.tpc .iwt .media img{width:367px;height:367px;object-fit:cover;border-radius:12px}
+.tpc .iwt .txt{padding:0 70px;text-align:center;color:var(--ink)}
+.tpc .iwt h2{font-size:31.2px;font-weight:700;line-height:1.1;letter-spacing:0;margin-bottom:18px}
+.tpc .iwt p{margin-top:10px}
+.tpc .iwt h2+p{margin-top:0}
+.tpc .iwt b{font-weight:700}
+.tpc .iwt ul{list-style:disc inside;margin:16px 0;color:var(--text)}
+.tpc .iwt .fn{margin-top:10px;line-height:1.75}
+.tpc .iwt .fn b{display:block}
+
+/* comparison */
+.tpc .cmp{padding:36px 0}
+.tpc .cmp .wrap{display:grid;grid-template-columns:minmax(0,565fr) minmax(0,615fr);align-items:center}
+.tpc .cmp .h2{padding:0 20px}
+.tpc .cmp table{width:500px;margin:0 auto;border-collapse:separate;border-spacing:0;text-align:center}
+.tpc .cmp th{font-size:18px;font-weight:700;line-height:1.3;color:var(--text);padding:0 0 4px;vertical-align:bottom}
+.tpc .cmp th img{width:77px;height:77px;object-fit:contain;margin:0 auto}
+.tpc .cmp td{height:49px;background:#fff;border-top:1px solid var(--line);vertical-align:middle}
+.tpc .cmp td:first-child{width:222px;background:var(--green);color:rgb(253,251,247);font-size:16px;font-weight:700;line-height:1.1;letter-spacing:0;padding:8px 15px;border-top-color:rgba(255,255,255,.08)}
+.tpc .cmp td:nth-child(2){width:92px}
+.tpc .cmp tbody{box-shadow:0 0 10px rgba(0,0,0,.12);border-radius:20px}
+.tpc .cmp tbody tr:first-child td{border-top:0}
+.tpc .cmp tbody tr:first-child td:first-child{border-top-left-radius:20px}
+.tpc .cmp tbody tr:first-child td:last-child{border-top-right-radius:20px}
+.tpc .cmp tbody tr:last-child td:first-child{border-bottom-left-radius:20px}
+.tpc .cmp tbody tr:last-child td:last-child{border-bottom-right-radius:20px}
+.tpc .cmp .yes{width:24px;height:24px;color:rgb(83,168,26)}
+.tpc .cmp .no{width:19px;height:19px;color:var(--ink);stroke-width:3.4}
+
+/* testimonials */
+.tpc .tst{padding:36px 0}
+.tpc .tst .h2{text-transform:uppercase}
+.tpc .tst .intro{text-align:center;margin-top:5px}
+.tpc .tst-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:30px}
+.tpc .card{background:rgb(245,245,245);border-radius:20px;overflow:hidden;text-align:center}
+.tpc .card img{width:100%;aspect-ratio:1;object-fit:cover}
+.tpc .card .body{padding:10px 20px 14px}
+.tpc .card .stars{font-size:22px;line-height:40px;color:rgb(255,215,0)}
+.tpc .card h3{font-size:18.85px;font-weight:700;line-height:1.38;letter-spacing:0;color:var(--ink);margin-top:4px}
+.tpc .card p{margin-top:10px}
+.tpc .card .who{border-top:1px solid rgba(18,18,18,.06);margin-top:5px;padding-top:10px;font-size:14px;font-weight:600;font-style:italic}
+.tpc .tst-nav{display:none}
+
+/* faq */
+.tpc .faq{padding:36px 0}
+.tpc .faq-list{max-width:704px;margin:30px auto 0}
+.tpc .faq details{border-top:1px solid var(--line)}
+.tpc .faq details:last-child{border-bottom:1px solid var(--line)}
+.tpc .faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.tpc .faq summary h3{font-size:15.6px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
+.tpc .faq .chev{width:16px;height:16px;flex:none;transition:transform .2s;color:var(--ink)}
+.tpc .faq details[open] .chev{transform:rotate(180deg)}
+.tpc .faq .ans{padding:0 6px 14px}
+.tpc .faq .ans p+p{margin-top:16px}
+
+/* guarantee */
+.tpc .grt{padding:76px 0 80px;text-align:center}
+.tpc .grt .in{max-width:880px;margin:0 auto}
+.tpc .grt h2{font-size:24px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
+.tpc .grt img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin:40px auto}
+.tpc .grt h3{font-size:20.8px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink);margin-bottom:16px}
+.tpc .grt p{font-family:Arial,sans-serif;color:rgb(51,51,51)}
+.tpc .grt p+p{margin-top:22px;font-weight:700}
+
+@media (max-width:749px){
+  .tpc{font-size:15px}
+  .tpc .wrap{padding:0 15px}
+  .tpc .h2{font-size:32.5px}
+  .tpc .iwt{padding:27px 0 30px}
+  .tpc .iwt .wrap,.tpc .iwt.right .wrap{grid-template-columns:minmax(0,1fr)}
+  .tpc .iwt.right .media{order:0}
+  .tpc .iwt .media img{width:100%;height:auto;aspect-ratio:1}
+  .tpc .iwt .txt{padding:20px 0 0;text-align:left}
+  .tpc .iwt h2{font-size:26px}
+  .tpc .iwt ul{list-style-position:outside;padding-left:40px}
+  .tpc .cmp{padding:27px 0}
+  .tpc .cmp .wrap{grid-template-columns:minmax(0,1fr);gap:20px}
+  .tpc .cmp .h2{padding:0}
+  .tpc .cmp table{width:100%}
+  .tpc .cmp th{font-size:15.3px}
+  .tpc .cmp th img{width:44px;height:44px}
+  .tpc .cmp td:first-child{width:44%;font-size:15px;padding:8px 10px}
+  .tpc .cmp td:nth-child(2){width:25%}
+  .tpc .tst{padding:27px 0}
+  .tpc .tst .intro{margin:5px -15px 0}
+  .tpc .tst-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:30px -15px 0;padding:0 15px}
+  .tpc .tst-track::-webkit-scrollbar{display:none}
+  .tpc .card{flex:0 0 340px;scroll-snap-align:center}
+  .tpc .tst-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;font-size:14px}
+  .tpc .tst-nav button{width:32px;height:32px;display:grid;place-items:center}
+  .tpc .tst-nav svg{width:16px;height:16px}
+  .tpc .faq{padding:27px 0}
+  .tpc .faq-list{margin-top:30px}
+  .tpc .faq summary{padding:13px 0}
+  .tpc .grt{padding:50px 0 60px}
+}
+</style>
+
+<div class="tpc">
+
+<section class="iwt">
+  <div class="wrap">
+    <div class="media"><img src="{{ tp_cdn }}knee-pain.webp" alt="Woman holding her knee on the stairs" loading="lazy"></div>
+    <div class="txt">
+      <h2>When every step becomes uncomfortable</h2>
+      <p><b>At first, it’s often just a slight tugging sensation.</b></p>
+      <p>Then come the moments when you suddenly feel your knee more acutely:</p>
+      <ul><li>Standing up</li><li>On stairs</li><li>Sitting for a long time</li><li>Walking or standing for extended periods</li></ul>
+      <p>Many people automatically start to avoid certain movements. They walk more slowly, unconsciously take the weight off their knee, or feel unsteady during everyday movements.</p>
+      <p><b>The problem is this: the more carefully you move, the more your knee becomes the focus of your daily life.</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="iwt right">
+  <div class="wrap">
+    <div class="media"><img src="{{ tp_cdn }}synovial-irritation-graphic.webp" alt="Illustration of irritated synovial tissue in the knee" loading="lazy"></div>
+    <div class="txt">
+      <h2>Maybe it's not just wear and tear</h2>
+      <p>Many conventional explanations focus solely on “wear and tear.”</p>
+      <p>However, knee pain often feels more like pressure, irritation, or instability.</p>
+      <p><b>One possible cause may be irritated synovial tissue</b>—the sensitive lining of the knee joint. When this tissue becomes irritated, <b>the knee may react more sensitively to stress.</b></p>
+      <p>This can manifest as:</p>
+      <ul><li>A feeling of pressure around the kneecap</li><li>Stiffness after periods of rest</li><li>Uncertainty during movement</li><li>Sensitivity under stress</li></ul>
+      <p>Many conventional knee braces attempt to solve the problem with rigid stability. <b>However, hard braces can be uncomfortable, slip out of place, or restrict natural movement.</b></p>
+      <p>That is exactly why Peakflex was designed differently.</p>
+    </div>
+  </div>
+</section>
+
+<section class="iwt">
+  <div class="wrap">
+    <div class="media"><img src="{{ tp_cdn }}8.webp" alt="PeakFlex knee sleeve: stay active without knee restrictions" loading="lazy"></div>
+    <div class="txt">
+      <h2>Support for active knees</h2>
+      <p>The PeakFlex knee sleeve combines multiple functions into a flexible support system for everyday use.</p>
+      <p>Instead of a heavy orthosis, you get:</p>
+      <ul><li>Customizable compression</li><li>Lateral stabilization</li><li>Patella gel pads for pressure relief</li><li>Non-slip grip during movement</li></ul>
+      <p>The goal is not to rigidly immobilize your knee.</p>
+      <p><b>PeakFlex was designed to provide comfortable support for your knee during everyday activities—whether you’re walking, working, shopping, or on the go.</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="iwt right">
+  <div class="wrap">
+    <div class="media"><img src="{{ tp_cdn }}3_2.webp" alt="The four support functions of the PeakFlex knee sleeve" loading="lazy"></div>
+    <div class="txt">
+      <h2>4 functions. A more stable feeling.</h2>
+      <p>The PeakFlex knee brace is designed so that multiple support systems work together simultaneously:</p>
+      <p class="fn"><b>Precision compression wheel</b>Enables customizable support.</p>
+      <p class="fn"><b>Patella gel pad</b>Helps distribute pressure around the kneecap more comfortably.</p>
+      <p class="fn"><b>Dual side stabilizers</b>Support the knee during everyday movements.</p>
+      <p class="fn"><b>Non-slip silicone grip</b>Helps prevent slipping and rolling.</p>
+      <p>The result is a more stable and comfortable fit for everyday use.</p>
+    </div>
+  </div>
+</section>
+
+<section class="iwt">
+  <div class="wrap">
+    <div class="media"><img src="{{ tp_cdn }}6_1.webp" alt="People wearing the PeakFlex knee sleeve in everyday life" loading="lazy"></div>
+    <div class="txt">
+      <h2>More convenience in everyday life</h2>
+      <p>Many people don’t want a bulky sports brace.</p>
+      <p>They simply want to:</p>
+      <ul><li>walk more confidently</li><li>climb stairs more easily</li><li>stand for longer periods</li><li>move more freely.</li></ul>
+      <p><b>The PeakFlex knee sleeve was designed to make everyday movements more comfortable</b>—without unnecessary restrictions.</p>
+      <p><b>The flexible material adapts better to your daily life</b> and supports your knee exactly where you need it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cmp">
+  <div class="wrap">
+    <h2 class="h2">The difference is noticeable</h2>
+    <table>
+      <thead><tr><th></th><th><img src="{{ tp_cdn }}logo_Peakflex-removebg-preview.png" alt="PeakFlex"></th><th>Traditional sleeves</th></tr></thead>
+      <tbody>
+        <tr><td>Knee support</td><td>{{ tp_yes }}</td><td>{{ tp_yes }}</td></tr>
+        <tr><td>Adjustable compression</td><td>{{ tp_yes }}</td><td>{{ tp_no }}</td></tr>
+        <tr><td>Patella gel pads</td><td>{{ tp_yes }}</td><td>{{ tp_no }}</td></tr>
+        <tr><td>Side stabilizers</td><td>{{ tp_yes }}</td><td>{{ tp_no }}</td></tr>
+        <tr><td>Non-slip grip</td><td>{{ tp_yes }}</td><td>{{ tp_no }}</td></tr>
+        <tr><td>A seat suitable for everyday use</td><td>{{ tp_yes }}</td><td>{{ tp_no }}</td></tr>
+        <tr><td>Often stiff and bulky</td><td>{{ tp_no }}</td><td>{{ tp_yes }}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tst">
+  <div class="wrap">
+    <h2 class="h2">What our customers say</h2>
+    <p class="intro">Thousands of customers already use the PeakFlex Knee Sleeve every day because it is designed to provide targeted stabilization for the knee—rather than unnecessarily restricting movement or merely masking discomfort temporarily.</p>
+    <div class="tst-track" id="tpcTrack">
+      <div class="card"><img src="{{ tp_cdn }}RQ.webp" alt="" loading="lazy"><div class="body"><div class="stars">★★★★★</div><h3>Finally walking more steadily</h3><p>I've tried several knee braces, but many were either too stiff or kept slipping out of place. The PeakFlex sleeve is much more comfortable to wear and finally gives my knee more stability when walking and climbing stairs.</p><div class="who">Caroline S.</div></div></div>
+      <div class="card"><img src="{{ tp_cdn }}R3.webp" alt="" loading="lazy"><div class="body"><div class="stars">★★★★★</div><h3>Better traction on stairs</h3><p>Stairs have always been uncomfortable for me because my knee often felt unstable. Since I started using the PeakFlex sleeve, my knee feels much more stable. It hardly slips at all and remains comfortable to wear even during longer walks.</p><div class="who">Sarah K.</div></div></div>
+      <div class="card"><img src="{{ tp_cdn }}R2.jpg" alt="" loading="lazy"><div class="body"><div class="stars">★★★★★</div><h3>Comfortable for everyday use</h3><p>I wear the compression bandage often at work, and I never would have thought it would be this comfortable. The material feels flexible, and the compression is easy to adjust. I especially like that it’s barely noticeable under my clothes.</p><div class="who">David T.</div></div></div>
+    </div>
+    <div class="tst-nav">
+      <button type="button" data-tst="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span><span id="tpcNum">1</span> / of 3</span>
+      <button type="button" data-tst="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2 class="h2">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details><summary><h3>Is the PeakFlex Knee Sleeve suitable for everyday use?</h3>{{ tp_chev }}</summary><div class="ans"><p>Yes. The PeakFlex Knee Sleeve was specifically designed for everyday activities such as walking, working, climbing stairs, or standing for long periods of time.</p></div></details>
+      <details><summary><h3>Can I adjust the compression myself?</h3>{{ tp_chev }}</summary><div class="ans"><p>Yes. With the built-in precision dial, you can adjust the compression to your liking—depending on how much support feels comfortable.</p></div></details>
+      <details><summary><h3>Does the sleeve slip when you walk?</h3>{{ tp_chev }}</summary><div class="ans"><p>The PeakFlex Knee Sleeve features a non-slip silicone grip designed to help reduce slipping and rolling.</p></div></details>
+      <details><summary><h3>Can I wear the sleeve under my clothes?</h3>{{ tp_chev }}</summary><div class="ans"><p>Yes. Its flexible and compact design ensures that the bandage can be worn comfortably under most everyday clothing.</p></div></details>
+      <details><summary><h3>Is the knee brace suitable for both knees?</h3>{{ tp_chev }}</summary><div class="ans"><p>Yes. The PeakFlex Knee Sleeve can be worn on either the left or right knee.</p></div></details>
+      <details><summary><h3>Can I wear the sleeve for longer?</h3>{{ tp_chev }}</summary><div class="ans"><p>The bandage was designed for everyday use. Many customers wear it while working, going for walks, or doing everyday activities.</p></div></details>
+      <details><summary><h3>Is there a money-back guarantee if the PeakFlex Knee Sleeve doesn't work?</h3>{{ tp_chev }}</summary><div class="ans"><p>We offer a satisfaction guarantee! If you are not satisfied with the PeakFlex Knee Seeve, please contact us at info@peakflex.com for a return and refund within 90 days.</p><p>The period begins upon receipt of the product. It is important to us to support you as best as possible in your daily life. Therefore, we recommend wearing the PeakFlex Knee Sleeve daily for 2 weeks before making a final decision.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="grt">
+  <div class="wrap"><div class="in">
+    <h2>Try the PeakFlex Knee Sleeve now for 90 days without any risk</h2>
+    <img src="{{ tp_cdn2 }}DAGEN_1_1.jpg" alt="90 days money-back guarantee" loading="lazy">
+    <h3>Our promise to you:</h3>
+    <p>We believe in the effectiveness of our products and don't want you to spend a single cent before you know that the product is right for you. That's why every order comes with a risk-free 90-day money-back guarantee. If for any reason you don't achieve the desired results, you'll get your money back.</p>
+    <p>In other words: You only pay once you are 100% satisfied with the product and are benefiting from it.</p>
+  </div></div>
+</section>
+
+<script>
+(function(){
+  var t=document.getElementById("tpcTrack"),num=document.getElementById("tpcNum");
+  function step(){return t.firstElementChild.offsetWidth+20}
+  document.querySelectorAll("[data-tst]").forEach(function(b){b.onclick=function(){t.scrollBy({left:+b.dataset.tst*step(),behavior:"smooth"})}});
+  t.addEventListener("scroll",function(){num.textContent=Math.min(3,Math.round(t.scrollLeft/step())+1)},{passive:true});
+})();
+</script>
+</div>
