@@ -5,7 +5,7 @@
 {%- endcomment -%}
 {%- assign tp_cdn = 'https://cdn.shopify.com/s/files/1/1011/0720/4439/files/' -%}
 {%- assign tp_cdn2 = 'https://cdn.shopify.com/s/files/1/0789/7651/6423/files/' -%}
-{%- capture tp_chev -%}<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>{%- endcapture -%}
+{%- capture tp_chev -%}<svg class="tp-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>{%- endcapture -%}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,600&display=swap" rel="stylesheet">
 <style>
@@ -23,158 +23,158 @@ body{overflow-x:clip}
 .tpf button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit;text-transform:none;min-height:0;box-shadow:none}
 .tpf details>summary{list-style:none;cursor:pointer}
 .tpf details>summary::-webkit-details-marker{display:none}
-.tpf .chev{width:16px;height:16px;flex:none;transition:transform .2s}
-.tpf details[open]>summary .chev{transform:rotate(180deg)}
-.tpf .wrap{max-width:1280px;margin:0 auto;padding:0 50px}
+.tpf .tp-chev{width:16px;height:16px;flex:none;transition:transform .2s}
+.tpf details[open]>summary .tp-chev{transform:rotate(180deg)}
+.tpf .tp-wrap{max-width:1400px;margin:0 auto;padding:0 50px}
 
 /* layout */
-.tpf .hero{padding:24px 0 36px}
-.tpf .grid{display:grid;grid-template-columns:minmax(0,649fr) minmax(0,481fr);gap:50px;align-items:start}
+.tpf .tp-hero{padding:24px 0 36px}
+.tpf .tp-grid{display:grid;grid-template-columns:minmax(0,649fr) minmax(0,481fr);gap:50px;align-items:start}
 
 /* gallery */
-.tpf .gal{position:sticky;top:20px}
-.tpf .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:12px}
-.tpf .slides::-webkit-scrollbar,.tpf .thumbs::-webkit-scrollbar{display:none}
-.tpf .slides img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:start}
-.tpf .thumbrow{display:flex;align-items:center;margin-top:10px}
-.tpf .thumbrow .arr{width:44px;height:44px;flex:none;display:grid;place-items:center;color:var(--text)}
-.tpf .thumbrow .arr svg{width:14px;height:14px}
-.tpf .thumbs{flex:1;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:1px 5px;scroll-behavior:smooth}
-.tpf .thumbs button{flex:0 0 102px;height:102px;border-radius:6px;overflow:hidden;border:1px solid transparent;padding:2px}
-.tpf .thumbs button.on{border-color:var(--ink)}
-.tpf .thumbs img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+.tpf .tp-gal{position:sticky;top:20px}
+.tpf .tp-slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:12px}
+.tpf .tp-slides::-webkit-scrollbar,.tpf .tp-thumbs::-webkit-scrollbar{display:none}
+.tpf .tp-slides img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:start}
+.tpf .tp-thumbrow{display:flex;align-items:center;margin-top:10px}
+.tpf .tp-thumbrow .tp-arr{width:44px;height:44px;flex:none;display:grid;place-items:center;color:var(--text)}
+.tpf .tp-thumbrow .tp-arr svg{width:14px;height:14px}
+.tpf .tp-thumbs{flex:1;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:1px 5px;scroll-behavior:smooth}
+.tpf .tp-thumbs button{flex:0 0 102px;height:102px;border-radius:6px;overflow:hidden;border:1px solid transparent;padding:2px}
+.tpf .tp-thumbs button.tp-on{border-color:var(--ink)}
+.tpf .tp-thumbs img{width:100%;height:100%;object-fit:cover;border-radius:4px}
 
 /* info */
-.tpf .rating{display:flex;align-items:center;gap:8px;font-family:sans-serif;font-size:16px;color:#000;line-height:32px}
-.tpf .stars{color:#ffb800;font-size:18px;letter-spacing:1px}
-.tpf h1.title{font-size:33px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
-.tpf .ptext{margin-top:7px}
-.tpf .ptext+.ptext{margin-top:8px}
-.tpf .ptext strong{font-weight:700}
-.tpf .trust{display:flex;align-items:center;gap:6px;margin-top:14px}
-.tpf .trust img{width:150px;height:50px;object-fit:contain}
-.tpf .trust strong{display:block;font-size:14px;font-weight:900;color:var(--navy);line-height:1.45}
-.tpf .trust span{display:block;font-size:12px;color:var(--grey);line-height:1.35}
-.tpf .clin{margin-top:21px}
-.tpf .clin summary{display:flex;align-items:center;gap:10px;height:48px;padding:0 16px;border:1px solid rgba(0,0,0,.25);border-radius:12px;background:#fff}
-.tpf .clin summary img{width:22px;height:22px}
-.tpf .clin summary span{flex:1;font-size:14px;font-weight:500;color:var(--navy);letter-spacing:0}
-.tpf .clin summary .chev{color:var(--grey)}
-.tpf .clin .body{padding:10px 2px 4px;color:var(--grey);line-height:1.6}
-.tpf .clin .intro{font-size:13px}
-.tpf .clin .study{font-size:12.5px;margin-top:10px}
-.tpf .clin .study a{color:rgb(24,95,165);font-weight:500;text-decoration:none;display:block}
-.tpf .clin .disc{font-size:11.5px;color:rgb(136,135,128);margin-top:10px}
-.tpf .benefits{margin-top:12px}
-.tpf .benefits>strong{display:block;font-size:16px;font-weight:700;color:var(--navy)}
-.tpf .benefits ul{list-style:none;margin-top:10px;display:grid;gap:8px}
-.tpf .benefits li{display:flex;gap:11px;line-height:1.35}
-.tpf .benefits li img{width:19px;height:19px;flex:none;margin-top:1px}
-.tpf .optlabel{display:block;font-size:13px;font-weight:600;letter-spacing:.4px;margin-top:15px;margin-bottom:4px}
-.tpf .pills{display:flex;flex-wrap:wrap;gap:9px 10px}
-.tpf .pills button{height:36px;padding:0 20px;border:1px solid rgba(18,18,18,.55);border-radius:40px;background:#fff;color:var(--ink);font-size:14px;letter-spacing:1px;transition:background .15s,color .15s}
-.tpf .pills button.on{background:var(--ink);color:#fff}
-.tpf .sizing{display:inline-flex;align-items:center;gap:8px;margin-top:17px;font-family:Arial,sans-serif;font-size:17px;color:var(--ink);letter-spacing:0;line-height:1.4}
-.tpf .sizing svg{width:22px;height:22px}
-.tpf .pkg-title{display:flex;align-items:center;gap:16px;margin-top:15px;font-size:14px;font-weight:700;color:#000}
-.tpf .pkg-title:before,.tpf .pkg-title:after{content:"";flex:1;height:1px;background:rgba(0,0,0,.25)}
-.tpf .pkgs{display:grid;gap:10px;margin-top:15px}
-.tpf .pkg{position:relative;background:rgb(237,237,237);border:2px solid transparent;border-radius:8px;padding:9px 18px;cursor:pointer;letter-spacing:0}
-.tpf .pkg.on{background:#fff;border-color:#000}
-.tpf .pkg-top{display:flex;align-items:center;gap:18px}
-.tpf .pkg-top>img{width:66px;height:66px;border-radius:6px;object-fit:contain;flex:none}
-.tpf .pkg-info{flex:1;min-width:0}
-.tpf .pkg-name{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:20px;font-weight:700;color:#000;line-height:1.4}
-.tpf .pkg-label{font-size:12px;font-weight:400;background:rgb(217,217,217);border-radius:8px;padding:2px 8px;line-height:1.75}
-.tpf .pkg-sub{font-size:14px;color:rgb(85,85,85);line-height:1.45}
-.tpf .pkg-price{text-align:right;font-size:20px;font-weight:700;color:#000;line-height:1.4}
-.tpf .pkg-price s{display:block;font-size:14px;font-weight:400;color:rgb(85,85,85);line-height:1.45}
-.tpf .pkg-badge{position:absolute;top:-10px;right:14px;background:var(--badge);color:#fff;font-family:sans-serif;font-size:12px;font-weight:700;padding:3px 7px;border-radius:0 0 5px 5px;line-height:1.5}
-.tpf .units{display:none;margin-top:8px}
-.tpf .pkg.on .units{display:block}
-.tpf .units .hint{font-size:12px;color:rgb(85,85,85)}
-.tpf .unit{display:flex;align-items:center;gap:7px;margin-top:7px;font-size:12px;color:#000}
-.tpf .unit span{width:15px}
-.tpf .unit select{height:34px;font:inherit;font-size:14px;color:#000;background:#fff;border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:0 6px;cursor:pointer}
-.tpf .unit .sz{width:150px}.tpf .unit .sd{width:68px}
-.tpf .stock{display:flex;align-items:center;gap:8px;margin-top:15px;font-family:Arial,sans-serif;font-size:15px;color:rgb(230,149,0);line-height:27px}
-.tpf .dot{position:relative;width:12px;height:12px;border-radius:50%;background:rgb(255,165,0);flex:none}
-.tpf .dot:after{content:"";position:absolute;inset:0;border-radius:50%;background:rgb(255,165,0);animation:tpPulse 1.8s ease-out infinite}
+.tpf .tp-rating{display:flex;align-items:center;gap:8px;font-family:sans-serif;font-size:16px;color:#000;line-height:32px}
+.tpf .tp-stars{color:#ffb800;font-size:18px;letter-spacing:1px}
+.tpf h1.tp-title{font-size:33px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
+.tpf .tp-ptext{margin-top:7px}
+.tpf .tp-ptext+.tp-ptext{margin-top:8px}
+.tpf .tp-ptext strong{font-weight:700}
+.tpf .tp-trust{display:flex;align-items:center;gap:6px;margin-top:14px}
+.tpf .tp-trust img{width:150px;height:50px;object-fit:contain}
+.tpf .tp-trust strong{display:block;font-size:14px;font-weight:900;color:var(--navy);line-height:1.45}
+.tpf .tp-trust span{display:block;font-size:12px;color:var(--grey);line-height:1.35}
+.tpf .tp-clin{margin-top:21px}
+.tpf .tp-clin summary{display:flex;align-items:center;gap:10px;height:48px;padding:0 16px;border:1px solid rgba(0,0,0,.25);border-radius:12px;background:#fff}
+.tpf .tp-clin summary img{width:22px;height:22px}
+.tpf .tp-clin summary span{flex:1;font-size:14px;font-weight:500;color:var(--navy);letter-spacing:0}
+.tpf .tp-clin summary .tp-chev{color:var(--grey)}
+.tpf .tp-clin .tp-body{padding:10px 2px 4px;color:var(--grey);line-height:1.6}
+.tpf .tp-clin .tp-intro{font-size:13px}
+.tpf .tp-clin .tp-study{font-size:12.5px;margin-top:10px}
+.tpf .tp-clin .tp-study a{color:rgb(24,95,165);font-weight:500;text-decoration:none;display:block}
+.tpf .tp-clin .tp-disc{font-size:11.5px;color:rgb(136,135,128);margin-top:10px}
+.tpf .tp-benefits{margin-top:12px}
+.tpf .tp-benefits>strong{display:block;font-size:16px;font-weight:700;color:var(--navy)}
+.tpf .tp-benefits ul{list-style:none;margin-top:10px;display:grid;gap:8px}
+.tpf .tp-benefits li{display:flex;gap:11px;line-height:1.35}
+.tpf .tp-benefits li img{width:19px;height:19px;flex:none;margin-top:1px}
+.tpf .tp-optlabel{display:block;font-size:13px;font-weight:600;letter-spacing:.4px;margin-top:15px;margin-bottom:4px}
+.tpf .tp-pills{display:flex;flex-wrap:wrap;gap:9px 10px}
+.tpf .tp-pills button{height:36px;padding:0 20px;border:1px solid rgba(18,18,18,.55);border-radius:40px;background:#fff;color:var(--ink);font-size:14px;letter-spacing:1px;transition:background .15s,color .15s}
+.tpf .tp-pills button.tp-on{background:var(--ink);color:#fff}
+.tpf .tp-sizing{display:inline-flex;align-items:center;gap:8px;margin-top:17px;font-family:Arial,sans-serif;font-size:17px;color:var(--ink);letter-spacing:0;line-height:1.4}
+.tpf .tp-sizing svg{width:22px;height:22px}
+.tpf .tp-pkg-title{display:flex;align-items:center;gap:16px;margin-top:15px;font-size:14px;font-weight:700;color:#000}
+.tpf .tp-pkg-title:before,.tpf .tp-pkg-title:after{content:"";flex:1;height:1px;background:rgba(0,0,0,.25)}
+.tpf .tp-pkgs{display:grid;gap:10px;margin-top:15px}
+.tpf .tp-pkg{position:relative;background:rgb(237,237,237);border:2px solid transparent;border-radius:8px;padding:9px 18px;cursor:pointer;letter-spacing:0}
+.tpf .tp-pkg.tp-on{background:#fff;border-color:#000}
+.tpf .tp-pkg-top{display:flex;align-items:center;gap:18px}
+.tpf .tp-pkg-top>img{width:66px;height:66px;border-radius:6px;object-fit:contain;flex:none}
+.tpf .tp-pkg-info{flex:1;min-width:0}
+.tpf .tp-pkg-name{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:20px;font-weight:700;color:#000;line-height:1.4}
+.tpf .tp-pkg-label{font-size:12px;font-weight:400;background:rgb(217,217,217);border-radius:8px;padding:2px 8px;line-height:1.75}
+.tpf .tp-pkg-sub{font-size:14px;color:rgb(85,85,85);line-height:1.45}
+.tpf .tp-pkg-price{text-align:right;font-size:20px;font-weight:700;color:#000;line-height:1.4}
+.tpf .tp-pkg-price s{display:block;font-size:14px;font-weight:400;color:rgb(85,85,85);line-height:1.45}
+.tpf .tp-pkg-badge{position:absolute;top:-10px;right:14px;background:var(--badge);color:#fff;font-family:sans-serif;font-size:12px;font-weight:700;padding:3px 7px;border-radius:0 0 5px 5px;line-height:1.5}
+.tpf .tp-units{display:none;margin-top:8px}
+.tpf .tp-pkg.tp-on .tp-units{display:block}
+.tpf .tp-units .tp-hint{font-size:12px;color:rgb(85,85,85)}
+.tpf .tp-unit{display:flex;align-items:center;gap:7px;margin-top:7px;font-size:12px;color:#000}
+.tpf .tp-unit span{width:15px}
+.tpf .tp-unit select{height:34px;font:inherit;font-size:14px;color:#000;background:#fff;border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:0 6px;cursor:pointer}
+.tpf .tp-unit .tp-sz{width:150px}.tpf .tp-unit .tp-sd{width:68px}
+.tpf .tp-stock{display:flex;align-items:center;gap:8px;margin-top:15px;font-family:Arial,sans-serif;font-size:15px;color:rgb(230,149,0);line-height:27px}
+.tpf .tp-dot{position:relative;width:12px;height:12px;border-radius:50%;background:rgb(255,165,0);flex:none}
+.tpf .tp-dot:after{content:"";position:absolute;inset:0;border-radius:50%;background:rgb(255,165,0);animation:tpPulse 1.8s ease-out infinite}
 @keyframes tpPulse{from{transform:scale(1);opacity:.6}to{transform:scale(2.6);opacity:0}}
-.tpf .atc{display:flex;align-items:center;justify-content:center;width:100%;height:49px;margin-top:9px;background:var(--orange);color:#fff;border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background .2s}
-.tpf .atc:hover{background:rgb(180,76,3)}
-.tpf .atc[disabled]{opacity:.7;cursor:wait}
-.tpf .tbox{margin-top:15px;border:1px solid rgb(209,213,219);border-radius:12px;overflow:hidden}
-.tpf .tbox .pay{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:20px 16px 20px}
-.tpf .tbox .pay svg{width:38px;height:24px}
-.tpf .hsa{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 20px;border-top:1px solid rgb(209,213,219);font-size:14px;color:rgb(17,24,39)}
-.tpf .hsa b{font-weight:600}
-.tpf .hsa .save{display:inline-flex;align-items:center;gap:6px}
-.tpf .hsa .save svg{width:16px;height:16px;color:rgb(37,99,235)}
-.tpf .hsa button{font-size:14px;font-weight:500;text-decoration:underline;letter-spacing:.06em;color:rgb(17,24,39)}
-.tpf .hsa b,.tpf .hsa .save,.tpf .hsa button{white-space:nowrap}
-.tpf .comment{margin-top:19px;width:100%;height:auto}
-.tpf .tabs{margin-top:16px}
-.tpf .tabs details{border-top:1px solid var(--line)}
-.tpf .tabs details:last-child{border-bottom:1px solid var(--line)}
-.tpf .tabs summary{display:flex;align-items:center;gap:10px;height:48px}
-.tpf .tabs summary svg.ic{width:22px;height:22px;color:var(--ink)}
-.tpf .tabs summary h4{flex:1;font-size:15.6px;font-weight:700;color:var(--ink);letter-spacing:0}
-.tpf .tabs .body{padding:0 10px 16px}
-.tpf .tabs .body p+p{margin-top:16px}
+.tpf .tp-atc{display:flex;align-items:center;justify-content:center;width:100%;height:49px;margin-top:9px;background:var(--orange);color:#fff;border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background .2s}
+.tpf .tp-atc:hover{background:rgb(180,76,3)}
+.tpf .tp-atc[disabled]{opacity:.7;cursor:wait}
+.tpf .tp-tbox{margin-top:15px;border:1px solid rgb(209,213,219);border-radius:12px;overflow:hidden}
+.tpf .tp-tbox .tp-pay{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:20px 16px 20px}
+.tpf .tp-tbox .tp-pay svg{width:38px;height:24px}
+.tpf .tp-hsa{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 20px;border-top:1px solid rgb(209,213,219);font-size:14px;color:rgb(17,24,39)}
+.tpf .tp-hsa b{font-weight:600}
+.tpf .tp-hsa .tp-save{display:inline-flex;align-items:center;gap:6px}
+.tpf .tp-hsa .tp-save svg{width:16px;height:16px;color:rgb(37,99,235)}
+.tpf .tp-hsa button{font-size:14px;font-weight:500;text-decoration:underline;letter-spacing:.06em;color:rgb(17,24,39)}
+.tpf .tp-hsa b,.tpf .tp-hsa .tp-save,.tpf .tp-hsa button{white-space:nowrap}
+.tpf .tp-comment{margin-top:19px;width:100%;height:auto}
+.tpf .tp-tabs{margin-top:16px}
+.tpf .tp-tabs details{border-top:1px solid var(--line)}
+.tpf .tp-tabs details:last-child{border-bottom:1px solid var(--line)}
+.tpf .tp-tabs summary{display:flex;align-items:center;gap:10px;height:48px}
+.tpf .tp-tabs summary svg.tp-ic{width:22px;height:22px;color:var(--ink)}
+.tpf .tp-tabs summary h4{flex:1;font-size:15.6px;font-weight:700;color:var(--ink);letter-spacing:0}
+.tpf .tp-tabs .tp-body{padding:0 10px 16px}
+.tpf .tp-tabs .tp-body p+p{margin-top:16px}
 
 /* modals */
 .tpf dialog{margin:auto;border:0;border-radius:12px;padding:0;max-width:min(560px,92vw);width:100%;color:var(--text);letter-spacing:0}
 .tpf dialog::backdrop{background:rgba(0,0,0,.45)}
-.tpf .dlg{padding:24px;position:relative}
-.tpf .dlg .x{position:absolute;top:10px;right:14px;font-size:20px;line-height:1}
-.tpf .dlg h3{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px}
-.tpf .dlg p{font-size:14px;line-height:1.6}
-.tpf .dlg ol{list-style:none;margin:16px 0;display:grid;gap:12px}
-.tpf .dlg li{display:flex;gap:12px;font-size:14px;line-height:1.5}
-.tpf .dlg li b{flex:none;width:26px;height:26px;border-radius:50%;background:rgb(17,24,39);color:#fff;display:grid;place-items:center;font-size:13px}
-.tpf .dlg small{display:block;font-size:12px;color:var(--grey);margin-top:8px}
-.tpf .dlg .btns{display:flex;gap:10px;margin-top:18px}
-.tpf .dlg .btns a,.tpf .dlg .btns button{flex:1;display:flex;align-items:center;justify-content:center;height:44px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid var(--ink)}
-.tpf .dlg .btns a{background:var(--ink);color:#fff}
-.tpf .size-dlg{max-width:min(900px,94vw)}
-.tpf .size-dlg img{width:100%}
+.tpf .tp-dlg{padding:24px;position:relative}
+.tpf .tp-dlg .tp-x{position:absolute;top:10px;right:14px;font-size:20px;line-height:1}
+.tpf .tp-dlg h3{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.tpf .tp-dlg p{font-size:14px;line-height:1.6}
+.tpf .tp-dlg ol{list-style:none;margin:16px 0;display:grid;gap:12px}
+.tpf .tp-dlg li{display:flex;gap:12px;font-size:14px;line-height:1.5}
+.tpf .tp-dlg li b{flex:none;width:26px;height:26px;border-radius:50%;background:rgb(17,24,39);color:#fff;display:grid;place-items:center;font-size:13px}
+.tpf .tp-dlg small{display:block;font-size:12px;color:var(--grey);margin-top:8px}
+.tpf .tp-dlg .tp-btns{display:flex;gap:10px;margin-top:18px}
+.tpf .tp-dlg .tp-btns a,.tpf .tp-dlg .tp-btns button{flex:1;display:flex;align-items:center;justify-content:center;height:44px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid var(--ink)}
+.tpf .tp-dlg .tp-btns a{background:var(--ink);color:#fff}
+.tpf .tp-size-dlg{max-width:min(900px,94vw)}
+.tpf .tp-size-dlg img{width:100%}
 
 /* sticky bar */
-.tpf .sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s}
-.tpf .sticky.show{transform:none}
-.tpf .sticky .wrap{display:flex;align-items:center;gap:15px;height:72px}
-.tpf .sticky img{width:52px;height:52px;object-fit:cover;border-radius:4px}
-.tpf .sticky .meta{flex:1;line-height:1.3}
-.tpf .sticky h4{font-size:19px;font-weight:700;color:var(--ink);letter-spacing:0}
-.tpf .sticky .pr{font-size:18px;font-weight:700;color:var(--ink);letter-spacing:1px}
-.tpf .sticky .pr s{font-size:16px;color:var(--text);margin-left:4px}
-.tpf .sticky button{width:176px;height:52px;background:var(--ink);color:rgb(253,251,247);border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px}
+.tpf .tp-sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s}
+.tpf .tp-sticky.tp-show{transform:none}
+.tpf .tp-sticky .tp-wrap{display:flex;align-items:center;gap:15px;height:72px}
+.tpf .tp-sticky img{width:52px;height:52px;object-fit:cover;border-radius:4px}
+.tpf .tp-sticky .tp-meta{flex:1;line-height:1.3}
+.tpf .tp-sticky h4{font-size:19px;font-weight:700;color:var(--ink);letter-spacing:0}
+.tpf .tp-sticky .tp-pr{font-size:18px;font-weight:700;color:var(--ink);letter-spacing:1px}
+.tpf .tp-sticky .tp-pr s{font-size:16px;color:var(--text);margin-left:4px}
+.tpf .tp-sticky button{width:176px;height:52px;background:var(--ink);color:rgb(253,251,247);border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px}
 
 @media (max-width:749px){
   .tpf{font-size:15px;letter-spacing:.06em}
-  .tpf .wrap{padding:0 15px}
-  .tpf .hero{padding:0 0 30px}
-  .tpf .grid{grid-template-columns:minmax(0,1fr);gap:20px}
-  .tpf .gal{position:static;margin:0 -15px}
-  .tpf .slides{border-radius:0}
-  .tpf .thumbrow{margin-top:8px}
-  .tpf .thumbrow .arr{width:25px}
-  .tpf .thumbs{gap:0}
-  .tpf .thumbs button{flex:0 0 63px;height:63px;border-radius:0;padding:0;border-width:2px}
-  .tpf .thumbs img{border-radius:0}
-  .tpf h1.title{font-size:28px}
-  .tpf .trust img{width:120px;height:40px}
-  .tpf .trust strong{font-size:13px}
-  .tpf .benefits>strong{font-size:15px}
-  .tpf .pkg-top{gap:18px}
-  .tpf .hsa{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;padding:16px 10px}
-  .tpf .hsa button{flex-basis:100%;font-size:11px}
-  .tpf .hsa .save svg{width:13px;height:13px}
-  .tpf .pills{padding-right:6px}
-  .tpf .sticky .wrap{height:auto;padding:12px 15px}
-  .tpf .sticky img,.tpf .sticky .meta{display:none}
-  .tpf .sticky button{width:100%;height:46px}
+  .tpf .tp-wrap{padding:0 15px}
+  .tpf .tp-hero{padding:0 0 30px}
+  .tpf .tp-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+  .tpf .tp-gal{position:static;margin:0 -15px}
+  .tpf .tp-slides{border-radius:0}
+  .tpf .tp-thumbrow{margin-top:8px}
+  .tpf .tp-thumbrow .tp-arr{width:25px}
+  .tpf .tp-thumbs{gap:0}
+  .tpf .tp-thumbs button{flex:0 0 63px;height:63px;border-radius:0;padding:0;border-width:2px}
+  .tpf .tp-thumbs img{border-radius:0}
+  .tpf h1.tp-title{font-size:28px}
+  .tpf .tp-trust img{width:120px;height:40px}
+  .tpf .tp-trust strong{font-size:13px}
+  .tpf .tp-benefits>strong{font-size:15px}
+  .tpf .tp-pkg-top{gap:18px}
+  .tpf .tp-hsa{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;padding:16px 10px}
+  .tpf .tp-hsa button{flex-basis:100%;font-size:11px}
+  .tpf .tp-hsa .tp-save svg{width:13px;height:13px}
+  .tpf .tp-pills{padding-right:6px}
+  .tpf .tp-sticky .tp-wrap{height:auto;padding:12px 15px}
+  .tpf .tp-sticky img,.tpf .tp-sticky .tp-meta{display:none}
+  .tpf .tp-sticky button{width:100%;height:46px}
 }
 </style>
 
@@ -193,49 +193,49 @@ window.TPF = {
 };
 </script>
 
-<section class="hero" id="tp-buy">
-  <div class="wrap grid">
-    <div class="gal">
-      <div class="slides" id="tpSlides">
+<section class="tp-hero" id="tp-buy">
+  <div class="tp-wrap tp-grid">
+    <div class="tp-gal">
+      <div class="tp-slides" id="tpSlides">
         {%- assign tp_gallery = 'AB.webp,01_1.webp,AC.webp,02.webp,6_1.webp,2_1.webp,3_2.webp,4_1.webp' | split: ',' -%}
         {%- for f in tp_gallery -%}
           <img src="{{ tp_cdn }}{{ f }}" alt="{{ product.title | escape }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
         {%- endfor -%}
       </div>
-      <div class="thumbrow">
-        <button class="arr" data-thumbs="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
-        <div class="thumbs" id="tpThumbs">
+      <div class="tp-thumbrow">
+        <button class="tp-arr" data-thumbs="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+        <div class="tp-thumbs" id="tpThumbs">
           {%- for f in tp_gallery -%}
-            <button{% if forloop.first %} class="on"{% endif %} data-i="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}"><img src="{{ tp_cdn }}{{ f }}?width=200" alt="" loading="lazy"></button>
+            <button{% if forloop.first %} class="tp-on"{% endif %} data-i="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}"><img src="{{ tp_cdn }}{{ f }}?width=200" alt="" loading="lazy"></button>
           {%- endfor -%}
         </div>
-        <button class="arr" data-thumbs="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+        <button class="tp-arr" data-thumbs="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
       </div>
     </div>
 
-    <div class="info">
-      <div class="rating"><span class="stars">★★★★★</span><span>(4,8/5) - 526 Reviews</span></div>
-      <h1 class="title">{{ product.title | escape }}</h1>
-      <p class="ptext">Relieve <strong>knee pain</strong> and enjoy greater freedom, or get your money back.</p>
-      <p class="ptext">More stability, more safety, and more confidence with every step.</p>
+    <div class="tp-info">
+      <div class="tp-rating"><span class="tp-stars">★★★★★</span><span>(4,8/5) - 526 Reviews</span></div>
+      <h1 class="tp-title">{{ product.title | escape }}</h1>
+      <p class="tp-ptext">Relieve <strong>knee pain</strong> and enjoy greater freedom, or get your money back.</p>
+      <p class="tp-ptext">More stability, more safety, and more confidence with every step.</p>
 
-      <div class="trust">
+      <div class="tp-trust">
         <img src="{{ tp_cdn }}Kein_Titel_450_x_150_px.webp" alt="Happy customers">
         <div><strong>Over 20,000 happy knees</strong><span>More than 121,957 people trust Peakflex</span></div>
       </div>
 
-      <details class="clin">
+      <details class="tp-clin">
         <summary><img src="{{ tp_cdn }}ChatGPT_Image_26._Mai_2026_12_16_36.webp" alt=""><span>Based on clinical research</span>{{ tp_chev }}</summary>
-        <div class="body">
-          <p class="intro">Compression, lateral stabilization, and patellar support are approaches that have been studied in clinical trials:</p>
-          <p class="study"><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0324864" target="_blank" rel="noopener">PLOS One Netzwerk-Meta-Analyse (2025)</a>— Analysis of 139 randomized controlled trials. Knee braces were identified as the most effective type of intervention for reducing symptoms in knee osteoarthritis.</p>
-          <p class="study"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12260456/" target="_blank" rel="noopener">Ayık et al. (2025)</a>— A randomized study involving 60 patients. Knee braces with lateral stabilizers improved balance and reduced pain in patients with knee osteoarthritis immediately after application.</p>
-          <p class="study"><a href="https://pubmed.ncbi.nlm.nih.gov/24917049/" target="_blank" rel="noopener">Patella Pro Studie, BMC (2014)</a>— A multicenter randomized trial involving 156 patients. Medial patellar stabilization as a clinically evaluated approach for anterior knee pain.</p>
-          <p class="disc">The studies refer to the method (compression, stabilization, and patellar support), not to this specific product.</p>
+        <div class="tp-body">
+          <p class="tp-intro">Compression, lateral stabilization, and patellar support are approaches that have been studied in clinical trials:</p>
+          <p class="tp-study"><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0324864" target="_blank" rel="noopener">PLOS One Netzwerk-Meta-Analyse (2025)</a>— Analysis of 139 randomized controlled trials. Knee braces were identified as the most effective type of intervention for reducing symptoms in knee osteoarthritis.</p>
+          <p class="tp-study"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12260456/" target="_blank" rel="noopener">Ayık et al. (2025)</a>— A randomized study involving 60 patients. Knee braces with lateral stabilizers improved balance and reduced pain in patients with knee osteoarthritis immediately after application.</p>
+          <p class="tp-study"><a href="https://pubmed.ncbi.nlm.nih.gov/24917049/" target="_blank" rel="noopener">Patella Pro Studie, BMC (2014)</a>— A multicenter randomized trial involving 156 patients. Medial patellar stabilization as a clinically evaluated approach for anterior knee pain.</p>
+          <p class="tp-disc">The studies refer to the method (compression, stabilization, and patellar support), not to this specific product.</p>
         </div>
       </details>
 
-      <div class="benefits">
+      <div class="tp-benefits">
         <strong>Benefits:</strong>
         <ul>
           <li><img src="{{ tp_cdn2 }}Design_ohne_Titel_6.webp" alt="">Individually adjustable support, for optimal stability.</li>
@@ -244,74 +244,74 @@ window.TPF = {
         </ul>
       </div>
 
-      <span class="optlabel">Size</span>
-      <div class="pills" id="tpSize"></div>
-      <span class="optlabel">Side</span>
-      <div class="pills" id="tpSide"></div>
-      <button type="button" class="sizing" data-open="tpSizeDlg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>Sizing chart</button>
+      <span class="tp-optlabel">Size</span>
+      <div class="tp-pills" id="tpSize"></div>
+      <span class="tp-optlabel">Side</span>
+      <div class="tp-pills" id="tpSide"></div>
+      <button type="button" class="tp-sizing" data-open="tpSizeDlg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>Sizing chart</button>
 
-      <div class="pkg-title">Select a package</div>
-      <div class="pkgs">
-        <div class="pkg" data-units="1">
-          <div class="pkg-top">
+      <div class="tp-pkg-title">Select a package</div>
+      <div class="tp-pkgs">
+        <div class="tp-pkg" data-units="1">
+          <div class="tp-pkg-top">
             <img src="{{ tp_cdn }}Kaching-Bundles-Kaching-Bundles-1-Photoroom_300x300_c8bb800e-d6f6-49ce-9ae4-ed0704cc3889_300x300.avif" alt="">
-            <div class="pkg-info"><div class="pkg-name">1 Piece <span class="pkg-label">Free Shipping</span></div><div class="pkg-sub">You save $20.01</div></div>
-            <div class="pkg-price">$59.99<s>$80.00</s></div>
+            <div class="tp-pkg-info"><div class="tp-pkg-name">1 Piece <span class="tp-pkg-label">Free Shipping</span></div><div class="tp-pkg-sub">You save $20.01</div></div>
+            <div class="tp-pkg-price">$59.99<s>$80.00</s></div>
           </div>
         </div>
-        <div class="pkg on" data-units="2">
-          <span class="pkg-badge">2-Pack Special</span>
-          <div class="pkg-top">
+        <div class="tp-pkg tp-on" data-units="2">
+          <span class="tp-pkg-badge">2-Pack Special</span>
+          <div class="tp-pkg-top">
             <img src="{{ tp_cdn }}Kaching-Bundles-Kaching-Bundles-2-Photoroom_300x300_f05129d0-2e03-4f51-b22a-833332f809f9_300x300.avif" alt="">
-            <div class="pkg-info"><div class="pkg-name">2 Pieces <span class="pkg-label">Free Shipping</span></div><div class="pkg-sub">You save 56%</div></div>
-            <div class="pkg-price">$69.99<s>$160.00</s></div>
+            <div class="tp-pkg-info"><div class="tp-pkg-name">2 Pieces <span class="tp-pkg-label">Free Shipping</span></div><div class="tp-pkg-sub">You save 56%</div></div>
+            <div class="tp-pkg-price">$69.99<s>$160.00</s></div>
           </div>
-          <div class="units"></div>
+          <div class="tp-units"></div>
         </div>
-        <div class="pkg" data-units="4">
-          <span class="pkg-badge">Best Offer</span>
-          <div class="pkg-top">
+        <div class="tp-pkg" data-units="4">
+          <span class="tp-pkg-badge">Best Offer</span>
+          <div class="tp-pkg-top">
             <img src="{{ tp_cdn }}Kaching-Bundles-Kaching-Bundles-3_300x300_34f9a301-e94f-468e-aaa4-3a2b1ae55305_300x300.avif" alt="">
-            <div class="pkg-info"><div class="pkg-name">2 + 2 FREE <span class="pkg-label">Free Shipping</span></div><div class="pkg-sub">Save 72%</div></div>
-            <div class="pkg-price">$89.99<s>$320.00</s></div>
+            <div class="tp-pkg-info"><div class="tp-pkg-name">2 + 2 FREE <span class="tp-pkg-label">Free Shipping</span></div><div class="tp-pkg-sub">Save 72%</div></div>
+            <div class="tp-pkg-price">$89.99<s>$320.00</s></div>
           </div>
-          <div class="units"></div>
+          <div class="tp-units"></div>
         </div>
       </div>
 
-      <div class="stock"><span class="dot"></span>In stock - few items available</div>
-      <button type="button" class="atc" id="tpAtc">Add to cart</button>
+      <div class="tp-stock"><span class="tp-dot"></span>In stock - few items available</div>
+      <button type="button" class="tp-atc" id="tpAtc">Add to cart</button>
 
-      <div class="tbox">
-        <div class="pay">
+      <div class="tp-tbox">
+        <div class="tp-pay">
           {%- assign tp_pay = 'paypal,american_express,apple_pay,master,discover,visa' | split: ',' -%}
           {%- for t in tp_pay -%}{{ t | payment_type_svg_tag }}{%- endfor -%}
         </div>
-        <div class="hsa">
+        <div class="tp-hsa">
           <b>HSA/FSA eligible</b>
-          <span class="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>Save an average of 30%</span>
+          <span class="tp-save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>Save an average of 30%</span>
           <button type="button" data-open="tpHsaDlg">Learn more</button>
         </div>
       </div>
 
-      <img class="comment" src="{{ tp_cdn }}ChatGPT_Image_30._Juni_2026_12_57_42.webp" alt="Customer comment: I'd already tried four different knee braces, but none came close to this one." loading="lazy">
+      <img class="tp-comment" src="{{ tp_cdn }}ChatGPT_Image_30._Juni_2026_12_57_42.webp" alt="Customer comment: I'd already tried four different knee braces, but none came close to this one." loading="lazy">
 
-      <div class="tabs">
+      <div class="tp-tabs">
         <details>
-          <summary><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg><h4>90-day money-back guarantee</h4>{{ tp_chev }}</summary>
-          <div class="body"><p>At Peakflex, we’re confident that our products can help relieve your pain. That’s why we offer a risk-free 90-day money-back guarantee, which begins only after you receive the product. If, for any reason, you’re not satisfied, please contact us at info@trypeakflex.com and we’ll be happy to assist you!</p></div>
+          <summary><svg class="tp-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg><h4>90-day money-back guarantee</h4>{{ tp_chev }}</summary>
+          <div class="tp-body"><p>At Peakflex, we’re confident that our products can help relieve your pain. That’s why we offer a risk-free 90-day money-back guarantee, which begins only after you receive the product. If, for any reason, you’re not satisfied, please contact us at info@trypeakflex.com and we’ll be happy to assist you!</p></div>
         </details>
         <details>
-          <summary><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><h4>Shipping</h4>{{ tp_chev }}</summary>
-          <div class="body"><p>The average delivery time is about 6–12 days. It takes us about 1–3 business days to process your order.</p><p>You will receive a tracking number as soon as we have shipped your order.</p></div>
+          <summary><svg class="tp-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg><h4>Shipping</h4>{{ tp_chev }}</summary>
+          <div class="tp-body"><p>The average delivery time is about 6–12 days. It takes us about 1–3 business days to process your order.</p><p>You will receive a tracking number as soon as we have shipped your order.</p></div>
         </details>
       </div>
     </div>
   </div>
 </section>
 
-<dialog id="tpHsaDlg"><div class="dlg">
-  <button class="x" data-close aria-label="Close">✕</button>
+<dialog id="tpHsaDlg"><div class="tp-dlg">
+  <button class="tp-x" data-close aria-label="Close">✕</button>
   <h3>Pay with HSA/FSA and save</h3>
   <p>Save an average of 30% when you pay with pre-tax HSA/FSA funds. No added costs.</p>
   <ol>
@@ -319,18 +319,18 @@ window.TPF = {
     <li><b>2</b><span><strong>Enter card info and pay</strong><br>Pay with your HSA/FSA card, or use a personal credit or debit card and get reimbursed afterward.</span></li>
   </ol>
   <small>Truemed is for qualified customers. HSA/FSA tax savings vary. Learn more at <a href="https://www.truemed.com/disclosures" target="_blank" rel="noopener">truemed.com/disclosures</a></small>
-  <div class="btns"><button type="button" data-close>Continue Shopping</button><a href="{{ routes.cart_url }}">Go to Checkout</a></div>
+  <div class="tp-btns"><button type="button" data-close>Continue Shopping</button><a href="{{ routes.cart_url }}">Go to Checkout</a></div>
 </div></dialog>
 
-<dialog id="tpSizeDlg" class="size-dlg"><div class="dlg">
-  <button class="x" data-close aria-label="Close">✕</button>
+<dialog id="tpSizeDlg" class="tp-size-dlg"><div class="tp-dlg">
+  <button class="tp-x" data-close aria-label="Close">✕</button>
   <img src="{{ tp_cdn }}1790367891-ChatGPT_Image_Sep_25_2026_at_10_23_09_PM.webp" alt="Sizing chart" loading="lazy">
 </div></dialog>
 
-<div class="sticky" id="tpSticky">
-  <div class="wrap">
+<div class="tp-sticky" id="tpSticky">
+  <div class="tp-wrap">
     <img src="{{ tp_cdn }}AB.webp?width=120" alt="">
-    <div class="meta"><h4>{{ product.title | escape }}</h4><div class="pr">{{ product.price | money }}{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}</div></div>
+    <div class="tp-meta"><h4>{{ product.title | escape }}</h4><div class="tp-pr">{{ product.price | money }}{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}</div></div>
     <button type="button" id="tpStickyAtc">Add to cart</button>
   </div>
 </div>
@@ -345,7 +345,7 @@ window.TPF = {
   $$("button",thumbs).forEach(function(b){b.onclick=function(){go(+b.dataset.i)}});
   slides.addEventListener("scroll",function(){
     var i=Math.round(slides.scrollLeft/slides.clientWidth);
-    $$("button",thumbs).forEach(function(b,j){b.classList.toggle("on",i===j)});
+    $$("button",thumbs).forEach(function(b,j){b.classList.toggle("tp-on",i===j)});
   },{passive:true});
   $$("[data-thumbs]").forEach(function(b){b.onclick=function(){
     var n=slides.children.length,i=Math.round(slides.scrollLeft/slides.clientWidth)+(+b.dataset.thumbs);go((i+n)%n);
@@ -354,35 +354,35 @@ window.TPF = {
   /* size / side pills */
   var sel={size:TPF.sizes[0],side:TPF.sides[0]};
   function pills(el,list,key){
-    el.innerHTML=list.map(function(v,i){return '<button type="button"'+(i?'':' class="on"')+'>'+v+'</button>'}).join("");
+    el.innerHTML=list.map(function(v,i){return '<button type="button"'+(i?'':' class="tp-on"')+'>'+v+'</button>'}).join("");
     $$("button",el).forEach(function(b){b.onclick=function(){
-      sel[key]=b.textContent;$$("button",el).forEach(function(x){x.classList.toggle("on",x===b)});
-      $$(".pkg .unit "+(key==="size"?".sz":".sd")).forEach(function(s){s.value=sel[key]});
+      sel[key]=b.textContent;$$("button",el).forEach(function(x){x.classList.toggle("tp-on",x===b)});
+      $$(".tp-pkg .tp-unit "+(key==="size"?".tp-sz":".tp-sd")).forEach(function(s){s.value=sel[key]});
     }});
   }
   pills($("#tpSize"),TPF.sizes,"size");pills($("#tpSide"),TPF.sides,"side");
 
   /* packages */
   function opts(list){return list.map(function(v){return "<option>"+v+"</option>"}).join("")}
-  $$(".tpf .pkg").forEach(function(p){
-    var n=+p.dataset.units,box=$(".units",p);
+  $$(".tpf .tp-pkg").forEach(function(p){
+    var n=+p.dataset.units,box=$(".tp-units",p);
     if(box){
-      var h='<div class="hint">Size, Side</div>';
-      for(var i=1;i<=n;i++)h+='<div class="unit"><span>#'+i+'</span><select class="sz" aria-label="Size #'+i+'">'+opts(TPF.sizes)+'</select><select class="sd" aria-label="Side #'+i+'">'+opts(TPF.sides)+'</select></div>';
+      var h='<div class="tp-hint">Size, Side</div>';
+      for(var i=1;i<=n;i++)h+='<div class="tp-unit"><span>#'+i+'</span><select class="tp-sz" aria-label="Size #'+i+'">'+opts(TPF.sizes)+'</select><select class="tp-sd" aria-label="Side #'+i+'">'+opts(TPF.sides)+'</select></div>';
       box.innerHTML=h;
     }
     p.addEventListener("click",function(e){
       if(e.target.closest("select"))return;
-      $$(".tpf .pkg").forEach(function(o){o.classList.toggle("on",o===p)});
+      $$(".tpf .tp-pkg").forEach(function(o){o.classList.toggle("tp-on",o===p)});
     });
   });
 
   /* add to cart */
   var atc=$("#tpAtc");
   function addToCart(){
-    var p=$(".tpf .pkg.on"),qty={},ids=[];
+    var p=$(".tpf .tp-pkg.tp-on"),qty={},ids=[];
     if(+p.dataset.units===1){ids.push(TPF.variants[sel.size+" / "+sel.side])}
-    else $$(".unit",p).forEach(function(u){ids.push(TPF.variants[$(".sz",u).value+" / "+$(".sd",u).value])});
+    else $$(".tp-unit",p).forEach(function(u){ids.push(TPF.variants[$(".tp-sz",u).value+" / "+$(".tp-sd",u).value])});
     ids.forEach(function(id){if(id)qty[id]=(qty[id]||0)+1});
     var items=Object.keys(qty).map(function(id){return {id:+id,quantity:qty[id]}});
     atc.disabled=true;atc.textContent="Adding…";
@@ -403,13 +403,13 @@ window.TPF = {
 
   /* sticky bar once the main button has scrolled away */
   var bar=$("#tpSticky");
-  new IntersectionObserver(function(e){bar.classList.toggle("show",!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(atc);
+  new IntersectionObserver(function(e){bar.classList.toggle("tp-show",!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(atc);
 })();
 </script>
 </div>
 
-{%- capture tp_yes -%}<svg class="yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Yes"><path d="M4 12.5 9.5 18 20 6"/></svg>{%- endcapture -%}
-{%- capture tp_no -%}<svg class="no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-label="No"><path d="M6 6l12 12M18 6 6 18"/></svg>{%- endcapture -%}
+{%- capture tp_yes -%}<svg class="tp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Yes"><path d="M4 12.5 9.5 18 20 6"/></svg>{%- endcapture -%}
+{%- capture tp_no -%}<svg class="tp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-label="No"><path d="M6 6l12 12M18 6 6 18"/></svg>{%- endcapture -%}
 <style>
 .tpc{--ink:rgb(18,18,18);--text:rgba(18,18,18,.9);--line:rgba(18,18,18,.08);--green:rgb(0,150,0)}
 body{overflow-x:clip}
@@ -423,118 +423,118 @@ body{overflow-x:clip}
 .tpc button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit;min-height:0;box-shadow:none}
 .tpc details>summary{list-style:none;cursor:pointer}
 .tpc details>summary::-webkit-details-marker{display:none}
-.tpc .wrap{max-width:1280px;margin:0 auto;padding:0 50px}
-.tpc .h2{font-size:42.25px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink);text-align:center}
+.tpc .tp-wrap{max-width:1400px;margin:0 auto;padding:0 50px}
+.tpc .tp-h2{font-size:42.25px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink);text-align:center}
 
 /* image + text */
-.tpc .iwt{padding:96px 0 70px}
-.tpc .iwt .wrap{display:grid;grid-template-columns:367px minmax(0,1fr);align-items:center}
-.tpc .iwt.right .wrap{grid-template-columns:minmax(0,1fr) 367px}
-.tpc .iwt.right .media{order:2}
-.tpc .iwt .media img{width:367px;height:367px;object-fit:cover;border-radius:12px}
-.tpc .iwt .txt{padding:0 70px;text-align:center;color:var(--ink)}
-.tpc .iwt h2{font-size:31.2px;font-weight:700;line-height:1.1;letter-spacing:0;margin-bottom:18px}
-.tpc .iwt p{margin-top:10px}
-.tpc .iwt h2+p{margin-top:0}
-.tpc .iwt b{font-weight:700}
-.tpc .iwt ul{list-style:disc inside;margin:16px 0;color:var(--text)}
-.tpc .iwt .fn{margin-top:10px;line-height:1.75}
-.tpc .iwt .fn b{display:block}
+.tpc .tp-iwt{padding:96px 0 70px}
+.tpc .tp-iwt .tp-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.215fr);align-items:center}
+.tpc .tp-iwt.tp-right .tp-wrap{grid-template-columns:minmax(0,2.215fr) minmax(0,1fr)}
+.tpc .tp-iwt.tp-right .tp-media{order:2}
+.tpc .tp-iwt .tp-media img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:12px}
+.tpc .tp-iwt .tp-txt{max-width:673px;margin:0 auto;text-align:center;color:var(--ink)}
+.tpc .tp-iwt h2{font-size:31.2px;font-weight:700;line-height:1.1;letter-spacing:0;margin-bottom:18px}
+.tpc .tp-iwt p{margin-top:10px}
+.tpc .tp-iwt h2+p{margin-top:0}
+.tpc .tp-iwt b{font-weight:700}
+.tpc .tp-iwt ul{list-style:disc inside;margin:16px 0;color:var(--text)}
+.tpc .tp-iwt .tp-fn{margin-top:10px;line-height:1.75}
+.tpc .tp-iwt .tp-fn b{display:block}
 
 /* comparison */
-.tpc .cmp{padding:36px 0}
-.tpc .cmp .wrap{display:grid;grid-template-columns:minmax(0,565fr) minmax(0,615fr);align-items:center}
-.tpc .cmp .h2{padding:0 20px}
-.tpc .cmp table{width:500px;margin:0 auto;border-collapse:separate;border-spacing:0;text-align:center}
-.tpc .cmp th{font-size:18px;font-weight:700;line-height:1.3;color:var(--text);padding:0 0 4px;vertical-align:bottom}
-.tpc .cmp th img{width:77px;height:77px;object-fit:contain;margin:0 auto}
-.tpc .cmp td{height:49px;background:#fff;border-top:1px solid var(--line);vertical-align:middle}
-.tpc .cmp td:first-child{width:222px;background:var(--green);color:rgb(253,251,247);font-size:16px;font-weight:700;line-height:1.1;letter-spacing:0;padding:8px 15px;border-top-color:rgba(255,255,255,.08)}
-.tpc .cmp td:nth-child(2){width:92px}
-.tpc .cmp tbody{box-shadow:0 0 10px rgba(0,0,0,.12);border-radius:20px}
-.tpc .cmp tbody tr:first-child td{border-top:0}
-.tpc .cmp tbody tr:first-child td:first-child{border-top-left-radius:20px}
-.tpc .cmp tbody tr:first-child td:last-child{border-top-right-radius:20px}
-.tpc .cmp tbody tr:last-child td:first-child{border-bottom-left-radius:20px}
-.tpc .cmp tbody tr:last-child td:last-child{border-bottom-right-radius:20px}
-.tpc .cmp .yes{width:24px;height:24px;color:rgb(83,168,26)}
-.tpc .cmp .no{width:19px;height:19px;color:var(--ink);stroke-width:3.4}
+.tpc .tp-cmp{padding:36px 0}
+.tpc .tp-cmp .tp-wrap{display:grid;grid-template-columns:minmax(0,565fr) minmax(0,615fr);align-items:center}
+.tpc .tp-cmp .tp-h2{padding:0 20px}
+.tpc .tp-cmp table{width:500px;margin:0 auto;border-collapse:separate;border-spacing:0;text-align:center}
+.tpc .tp-cmp th{font-size:18px;font-weight:700;line-height:1.3;color:var(--text);padding:0 0 4px;vertical-align:bottom}
+.tpc .tp-cmp th img{width:77px;height:77px;object-fit:contain;margin:0 auto}
+.tpc .tp-cmp td{height:49px;background:#fff;border-top:1px solid var(--line);vertical-align:middle}
+.tpc .tp-cmp td:first-child{width:222px;background:var(--green);color:rgb(253,251,247);font-size:16px;font-weight:700;line-height:1.1;letter-spacing:0;padding:8px 15px;border-top-color:rgba(255,255,255,.08)}
+.tpc .tp-cmp td:nth-child(2){width:92px}
+.tpc .tp-cmp tbody{box-shadow:0 0 10px rgba(0,0,0,.12);border-radius:20px}
+.tpc .tp-cmp tbody tr:first-child td{border-top:0}
+.tpc .tp-cmp tbody tr:first-child td:first-child{border-top-left-radius:20px}
+.tpc .tp-cmp tbody tr:first-child td:last-child{border-top-right-radius:20px}
+.tpc .tp-cmp tbody tr:last-child td:first-child{border-bottom-left-radius:20px}
+.tpc .tp-cmp tbody tr:last-child td:last-child{border-bottom-right-radius:20px}
+.tpc .tp-cmp .tp-yes{width:24px;height:24px;color:rgb(83,168,26)}
+.tpc .tp-cmp .tp-no{width:19px;height:19px;color:var(--ink);stroke-width:3.4}
 
 /* testimonials */
-.tpc .tst{padding:36px 0}
-.tpc .tst .h2{text-transform:uppercase}
-.tpc .tst .intro{text-align:center;margin-top:5px}
-.tpc .tst-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:30px}
-.tpc .card{background:rgb(245,245,245);border-radius:20px;overflow:hidden;text-align:center}
-.tpc .card img{width:100%;aspect-ratio:1;object-fit:cover}
-.tpc .card .body{padding:10px 20px 14px}
-.tpc .card .stars{font-size:22px;line-height:40px;color:rgb(255,215,0)}
-.tpc .card h3{font-size:18.85px;font-weight:700;line-height:1.38;letter-spacing:0;color:var(--ink);margin-top:4px}
-.tpc .card p{margin-top:10px}
-.tpc .card .who{border-top:1px solid rgba(18,18,18,.06);margin-top:5px;padding-top:10px;font-size:14px;font-weight:600;font-style:italic}
-.tpc .tst-nav{display:none}
+.tpc .tp-tst{padding:36px 0}
+.tpc .tp-tst .tp-h2{text-transform:uppercase}
+.tpc .tp-tst .tp-intro{text-align:center;margin-top:5px}
+.tpc .tp-tst-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:30px}
+.tpc .tp-card{background:rgb(245,245,245);border-radius:20px;overflow:hidden;text-align:center}
+.tpc .tp-card img{width:100%;aspect-ratio:1;object-fit:cover}
+.tpc .tp-card .tp-body{padding:10px 20px 14px}
+.tpc .tp-card .tp-stars{font-size:22px;line-height:40px;color:rgb(255,215,0)}
+.tpc .tp-card h3{font-size:18.85px;font-weight:700;line-height:1.38;letter-spacing:0;color:var(--ink);margin-top:4px}
+.tpc .tp-card p{margin-top:10px}
+.tpc .tp-card .tp-who{border-top:1px solid rgba(18,18,18,.06);margin-top:5px;padding-top:10px;font-size:14px;font-weight:600;font-style:italic}
+.tpc .tp-tst-nav{display:none}
 
 /* faq */
-.tpc .faq{padding:36px 0}
-.tpc .faq-list{max-width:704px;margin:30px auto 0}
-.tpc .faq details{border-top:1px solid var(--line)}
-.tpc .faq details:last-child{border-bottom:1px solid var(--line)}
-.tpc .faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
-.tpc .faq summary h3{font-size:15.6px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
-.tpc .faq .chev{width:16px;height:16px;flex:none;transition:transform .2s;color:var(--ink)}
-.tpc .faq details[open] .chev{transform:rotate(180deg)}
-.tpc .faq .ans{padding:0 6px 14px}
-.tpc .faq .ans p+p{margin-top:16px}
+.tpc .tp-faq{padding:36px 0}
+.tpc .tp-faq-list{max-width:704px;margin:30px auto 0}
+.tpc .tp-faq details{border-top:1px solid var(--line)}
+.tpc .tp-faq details:last-child{border-bottom:1px solid var(--line)}
+.tpc .tp-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.tpc .tp-faq summary h3{font-size:15.6px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
+.tpc .tp-faq .tp-chev{width:16px;height:16px;flex:none;transition:transform .2s;color:var(--ink)}
+.tpc .tp-faq details[open] .tp-chev{transform:rotate(180deg)}
+.tpc .tp-faq .tp-ans{padding:0 6px 14px}
+.tpc .tp-faq .tp-ans p+p{margin-top:16px}
 
 /* guarantee */
-.tpc .grt{padding:76px 0 80px;text-align:center}
-.tpc .grt .in{max-width:880px;margin:0 auto}
-.tpc .grt h2{font-size:24px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
-.tpc .grt img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin:40px auto}
-.tpc .grt h3{font-size:20.8px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink);margin-bottom:16px}
-.tpc .grt p{font-family:Arial,sans-serif;color:rgb(51,51,51)}
-.tpc .grt p+p{margin-top:22px;font-weight:700}
+.tpc .tp-grt{padding:76px 0 80px;text-align:center}
+.tpc .tp-grt .tp-in{max-width:880px;margin:0 auto}
+.tpc .tp-grt h2{font-size:24px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
+.tpc .tp-grt img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin:40px auto}
+.tpc .tp-grt h3{font-size:20.8px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink);margin-bottom:16px}
+.tpc .tp-grt p{font-family:Arial,sans-serif;color:rgb(51,51,51)}
+.tpc .tp-grt p+p{margin-top:22px;font-weight:700}
 
 @media (max-width:749px){
   .tpc{font-size:15px}
-  .tpc .wrap{padding:0 15px}
-  .tpc .h2{font-size:32.5px}
-  .tpc .iwt{padding:27px 0 30px}
-  .tpc .iwt .wrap,.tpc .iwt.right .wrap{grid-template-columns:minmax(0,1fr)}
-  .tpc .iwt.right .media{order:0}
-  .tpc .iwt .media img{width:100%;height:auto;aspect-ratio:1}
-  .tpc .iwt .txt{padding:20px 0 0;text-align:left}
-  .tpc .iwt h2{font-size:26px}
-  .tpc .iwt ul{list-style-position:outside;padding-left:40px}
-  .tpc .cmp{padding:27px 0}
-  .tpc .cmp .wrap{grid-template-columns:minmax(0,1fr);gap:20px}
-  .tpc .cmp .h2{padding:0}
-  .tpc .cmp table{width:100%}
-  .tpc .cmp th{font-size:15.3px}
-  .tpc .cmp th img{width:44px;height:44px}
-  .tpc .cmp td:first-child{width:44%;font-size:15px;padding:8px 10px}
-  .tpc .cmp td:nth-child(2){width:25%}
-  .tpc .tst{padding:27px 0}
-  .tpc .tst .intro{margin:5px -15px 0}
-  .tpc .tst-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:30px -15px 0;padding:0 15px}
-  .tpc .tst-track::-webkit-scrollbar{display:none}
-  .tpc .card{flex:0 0 340px;scroll-snap-align:center}
-  .tpc .tst-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;font-size:14px}
-  .tpc .tst-nav button{width:32px;height:32px;display:grid;place-items:center}
-  .tpc .tst-nav svg{width:16px;height:16px}
-  .tpc .faq{padding:27px 0}
-  .tpc .faq-list{margin-top:30px}
-  .tpc .faq summary{padding:13px 0}
-  .tpc .grt{padding:50px 0 60px}
+  .tpc .tp-wrap{padding:0 15px}
+  .tpc .tp-h2{font-size:32.5px}
+  .tpc .tp-iwt{padding:27px 0 30px}
+  .tpc .tp-iwt .tp-wrap,.tpc .tp-iwt.tp-right .tp-wrap{grid-template-columns:minmax(0,1fr)}
+  .tpc .tp-iwt.tp-right .tp-media{order:0}
+  .tpc .tp-iwt .tp-media img{width:100%;height:auto;aspect-ratio:1}
+  .tpc .tp-iwt .tp-txt{max-width:none;padding:20px 0 0;text-align:left}
+  .tpc .tp-iwt h2{font-size:26px}
+  .tpc .tp-iwt ul{list-style-position:outside;padding-left:40px}
+  .tpc .tp-cmp{padding:27px 0}
+  .tpc .tp-cmp .tp-wrap{grid-template-columns:minmax(0,1fr);gap:20px}
+  .tpc .tp-cmp .tp-h2{padding:0}
+  .tpc .tp-cmp table{width:100%}
+  .tpc .tp-cmp th{font-size:15.3px}
+  .tpc .tp-cmp th img{width:44px;height:44px}
+  .tpc .tp-cmp td:first-child{width:44%;font-size:15px;padding:8px 10px}
+  .tpc .tp-cmp td:nth-child(2){width:25%}
+  .tpc .tp-tst{padding:27px 0}
+  .tpc .tp-tst .tp-intro{margin:5px -15px 0}
+  .tpc .tp-tst-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:30px -15px 0;padding:0 15px}
+  .tpc .tp-tst-track::-webkit-scrollbar{display:none}
+  .tpc .tp-card{flex:0 0 340px;scroll-snap-align:center}
+  .tpc .tp-tst-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;font-size:14px}
+  .tpc .tp-tst-nav button{width:32px;height:32px;display:grid;place-items:center}
+  .tpc .tp-tst-nav svg{width:16px;height:16px}
+  .tpc .tp-faq{padding:27px 0}
+  .tpc .tp-faq-list{margin-top:30px}
+  .tpc .tp-faq summary{padding:13px 0}
+  .tpc .tp-grt{padding:50px 0 60px}
 }
 </style>
 
 <div class="tpc">
 
-<section class="iwt">
-  <div class="wrap">
-    <div class="media"><img src="{{ tp_cdn }}knee-pain.webp" alt="Woman holding her knee on the stairs" loading="lazy"></div>
-    <div class="txt">
+<section class="tp-iwt">
+  <div class="tp-wrap">
+    <div class="tp-media"><img src="{{ tp_cdn }}knee-pain.webp" alt="Woman holding her knee on the stairs" loading="lazy"></div>
+    <div class="tp-txt">
       <h2>When every step becomes uncomfortable</h2>
       <p><b>At first, it’s often just a slight tugging sensation.</b></p>
       <p>Then come the moments when you suddenly feel your knee more acutely:</p>
@@ -545,10 +545,10 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section class="iwt right">
-  <div class="wrap">
-    <div class="media"><img src="{{ tp_cdn }}synovial-irritation-graphic.webp" alt="Illustration of irritated synovial tissue in the knee" loading="lazy"></div>
-    <div class="txt">
+<section class="tp-iwt tp-right">
+  <div class="tp-wrap">
+    <div class="tp-media"><img src="{{ tp_cdn }}synovial-irritation-graphic.webp" alt="Illustration of irritated synovial tissue in the knee" loading="lazy"></div>
+    <div class="tp-txt">
       <h2>Maybe it's not just wear and tear</h2>
       <p>Many conventional explanations focus solely on “wear and tear.”</p>
       <p>However, knee pain often feels more like pressure, irritation, or instability.</p>
@@ -561,10 +561,10 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section class="iwt">
-  <div class="wrap">
-    <div class="media"><img src="{{ tp_cdn }}8.webp" alt="PeakFlex knee sleeve: stay active without knee restrictions" loading="lazy"></div>
-    <div class="txt">
+<section class="tp-iwt">
+  <div class="tp-wrap">
+    <div class="tp-media"><img src="{{ tp_cdn }}8.webp" alt="PeakFlex knee sleeve: stay active without knee restrictions" loading="lazy"></div>
+    <div class="tp-txt">
       <h2>Support for active knees</h2>
       <p>The PeakFlex knee sleeve combines multiple functions into a flexible support system for everyday use.</p>
       <p>Instead of a heavy orthosis, you get:</p>
@@ -575,25 +575,25 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section class="iwt right">
-  <div class="wrap">
-    <div class="media"><img src="{{ tp_cdn }}3_2.webp" alt="The four support functions of the PeakFlex knee sleeve" loading="lazy"></div>
-    <div class="txt">
+<section class="tp-iwt tp-right">
+  <div class="tp-wrap">
+    <div class="tp-media"><img src="{{ tp_cdn }}3_2.webp" alt="The four support functions of the PeakFlex knee sleeve" loading="lazy"></div>
+    <div class="tp-txt">
       <h2>4 functions. A more stable feeling.</h2>
       <p>The PeakFlex knee brace is designed so that multiple support systems work together simultaneously:</p>
-      <p class="fn"><b>Precision compression wheel</b>Enables customizable support.</p>
-      <p class="fn"><b>Patella gel pad</b>Helps distribute pressure around the kneecap more comfortably.</p>
-      <p class="fn"><b>Dual side stabilizers</b>Support the knee during everyday movements.</p>
-      <p class="fn"><b>Non-slip silicone grip</b>Helps prevent slipping and rolling.</p>
+      <p class="tp-fn"><b>Precision compression wheel</b>Enables customizable support.</p>
+      <p class="tp-fn"><b>Patella gel pad</b>Helps distribute pressure around the kneecap more comfortably.</p>
+      <p class="tp-fn"><b>Dual side stabilizers</b>Support the knee during everyday movements.</p>
+      <p class="tp-fn"><b>Non-slip silicone grip</b>Helps prevent slipping and rolling.</p>
       <p>The result is a more stable and comfortable fit for everyday use.</p>
     </div>
   </div>
 </section>
 
-<section class="iwt">
-  <div class="wrap">
-    <div class="media"><img src="{{ tp_cdn }}6_1.webp" alt="People wearing the PeakFlex knee sleeve in everyday life" loading="lazy"></div>
-    <div class="txt">
+<section class="tp-iwt">
+  <div class="tp-wrap">
+    <div class="tp-media"><img src="{{ tp_cdn }}6_1.webp" alt="People wearing the PeakFlex knee sleeve in everyday life" loading="lazy"></div>
+    <div class="tp-txt">
       <h2>More convenience in everyday life</h2>
       <p>Many people don’t want a bulky sports brace.</p>
       <p>They simply want to:</p>
@@ -604,9 +604,9 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section class="cmp">
-  <div class="wrap">
-    <h2 class="h2">The difference is noticeable</h2>
+<section class="tp-cmp">
+  <div class="tp-wrap">
+    <h2 class="tp-h2">The difference is noticeable</h2>
     <table>
       <thead><tr><th></th><th><img src="{{ tp_cdn }}logo_Peakflex-removebg-preview.png" alt="PeakFlex"></th><th>Traditional sleeves</th></tr></thead>
       <tbody>
@@ -622,16 +622,16 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section class="tst">
-  <div class="wrap">
-    <h2 class="h2">What our customers say</h2>
-    <p class="intro">Thousands of customers already use the PeakFlex Knee Sleeve every day because it is designed to provide targeted stabilization for the knee—rather than unnecessarily restricting movement or merely masking discomfort temporarily.</p>
-    <div class="tst-track" id="tpcTrack">
-      <div class="card"><img src="{{ tp_cdn }}RQ.webp" alt="" loading="lazy"><div class="body"><div class="stars">★★★★★</div><h3>Finally walking more steadily</h3><p>I've tried several knee braces, but many were either too stiff or kept slipping out of place. The PeakFlex sleeve is much more comfortable to wear and finally gives my knee more stability when walking and climbing stairs.</p><div class="who">Caroline S.</div></div></div>
-      <div class="card"><img src="{{ tp_cdn }}R3.webp" alt="" loading="lazy"><div class="body"><div class="stars">★★★★★</div><h3>Better traction on stairs</h3><p>Stairs have always been uncomfortable for me because my knee often felt unstable. Since I started using the PeakFlex sleeve, my knee feels much more stable. It hardly slips at all and remains comfortable to wear even during longer walks.</p><div class="who">Sarah K.</div></div></div>
-      <div class="card"><img src="{{ tp_cdn }}R2.jpg" alt="" loading="lazy"><div class="body"><div class="stars">★★★★★</div><h3>Comfortable for everyday use</h3><p>I wear the compression bandage often at work, and I never would have thought it would be this comfortable. The material feels flexible, and the compression is easy to adjust. I especially like that it’s barely noticeable under my clothes.</p><div class="who">David T.</div></div></div>
+<section class="tp-tst">
+  <div class="tp-wrap">
+    <h2 class="tp-h2">What our customers say</h2>
+    <p class="tp-intro">Thousands of customers already use the PeakFlex Knee Sleeve every day because it is designed to provide targeted stabilization for the knee—rather than unnecessarily restricting movement or merely masking discomfort temporarily.</p>
+    <div class="tp-tst-track" id="tpcTrack">
+      <div class="tp-card"><img src="{{ tp_cdn }}RQ.webp" alt="" loading="lazy"><div class="tp-body"><div class="tp-stars">★★★★★</div><h3>Finally walking more steadily</h3><p>I've tried several knee braces, but many were either too stiff or kept slipping out of place. The PeakFlex sleeve is much more comfortable to wear and finally gives my knee more stability when walking and climbing stairs.</p><div class="tp-who">Caroline S.</div></div></div>
+      <div class="tp-card"><img src="{{ tp_cdn }}R3.webp" alt="" loading="lazy"><div class="tp-body"><div class="tp-stars">★★★★★</div><h3>Better traction on stairs</h3><p>Stairs have always been uncomfortable for me because my knee often felt unstable. Since I started using the PeakFlex sleeve, my knee feels much more stable. It hardly slips at all and remains comfortable to wear even during longer walks.</p><div class="tp-who">Sarah K.</div></div></div>
+      <div class="tp-card"><img src="{{ tp_cdn }}R2.jpg" alt="" loading="lazy"><div class="tp-body"><div class="tp-stars">★★★★★</div><h3>Comfortable for everyday use</h3><p>I wear the compression bandage often at work, and I never would have thought it would be this comfortable. The material feels flexible, and the compression is easy to adjust. I especially like that it’s barely noticeable under my clothes.</p><div class="tp-who">David T.</div></div></div>
     </div>
-    <div class="tst-nav">
+    <div class="tp-tst-nav">
       <button type="button" data-tst="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
       <span><span id="tpcNum">1</span> / of 3</span>
       <button type="button" data-tst="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
@@ -639,23 +639,23 @@ body{overflow-x:clip}
   </div>
 </section>
 
-<section class="faq">
-  <div class="wrap">
-    <h2 class="h2">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <details><summary><h3>Is the PeakFlex Knee Sleeve suitable for everyday use?</h3>{{ tp_chev }}</summary><div class="ans"><p>Yes. The PeakFlex Knee Sleeve was specifically designed for everyday activities such as walking, working, climbing stairs, or standing for long periods of time.</p></div></details>
-      <details><summary><h3>Can I adjust the compression myself?</h3>{{ tp_chev }}</summary><div class="ans"><p>Yes. With the built-in precision dial, you can adjust the compression to your liking—depending on how much support feels comfortable.</p></div></details>
-      <details><summary><h3>Does the sleeve slip when you walk?</h3>{{ tp_chev }}</summary><div class="ans"><p>The PeakFlex Knee Sleeve features a non-slip silicone grip designed to help reduce slipping and rolling.</p></div></details>
-      <details><summary><h3>Can I wear the sleeve under my clothes?</h3>{{ tp_chev }}</summary><div class="ans"><p>Yes. Its flexible and compact design ensures that the bandage can be worn comfortably under most everyday clothing.</p></div></details>
-      <details><summary><h3>Is the knee brace suitable for both knees?</h3>{{ tp_chev }}</summary><div class="ans"><p>Yes. The PeakFlex Knee Sleeve can be worn on either the left or right knee.</p></div></details>
-      <details><summary><h3>Can I wear the sleeve for longer?</h3>{{ tp_chev }}</summary><div class="ans"><p>The bandage was designed for everyday use. Many customers wear it while working, going for walks, or doing everyday activities.</p></div></details>
-      <details><summary><h3>Is there a money-back guarantee if the PeakFlex Knee Sleeve doesn't work?</h3>{{ tp_chev }}</summary><div class="ans"><p>We offer a satisfaction guarantee! If you are not satisfied with the PeakFlex Knee Seeve, please contact us at info@peakflex.com for a return and refund within 90 days.</p><p>The period begins upon receipt of the product. It is important to us to support you as best as possible in your daily life. Therefore, we recommend wearing the PeakFlex Knee Sleeve daily for 2 weeks before making a final decision.</p></div></details>
+<section class="tp-faq">
+  <div class="tp-wrap">
+    <h2 class="tp-h2">Frequently Asked Questions</h2>
+    <div class="tp-faq-list">
+      <details><summary><h3>Is the PeakFlex Knee Sleeve suitable for everyday use?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>Yes. The PeakFlex Knee Sleeve was specifically designed for everyday activities such as walking, working, climbing stairs, or standing for long periods of time.</p></div></details>
+      <details><summary><h3>Can I adjust the compression myself?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>Yes. With the built-in precision dial, you can adjust the compression to your liking—depending on how much support feels comfortable.</p></div></details>
+      <details><summary><h3>Does the sleeve slip when you walk?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>The PeakFlex Knee Sleeve features a non-slip silicone grip designed to help reduce slipping and rolling.</p></div></details>
+      <details><summary><h3>Can I wear the sleeve under my clothes?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>Yes. Its flexible and compact design ensures that the bandage can be worn comfortably under most everyday clothing.</p></div></details>
+      <details><summary><h3>Is the knee brace suitable for both knees?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>Yes. The PeakFlex Knee Sleeve can be worn on either the left or right knee.</p></div></details>
+      <details><summary><h3>Can I wear the sleeve for longer?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>The bandage was designed for everyday use. Many customers wear it while working, going for walks, or doing everyday activities.</p></div></details>
+      <details><summary><h3>Is there a money-back guarantee if the PeakFlex Knee Sleeve doesn't work?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>We offer a satisfaction guarantee! If you are not satisfied with the PeakFlex Knee Seeve, please contact us at info@peakflex.com for a return and refund within 90 days.</p><p>The period begins upon receipt of the product. It is important to us to support you as best as possible in your daily life. Therefore, we recommend wearing the PeakFlex Knee Sleeve daily for 2 weeks before making a final decision.</p></div></details>
     </div>
   </div>
 </section>
 
-<section class="grt">
-  <div class="wrap"><div class="in">
+<section class="tp-grt">
+  <div class="tp-wrap"><div class="tp-in">
     <h2>Try the PeakFlex Knee Sleeve now for 90 days without any risk</h2>
     <img src="{{ tp_cdn2 }}DAGEN_1_1.jpg" alt="90 days money-back guarantee" loading="lazy">
     <h3>Our promise to you:</h3>
