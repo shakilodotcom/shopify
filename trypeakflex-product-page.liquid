@@ -28,34 +28,34 @@ body{overflow-x:clip}
 .tpf .tp-wrap{max-width:1400px;margin:0 auto;padding:0 50px}
 
 /* layout */
-.tpf .tp-hero{padding:24px 0 36px}
-.tpf .tp-grid{display:grid;grid-template-columns:minmax(0,649fr) minmax(0,481fr);gap:50px;align-items:start}
+.tpf .tp-hero{padding:0 0 36px}
+.tpf .tp-grid{display:grid;grid-template-columns:55% minmax(0,1fr);gap:50px;align-items:start}
 
 /* gallery */
 .tpf .tp-gal{position:sticky;top:20px}
 .tpf .tp-slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:12px}
 .tpf .tp-slides::-webkit-scrollbar,.tpf .tp-thumbs::-webkit-scrollbar{display:none}
 .tpf .tp-slides img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:cover;scroll-snap-align:start}
-.tpf .tp-thumbrow{display:flex;align-items:center;margin-top:10px}
+.tpf .tp-thumbrow{display:flex;align-items:center;margin-top:5px}
 .tpf .tp-thumbrow .tp-arr{width:44px;height:44px;flex:none;display:grid;place-items:center;color:var(--text)}
 .tpf .tp-thumbrow .tp-arr svg{width:14px;height:14px}
-.tpf .tp-thumbs{flex:1;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:1px 5px;scroll-behavior:smooth}
-.tpf .tp-thumbs button{flex:0 0 102px;height:102px;border-radius:6px;overflow:hidden;border:1px solid transparent;padding:2px}
+.tpf .tp-thumbs{flex:1;min-width:0;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:5px;scroll-behavior:smooth}
+.tpf .tp-thumbs button{flex:0 0 calc((100% - 40px) / 5);aspect-ratio:1;border-radius:6px;overflow:hidden;border:1px solid transparent;padding:2px}
 .tpf .tp-thumbs button.tp-on{border-color:var(--ink)}
 .tpf .tp-thumbs img{width:100%;height:100%;object-fit:cover;border-radius:4px}
 
 /* info */
-.tpf .tp-rating{display:flex;align-items:center;gap:8px;font-family:sans-serif;font-size:16px;color:#000;line-height:32px}
+.tpf .tp-rating{display:flex;align-items:center;gap:8px;font-family:sans-serif;font-size:16px;color:#000;line-height:32.4px}
 .tpf .tp-stars{color:#ffb800;font-size:18px;letter-spacing:1px}
 .tpf h1.tp-title{font-size:33px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
-.tpf .tp-ptext{margin-top:7px}
+.tpf .tp-ptext{margin-top:6px}
 .tpf .tp-ptext+.tp-ptext{margin-top:8px}
 .tpf .tp-ptext strong{font-weight:700}
-.tpf .tp-trust{display:flex;align-items:center;gap:6px;margin-top:14px}
+.tpf .tp-trust{display:flex;align-items:center;gap:6px;margin-top:15px}
 .tpf .tp-trust img{width:150px;height:50px;object-fit:contain}
 .tpf .tp-trust strong{display:block;font-size:14px;font-weight:900;color:var(--navy);line-height:1.45}
 .tpf .tp-trust span{display:block;font-size:12px;color:var(--grey);line-height:1.35}
-.tpf .tp-clin{margin-top:21px}
+.tpf .tp-clin{margin-top:14px;max-width:520px}
 .tpf .tp-clin summary{display:flex;align-items:center;gap:10px;height:48px;padding:0 16px;border:1px solid rgba(0,0,0,.25);border-radius:12px;background:#fff}
 .tpf .tp-clin summary img{width:22px;height:22px}
 .tpf .tp-clin summary span{flex:1;font-size:14px;font-weight:500;color:var(--navy);letter-spacing:0}
@@ -66,58 +66,61 @@ body{overflow-x:clip}
 .tpf .tp-clin .tp-study a{color:rgb(24,95,165);font-weight:500;text-decoration:none;display:block}
 .tpf .tp-clin .tp-disc{font-size:11.5px;color:rgb(136,135,128);margin-top:10px}
 .tpf .tp-benefits{margin-top:12px}
+.tpf .tp-benefits ul{max-width:520px}
 .tpf .tp-benefits>strong{display:block;font-size:16px;font-weight:700;color:var(--navy)}
-.tpf .tp-benefits ul{list-style:none;margin-top:10px;display:grid;gap:8px}
-.tpf .tp-benefits li{display:flex;gap:11px;line-height:1.35}
+.tpf .tp-benefits ul{list-style:none;margin-top:10px;display:grid;gap:7.8px}
+.tpf .tp-benefits li{display:flex;gap:11.4px;line-height:1.35}
 .tpf .tp-benefits li img{width:19px;height:19px;flex:none;margin-top:1px}
-.tpf .tp-optlabel{display:block;font-size:13px;font-weight:600;letter-spacing:.4px;margin-top:15px;margin-bottom:4px}
+.tpf .tp-optlabel{display:block;font-size:13px;font-weight:600;letter-spacing:.4px;line-height:19.5px;width:fit-content;margin-top:15.4px;margin-bottom:4px}
+.tpf .tp-optlabel2{margin-top:14.1px;margin-bottom:9px}
 .tpf .tp-pills{display:flex;flex-wrap:wrap;gap:9px 10px}
 .tpf .tp-pills button{height:36px;padding:0 20px;border:1px solid rgba(18,18,18,.55);border-radius:40px;background:#fff;color:var(--ink);font-size:14px;letter-spacing:1px;transition:background .15s,color .15s}
 .tpf .tp-pills button.tp-on{background:var(--ink);color:#fff}
-.tpf .tp-sizing{display:inline-flex;align-items:center;gap:8px;margin-top:17px;font-family:Arial,sans-serif;font-size:17px;color:var(--ink);letter-spacing:0;line-height:1.4}
+.tpf .tp-sizing{display:flex;width:fit-content;align-items:center;gap:8px;margin-top:17px;font-family:Arial,sans-serif;font-size:17px;color:var(--ink);letter-spacing:0;line-height:25px}
 .tpf .tp-sizing svg{width:22px;height:22px}
-.tpf .tp-pkg-title{display:flex;align-items:center;gap:16px;margin-top:15px;font-size:14px;font-weight:700;color:#000}
+.tpf .tp-pkg-title{display:flex;align-items:center;gap:16px;margin-top:15px;font-size:14px;font-weight:700;line-height:20px;color:#000}
 .tpf .tp-pkg-title:before,.tpf .tp-pkg-title:after{content:"";flex:1;height:1px;background:rgba(0,0,0,.25)}
-.tpf .tp-pkgs{display:grid;gap:10px;margin-top:15px}
-.tpf .tp-pkg{position:relative;background:rgb(237,237,237);border:2px solid transparent;border-radius:8px;padding:9px 18px;cursor:pointer;letter-spacing:0}
-.tpf .tp-pkg.tp-on{background:#fff;border-color:#000}
+.tpf .tp-pkgs{display:grid;gap:10px;margin-top:14.8px}
+.tpf .tp-pkg[data-units="2"],.tpf .tp-pkg[data-units="4"]{padding-top:24px}
+.tpf .tp-pkg{position:relative;background:rgb(237,237,237);border-radius:8px;padding:10px 20px;cursor:pointer;letter-spacing:0}
+.tpf .tp-pkg.tp-on{background:#fff;box-shadow:inset 0 0 0 2px #000}
 .tpf .tp-pkg-top{display:flex;align-items:center;gap:18px}
 .tpf .tp-pkg-top>img{width:66px;height:66px;border-radius:6px;object-fit:contain;flex:none}
 .tpf .tp-pkg-info{flex:1;min-width:0}
-.tpf .tp-pkg-name{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:20px;font-weight:700;color:#000;line-height:1.4}
-.tpf .tp-pkg-label{font-size:12px;font-weight:400;background:rgb(217,217,217);border-radius:8px;padding:2px 8px;line-height:1.75}
-.tpf .tp-pkg-sub{font-size:14px;color:rgb(85,85,85);line-height:1.45}
+.tpf .tp-pkg-name{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;font-size:20px;font-weight:700;color:#000;line-height:1.4}
+.tpf .tp-pkg-label{font-size:12px;font-weight:400;background:rgb(217,217,217);border-radius:8px;padding:2px 8px;line-height:20.8px}
+.tpf .tp-pkg-sub{font-size:14px;color:rgb(85,85,85);line-height:1.4}
 .tpf .tp-pkg-price{text-align:right;font-size:20px;font-weight:700;color:#000;line-height:1.4}
-.tpf .tp-pkg-price s{display:block;font-size:14px;font-weight:400;color:rgb(85,85,85);line-height:1.45}
+.tpf .tp-pkg-price s{display:block;font-size:14px;font-weight:400;color:rgb(85,85,85);line-height:1.4}
 .tpf .tp-pkg-badge{position:absolute;top:-10px;right:14px;background:var(--badge);color:#fff;font-family:sans-serif;font-size:12px;font-weight:700;padding:3px 7px;border-radius:0 0 5px 5px;line-height:1.5}
-.tpf .tp-units{display:none;margin-top:8px}
-.tpf .tp-pkg.tp-on .tp-units{display:block}
-.tpf .tp-units .tp-hint{font-size:12px;color:rgb(85,85,85)}
-.tpf .tp-unit{display:flex;align-items:center;gap:7px;margin-top:7px;font-size:12px;color:#000}
-.tpf .tp-unit span{width:15px}
+.tpf .tp-units{display:none;margin-top:-7px}
+.tpf .tp-pkg.tp-on .tp-units{display:flex;flex-direction:column}
+.tpf .tp-units .tp-hint{font-size:12px;line-height:16.8px;margin:3px 0;color:rgb(85,85,85)}
+.tpf .tp-unit{display:flex;align-items:center;height:36px;margin-top:5px;font-size:12px;line-height:16.8px;color:#000}
+.tpf .tp-unit span{width:20px;margin-right:2px}
 .tpf .tp-unit select{height:34px;font:inherit;font-size:14px;color:#000;background:#fff;border:1px solid rgba(0,0,0,.4);border-radius:4px;padding:0 6px;cursor:pointer}
-.tpf .tp-unit .tp-sz{width:150px}.tpf .tp-unit .tp-sd{width:68px}
-.tpf .tp-stock{display:flex;align-items:center;gap:8px;margin-top:15px;font-family:Arial,sans-serif;font-size:15px;color:rgb(230,149,0);line-height:27px}
+.tpf .tp-unit .tp-sz{width:150px;margin-right:7px}.tpf .tp-unit .tp-sd{width:68px}
+.tpf .tp-stock{display:flex;align-items:center;gap:8px;margin-top:15.7px;font-family:Arial,sans-serif;font-size:15px;color:rgb(230,149,0);line-height:27px}
 .tpf .tp-dot{position:relative;width:12px;height:12px;border-radius:50%;background:rgb(255,165,0);flex:none}
 .tpf .tp-dot:after{content:"";position:absolute;inset:0;border-radius:50%;background:rgb(255,165,0);animation:tpPulse 1.8s ease-out infinite}
 @keyframes tpPulse{from{transform:scale(1);opacity:.6}to{transform:scale(2.6);opacity:0}}
-.tpf .tp-atc{display:flex;align-items:center;justify-content:center;width:100%;height:49px;margin-top:9px;background:var(--orange);color:#fff;border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background .2s}
+.tpf .tp-atc{display:flex;align-items:center;justify-content:center;width:100%;height:49px;margin-top:8.3px;background:var(--orange);color:#fff;border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background .2s}
 .tpf .tp-atc:hover{background:rgb(180,76,3)}
 .tpf .tp-atc[disabled]{opacity:.7;cursor:wait}
 .tpf .tp-tbox{margin-top:15px;border:1px solid rgb(209,213,219);border-radius:12px;overflow:hidden}
-.tpf .tp-tbox .tp-pay{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:20px 16px 20px}
+.tpf .tp-tbox .tp-pay{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:8px;padding:16px;height:66.8px}
 .tpf .tp-tbox .tp-pay svg{width:38px;height:24px}
-.tpf .tp-hsa{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 20px;border-top:1px solid rgb(209,213,219);font-size:14px;color:rgb(17,24,39)}
+.tpf .tp-hsa{display:flex;align-items:center;gap:6px;height:60.8px;padding:16px 20px;border-top:1px solid rgb(209,213,219);font-size:14px;line-height:28.8px;color:rgb(17,24,39)}
 .tpf .tp-hsa b{font-weight:600}
 .tpf .tp-hsa .tp-save{display:inline-flex;align-items:center;gap:6px}
-.tpf .tp-hsa .tp-save svg{width:16px;height:16px;color:rgb(37,99,235)}
-.tpf .tp-hsa button{font-size:14px;font-weight:500;text-decoration:underline;letter-spacing:.06em;color:rgb(17,24,39)}
+.tpf .tp-hsa .tp-save svg{width:15px;height:15px;color:rgb(37,99,235)}
+.tpf .tp-hsa button{margin-left:auto;font-size:14px;font-weight:500;text-decoration:underline;letter-spacing:.06em;color:rgb(17,24,39)}
 .tpf .tp-hsa b,.tpf .tp-hsa .tp-save,.tpf .tp-hsa button{white-space:nowrap}
-.tpf .tp-comment{margin-top:19px;width:100%;height:auto}
-.tpf .tp-tabs{margin-top:16px}
+.tpf .tp-comment{margin-top:20px;width:100%;height:auto}
+.tpf .tp-tabs{margin-top:15px}
 .tpf .tp-tabs details{border-top:1px solid var(--line)}
 .tpf .tp-tabs details:last-child{border-bottom:1px solid var(--line)}
-.tpf .tp-tabs summary{display:flex;align-items:center;gap:10px;height:48px}
+.tpf .tp-tabs summary{display:flex;align-items:center;gap:10px;height:46.8px}
 .tpf .tp-tabs summary svg.tp-ic{width:22px;height:22px;color:var(--ink)}
 .tpf .tp-tabs summary h4{flex:1;font-size:15.6px;font-weight:700;color:var(--ink);letter-spacing:0}
 .tpf .tp-tabs .tp-body{padding:0 10px 16px}
@@ -155,22 +158,25 @@ body{overflow-x:clip}
   .tpf{font-size:15px;letter-spacing:.06em}
   .tpf .tp-wrap{padding:0 15px}
   .tpf .tp-hero{padding:0 0 30px}
-  .tpf .tp-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+  .tpf .tp-grid{grid-template-columns:minmax(0,1fr);gap:0}
   .tpf .tp-gal{position:static;margin:0 -15px}
   .tpf .tp-slides{border-radius:0}
-  .tpf .tp-thumbrow{margin-top:8px}
+  .tpf .tp-thumbrow{margin-top:0}
   .tpf .tp-thumbrow .tp-arr{width:25px}
-  .tpf .tp-thumbs{gap:0}
-  .tpf .tp-thumbs button{flex:0 0 63px;height:63px;border-radius:0;padding:0;border-width:2px}
+  .tpf .tp-thumbs{gap:7.5px;padding:7.5px 1px}
+  .tpf .tp-thumbs button{flex:0 0 calc(20% - 5px);border-radius:0;padding:0;border-width:2px}
   .tpf .tp-thumbs img{border-radius:0}
   .tpf h1.tp-title{font-size:28px}
   .tpf .tp-trust img{width:120px;height:40px}
   .tpf .tp-trust strong{font-size:13px}
+  .tpf .tp-trust span{line-height:1.3}
   .tpf .tp-benefits>strong{font-size:15px}
   .tpf .tp-pkg-top{gap:18px}
-  .tpf .tp-hsa{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;padding:16px 10px}
-  .tpf .tp-hsa button{flex-basis:100%;font-size:11px}
-  .tpf .tp-hsa .tp-save svg{width:13px;height:13px}
+  .tpf .tp-tbox .tp-pay{height:60px}
+  .tpf .tp-tbox .tp-pay svg{width:28.5px;height:18px}
+  .tpf .tp-hsa{flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:0 6px;height:80.8px;padding:14px 10px;font-size:11px;line-height:19.8px}
+  .tpf .tp-hsa button{flex-basis:100%;margin:6px 0 0;font-size:11px;line-height:19.8px}
+  .tpf .tp-hsa .tp-save svg{width:15px;height:15px}
   .tpf .tp-pills{padding-right:6px}
   .tpf .tp-sticky .tp-wrap{height:auto;padding:12px 15px}
   .tpf .tp-sticky img,.tpf .tp-sticky .tp-meta{display:none}
@@ -246,7 +252,7 @@ window.TPF = {
 
       <span class="tp-optlabel">Size</span>
       <div class="tp-pills" id="tpSize"></div>
-      <span class="tp-optlabel">Side</span>
+      <span class="tp-optlabel tp-optlabel2">Side</span>
       <div class="tp-pills" id="tpSide"></div>
       <button type="button" class="tp-sizing" data-open="tpSizeDlg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>Sizing chart</button>
 
@@ -279,7 +285,7 @@ window.TPF = {
         </div>
       </div>
 
-      <div class="tp-stock"><span class="tp-dot"></span>In stock - few items available</div>
+      <div class="tp-stock"><span class="tp-dot"></span><span>In stock - few items available</span></div>
       <button type="button" class="tp-atc" id="tpAtc">Add to cart</button>
 
       <div class="tp-tbox">
@@ -377,6 +383,20 @@ window.TPF = {
     });
   });
 
+  /* after adding: DropMagic's cart slider opens itself on /cart/add, else use the theme's drawer, else the cart page */
+  function openCart(){
+    if(document.querySelector('dm-sheet[data-sheet-open-on="cart"]'))return;
+    var hz=document.querySelector("cart-drawer-component");
+    if(hz){
+      var sec=hz.closest('[id^="shopify-section-"]'),id=sec&&sec.id.replace("shopify-section-","");
+      fetch(location.pathname+"?sections="+id).then(function(r){return r.json()}).then(function(d){
+        if(d&&d[id]){var n=new DOMParser().parseFromString(d[id],"text/html").querySelector("cart-drawer-component");if(n)hz.replaceWith(n),hz=n}
+      }).catch(function(){}).then(function(){(hz.open||hz.showDialog||function(){location.href=TPF.root+"cart"}).call(hz)});
+      return;
+    }
+    location.href=TPF.root+"cart";
+  }
+
   /* add to cart */
   var atc=$("#tpAtc");
   function addToCart(){
@@ -386,9 +406,10 @@ window.TPF = {
     ids.forEach(function(id){if(id)qty[id]=(qty[id]||0)+1});
     var items=Object.keys(qty).map(function(id){return {id:+id,quantity:qty[id]}});
     atc.disabled=true;atc.textContent="Adding…";
-    fetch(TPF.root+"cart/add.js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({items:items})})
+    (TPF.discountCode?fetch(TPF.root+"discount/"+encodeURIComponent(TPF.discountCode)):Promise.resolve())
+    .then(function(){return fetch(TPF.root+"cart/add.js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({items:items})})})
       .then(function(r){if(!r.ok)throw r;return r.json()})
-      .then(function(){location.href=TPF.discountCode?TPF.root+"discount/"+encodeURIComponent(TPF.discountCode)+"?redirect="+TPF.root+"cart":TPF.root+"cart"})
+      .then(function(){atc.disabled=false;atc.textContent="Add to cart";openCart()})
       .catch(function(){atc.disabled=false;atc.textContent="Add to cart";alert("Sorry, that size is unavailable. Please choose another.")});
   }
   atc.onclick=addToCart;
@@ -408,6 +429,7 @@ window.TPF = {
 </script>
 </div>
 
+{%- capture tp_chev_sm -%}<svg class="tp-chev" viewBox="5 8 14 8" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>{%- endcapture -%}
 {%- capture tp_yes -%}<svg class="tp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-label="Yes"><path d="M4 12.5 9.5 18 20 6"/></svg>{%- endcapture -%}
 {%- capture tp_no -%}<svg class="tp-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-label="No"><path d="M6 6l12 12M18 6 6 18"/></svg>{%- endcapture -%}
 <style>
@@ -428,41 +450,40 @@ body{overflow-x:clip}
 
 /* image + text */
 .tpc .tp-iwt{padding:96px 0 70px}
-.tpc .tp-iwt .tp-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.215fr);align-items:center}
-.tpc .tp-iwt.tp-right .tp-wrap{grid-template-columns:minmax(0,2.215fr) minmax(0,1fr)}
+.tpc .tp-iwt .tp-wrap{display:grid;grid-template-columns:calc((100% - 80px) / 3) minmax(0,1fr);align-items:center}
+.tpc .tp-iwt.tp-right .tp-wrap{grid-template-columns:minmax(0,1fr) calc((100% - 80px) / 3)}
 .tpc .tp-iwt.tp-right .tp-media{order:2}
 .tpc .tp-iwt .tp-media img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:12px}
-.tpc .tp-iwt .tp-txt{max-width:673px;margin:0 auto;text-align:center;color:var(--ink)}
-.tpc .tp-iwt h2{font-size:31.2px;font-weight:700;line-height:1.1;letter-spacing:0;margin-bottom:18px}
-.tpc .tp-iwt p{margin-top:10px}
-.tpc .tp-iwt h2+p{margin-top:0}
+.tpc .tp-iwt .tp-txt{padding:0 70px;text-align:center;color:var(--ink)}
+.tpc .tp-iwt h2{width:fit-content;margin:0 auto 20px;font-size:31.2px;font-weight:700;line-height:1.1;letter-spacing:0}
+.tpc .tp-iwt p{margin:0 0 10px}
 .tpc .tp-iwt b{font-weight:700}
-.tpc .tp-iwt ul{list-style:disc inside;margin:16px 0;color:var(--text)}
+.tpc .tp-iwt ul{list-style:disc inside;margin:16px 0;padding-left:20px;color:var(--text)}
 .tpc .tp-iwt .tp-fn{margin-top:10px;line-height:1.75}
 .tpc .tp-iwt .tp-fn b{display:block}
 
 /* comparison */
 .tpc .tp-cmp{padding:36px 0}
-.tpc .tp-cmp .tp-wrap{display:grid;grid-template-columns:minmax(0,565fr) minmax(0,615fr);align-items:center}
-.tpc .tp-cmp .tp-h2{padding:0 20px}
-.tpc .tp-cmp table{width:500px;margin:0 auto;border-collapse:separate;border-spacing:0;text-align:center}
-.tpc .tp-cmp th{font-size:18px;font-weight:700;line-height:1.3;color:var(--text);padding:0 0 4px;vertical-align:bottom}
-.tpc .tp-cmp th img{width:77px;height:77px;object-fit:contain;margin:0 auto}
-.tpc .tp-cmp td{height:49px;background:#fff;border-top:1px solid var(--line);vertical-align:middle}
-.tpc .tp-cmp td:first-child{width:222px;background:var(--green);color:rgb(253,251,247);font-size:16px;font-weight:700;line-height:1.1;letter-spacing:0;padding:8px 15px;border-top-color:rgba(255,255,255,.08)}
-.tpc .tp-cmp td:nth-child(2){width:92px}
+.tpc .tp-cmp .tp-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 50px;align-items:center}
+.tpc .tp-cmp .tp-h2{width:fit-content;margin:0 auto 30px}
+.tpc .tp-cmp table{width:100%;max-width:500px;margin:0 auto;border-collapse:separate;border-spacing:0;text-align:center}
+.tpc .tp-cmp th{height:87.1px;font-size:18px;font-weight:700;line-height:1.3;color:var(--text);padding:5px 7.5px;vertical-align:middle}
+.tpc .tp-cmp th img{width:77.1px;height:77.1px;object-fit:contain;margin:0 auto}
+.tpc .tp-cmp td{height:48.8px;padding:10px 20px;background:#fff;box-shadow:inset 0 1px 0 var(--line);vertical-align:middle}
+.tpc .tp-cmp td:first-child{width:222.4px;background:var(--green);color:rgb(253,251,247);font-size:16px;font-weight:700;line-height:1.1;letter-spacing:0;padding:10px 15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.tpc .tp-cmp td:nth-child(2){width:92.1px}
 .tpc .tp-cmp tbody{box-shadow:0 0 10px rgba(0,0,0,.12);border-radius:20px}
-.tpc .tp-cmp tbody tr:first-child td{border-top:0}
+.tpc .tp-cmp tbody tr:first-child td{box-shadow:none}
 .tpc .tp-cmp tbody tr:first-child td:first-child{border-top-left-radius:20px}
 .tpc .tp-cmp tbody tr:first-child td:last-child{border-top-right-radius:20px}
 .tpc .tp-cmp tbody tr:last-child td:first-child{border-bottom-left-radius:20px}
 .tpc .tp-cmp tbody tr:last-child td:last-child{border-bottom-right-radius:20px}
-.tpc .tp-cmp .tp-yes{width:24px;height:24px;color:rgb(83,168,26)}
-.tpc .tp-cmp .tp-no{width:19px;height:19px;color:var(--ink);stroke-width:3.4}
+.tpc .tp-cmp .tp-yes{width:20px;height:20px;color:rgb(83,168,26)}
+.tpc .tp-cmp .tp-no{width:14.8px;height:14.8px;color:var(--ink);stroke-width:3.4}
 
 /* testimonials */
 .tpc .tp-tst{padding:36px 0}
-.tpc .tp-tst .tp-h2{text-transform:uppercase}
+.tpc .tp-tst .tp-h2{width:fit-content;margin:0 auto;text-transform:uppercase}
 .tpc .tp-tst .tp-intro{text-align:center;margin-top:5px}
 .tpc .tp-tst-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:30px}
 .tpc .tp-card{background:rgb(245,245,245);border-radius:20px;overflow:hidden;text-align:center}
@@ -476,24 +497,27 @@ body{overflow-x:clip}
 
 /* faq */
 .tpc .tp-faq{padding:36px 0}
-.tpc .tp-faq-list{max-width:704px;margin:30px auto 0}
-.tpc .tp-faq details{border-top:1px solid var(--line)}
-.tpc .tp-faq details:last-child{border-bottom:1px solid var(--line)}
-.tpc .tp-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
-.tpc .tp-faq summary h3{font-size:15.6px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
-.tpc .tp-faq .tp-chev{width:16px;height:16px;flex:none;transition:transform .2s;color:var(--ink)}
+.tpc .tp-faq .tp-h2{max-width:704px;margin:0 auto 30px}
+.tpc .tp-faq-list{max-width:704px;margin:0 auto;padding-top:1px}
+.tpc .tp-faq details:first-child{margin-top:0}
+.tpc .tp-faq details{margin-top:1px;box-shadow:0 -1px 0 var(--line)}
+.tpc .tp-faq details:last-child{margin-bottom:1px;box-shadow:0 -1px 0 var(--line),0 1px 0 var(--line)}
+.tpc .tp-faq summary{display:flex;align-items:center;justify-content:space-between;padding:12.5px 0}
+.tpc .tp-faq summary h3{max-width:calc(100% - 60px);font-size:15.6px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
+.tpc .tp-faq .tp-chev{width:13px;height:7.8px;margin-right:15px;flex:none;transition:transform .2s;color:var(--ink)}
 .tpc .tp-faq details[open] .tp-chev{transform:rotate(180deg)}
 .tpc .tp-faq .tp-ans{padding:0 6px 14px}
 .tpc .tp-faq .tp-ans p+p{margin-top:16px}
 
 /* guarantee */
-.tpc .tp-grt{padding:76px 0 80px;text-align:center}
-.tpc .tp-grt .tp-in{max-width:880px;margin:0 auto}
-.tpc .tp-grt h2{font-size:24px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
+.tpc .tp-grt{padding:40px 0 52px;text-align:center}
+.tpc .tp-grt .tp-wrap{max-width:none;padding:20px 200px}
+.tpc .tp-grt .tp-in{max-width:none}
+.tpc .tp-grt h2{margin:16.08px 0 20px;font-size:24px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink)}
 .tpc .tp-grt img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin:40px auto}
-.tpc .tp-grt h3{font-size:20.8px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink);margin-bottom:16px}
-.tpc .tp-grt p{font-family:Arial,sans-serif;color:rgb(51,51,51)}
-.tpc .tp-grt p+p{margin-top:22px;font-weight:700}
+.tpc .tp-grt h3{font-size:20.8px;font-weight:700;line-height:1.1;letter-spacing:0;color:var(--ink);margin:.83em 0 10px}
+.tpc .tp-grt p{margin:1em 0;font-family:Arial,sans-serif;color:rgb(51,51,51)}
+.tpc .tp-grt p span{font-weight:700}
 
 @media (max-width:749px){
   .tpc{font-size:15px}
@@ -503,17 +527,22 @@ body{overflow-x:clip}
   .tpc .tp-iwt .tp-wrap,.tpc .tp-iwt.tp-right .tp-wrap{grid-template-columns:minmax(0,1fr)}
   .tpc .tp-iwt.tp-right .tp-media{order:0}
   .tpc .tp-iwt .tp-media img{width:100%;height:auto;aspect-ratio:1}
-  .tpc .tp-iwt .tp-txt{max-width:none;padding:20px 0 0;text-align:left}
+  .tpc .tp-iwt .tp-txt{padding:20px 0 0;text-align:left}
+  .tpc .tp-iwt h2{width:auto;margin:0 0 20px}
   .tpc .tp-iwt h2{font-size:26px}
   .tpc .tp-iwt ul{list-style-position:outside;padding-left:40px}
   .tpc .tp-cmp{padding:27px 0}
-  .tpc .tp-cmp .tp-wrap{grid-template-columns:minmax(0,1fr);gap:20px}
-  .tpc .tp-cmp .tp-h2{padding:0}
-  .tpc .tp-cmp table{width:100%}
+  .tpc .tp-cmp .tp-wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  .tpc .tp-cmp .tp-h2{width:auto;margin:0 0 20px}
+  .tpc .tp-cmp table{width:100%;max-width:none}
+  .tpc .tp-cmp th{height:54px}
+  .tpc .tp-cmp td{height:47px}
+  .tpc .tp-cmp .tp-yes{width:18px;height:18px}
   .tpc .tp-cmp th{font-size:15.3px}
   .tpc .tp-cmp th img{width:44px;height:44px}
-  .tpc .tp-cmp td:first-child{width:44%;font-size:15px;padding:8px 10px}
-  .tpc .tp-cmp td:nth-child(2){width:25%}
+  .tpc .tp-cmp th:nth-child(2){max-width:60px}
+  .tpc .tp-cmp td:first-child{width:156.2px;font-size:15px;line-height:1.1}
+  .tpc .tp-cmp td:nth-child(2){width:59px}
   .tpc .tp-tst{padding:27px 0}
   .tpc .tp-tst .tp-intro{margin:5px -15px 0}
   .tpc .tp-tst-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:30px -15px 0;padding:0 15px}
@@ -523,9 +552,12 @@ body{overflow-x:clip}
   .tpc .tp-tst-nav button{width:32px;height:32px;display:grid;place-items:center}
   .tpc .tp-tst-nav svg{width:16px;height:16px}
   .tpc .tp-faq{padding:27px 0}
-  .tpc .tp-faq-list{margin-top:30px}
-  .tpc .tp-faq summary{padding:13px 0}
-  .tpc .tp-grt{padding:50px 0 60px}
+  .tpc .tp-faq .tp-h2{margin-bottom:20px}
+  .tpc .tp-faq summary{padding:12.5px 0}
+  .tpc .tp-grt{padding:30px 0 39px}
+  .tpc .tp-grt .tp-wrap{padding:20px}
+  .tpc .tp-grt h2{margin:15.075px 0 20px;font-size:22.5px}
+  .tpc .tp-grt h3{font-size:19.5px}
 }
 </style>
 
@@ -643,13 +675,13 @@ body{overflow-x:clip}
   <div class="tp-wrap">
     <h2 class="tp-h2">Frequently Asked Questions</h2>
     <div class="tp-faq-list">
-      <details><summary><h3>Is the PeakFlex Knee Sleeve suitable for everyday use?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>Yes. The PeakFlex Knee Sleeve was specifically designed for everyday activities such as walking, working, climbing stairs, or standing for long periods of time.</p></div></details>
-      <details><summary><h3>Can I adjust the compression myself?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>Yes. With the built-in precision dial, you can adjust the compression to your liking—depending on how much support feels comfortable.</p></div></details>
-      <details><summary><h3>Does the sleeve slip when you walk?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>The PeakFlex Knee Sleeve features a non-slip silicone grip designed to help reduce slipping and rolling.</p></div></details>
-      <details><summary><h3>Can I wear the sleeve under my clothes?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>Yes. Its flexible and compact design ensures that the bandage can be worn comfortably under most everyday clothing.</p></div></details>
-      <details><summary><h3>Is the knee brace suitable for both knees?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>Yes. The PeakFlex Knee Sleeve can be worn on either the left or right knee.</p></div></details>
-      <details><summary><h3>Can I wear the sleeve for longer?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>The bandage was designed for everyday use. Many customers wear it while working, going for walks, or doing everyday activities.</p></div></details>
-      <details><summary><h3>Is there a money-back guarantee if the PeakFlex Knee Sleeve doesn't work?</h3>{{ tp_chev }}</summary><div class="tp-ans"><p>We offer a satisfaction guarantee! If you are not satisfied with the PeakFlex Knee Seeve, please contact us at info@peakflex.com for a return and refund within 90 days.</p><p>The period begins upon receipt of the product. It is important to us to support you as best as possible in your daily life. Therefore, we recommend wearing the PeakFlex Knee Sleeve daily for 2 weeks before making a final decision.</p></div></details>
+      <details><summary><h3>Is the PeakFlex Knee Sleeve suitable for everyday use?</h3>{{ tp_chev_sm }}</summary><div class="tp-ans"><p>Yes. The PeakFlex Knee Sleeve was specifically designed for everyday activities such as walking, working, climbing stairs, or standing for long periods of time.</p></div></details>
+      <details><summary><h3>Can I adjust the compression myself?</h3>{{ tp_chev_sm }}</summary><div class="tp-ans"><p>Yes. With the built-in precision dial, you can adjust the compression to your liking—depending on how much support feels comfortable.</p></div></details>
+      <details><summary><h3>Does the sleeve slip when you walk?</h3>{{ tp_chev_sm }}</summary><div class="tp-ans"><p>The PeakFlex Knee Sleeve features a non-slip silicone grip designed to help reduce slipping and rolling.</p></div></details>
+      <details><summary><h3>Can I wear the sleeve under my clothes?</h3>{{ tp_chev_sm }}</summary><div class="tp-ans"><p>Yes. Its flexible and compact design ensures that the bandage can be worn comfortably under most everyday clothing.</p></div></details>
+      <details><summary><h3>Is the knee brace suitable for both knees?</h3>{{ tp_chev_sm }}</summary><div class="tp-ans"><p>Yes. The PeakFlex Knee Sleeve can be worn on either the left or right knee.</p></div></details>
+      <details><summary><h3>Can I wear the sleeve for longer?</h3>{{ tp_chev_sm }}</summary><div class="tp-ans"><p>The bandage was designed for everyday use. Many customers wear it while working, going for walks, or doing everyday activities.</p></div></details>
+      <details><summary><h3>Is there a money-back guarantee if the PeakFlex Knee Sleeve doesn't work?</h3>{{ tp_chev_sm }}</summary><div class="tp-ans"><p>We offer a satisfaction guarantee! If you are not satisfied with the PeakFlex Knee Seeve, please contact us at info@peakflex.com for a return and refund within 90 days.</p><p>The period begins upon receipt of the product. It is important to us to support you as best as possible in your daily life. Therefore, we recommend wearing the PeakFlex Knee Sleeve daily for 2 weeks before making a final decision.</p></div></details>
     </div>
   </div>
 </section>
@@ -660,7 +692,7 @@ body{overflow-x:clip}
     <img src="{{ tp_cdn2 }}DAGEN_1_1.jpg" alt="90 days money-back guarantee" loading="lazy">
     <h3>Our promise to you:</h3>
     <p>We believe in the effectiveness of our products and don't want you to spend a single cent before you know that the product is right for you. That's why every order comes with a risk-free 90-day money-back guarantee. If for any reason you don't achieve the desired results, you'll get your money back.</p>
-    <p>In other words: You only pay once you are 100% satisfied with the product and are benefiting from it.</p>
+    <p><span>In other words: You only pay once you are 100% satisfied with the product and are benefiting from it.</span></p>
   </div></div>
 </section>
 
