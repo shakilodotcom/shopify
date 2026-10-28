@@ -1,9 +1,9 @@
 {%- comment -%}
-PeakFlex knee sleeve product page (single file).
-Paste the whole file into one "Custom Liquid" section on the product template.
-The package picker is a DropMagic bundle (needs dm-theme.css / dm-theme-vars.css in the theme and
-DropMagic's Quantity Breaks discount for the package prices at checkout).
-Optional: set discountCode below if the package prices come from a discount code.
+  PeakFlex knee sleeve product page (theme section).
+  Online Store > Themes > Edit code > Sections > Add a new section, paste this whole file, then add the
+  section to the product template in the theme editor. The package picker is the DropMagic Buy 1 get 1 /
+  Buy 2 get 2 bundle: it needs the DropMagic theme files (dm-theme.css, dm-theme-vars.css) and its
+  Quantity Breaks discount. Optional: set discountCode below if prices come from a discount code.
 {%- endcomment -%}
 {%- assign tp_cdn = 'https://cdn.shopify.com/s/files/1/1011/0720/4439/files/' -%}
 {%- assign tp_cdn2 = 'https://cdn.shopify.com/s/files/1/0789/7651/6423/files/' -%}
@@ -14,15 +14,15 @@ Optional: set discountCode below if the package prices come from a discount code
 .tpf{--ink:rgb(18,18,18);--text:rgba(18,18,18,.9);--navy:rgb(11,46,89);--grey:rgb(95,94,90);--line:rgba(18,18,18,.08);--orange:rgb(207,89,5);--badge:rgb(240,123,22);--green:rgb(0,150,0)}
 body{overflow-x:clip}
 .tpf,.tpf *{box-sizing:border-box}
-.tpf,.tpf :where(:not(.tp-dmb *)){margin:0;padding:0}
+.tpf,.tpf :where(:not(.pfl-dmb *)){margin:0;padding:0}
 .tpf{position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:#fff}
 .tpf{font-family:"Poppins",sans-serif;font-size:16px;line-height:1.8;letter-spacing:.06em;color:var(--text);text-align:left;-webkit-font-smoothing:antialiased}
-.tpf :where(h1,h2,h3,h4,h5,h6,p):where(:not(.tp-dmb *)){font:inherit;color:inherit;letter-spacing:inherit;text-transform:none}
+.tpf :where(h1,h2,h3,h4,h5,h6,p):where(:not(.pfl-dmb *)){font:inherit;color:inherit;letter-spacing:inherit;text-transform:none}
 .tpf summary,.tpf summary:hover{color:inherit}
-.tpf a{color:inherit}
-.tpf svg{display:inline-block;vertical-align:middle}
-.tpf img{display:block;max-width:100%}
-.tpf button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit;text-transform:none;min-height:0;box-shadow:none}
+.tpf a:where(:not(.pfl-dmb *)){color:inherit}
+.tpf svg:where(:not(.pfl-dmb *)){display:inline-block;vertical-align:middle}
+.tpf img:where(:not(.pfl-dmb *)){display:block;max-width:100%}
+.tpf button:where(:not(.pfl-dmb *)){font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit;text-transform:none;min-height:0;box-shadow:none}
 .tpf details>summary{list-style:none;cursor:pointer}
 .tpf details>summary::-webkit-details-marker{display:none}
 .tpf .tp-chev{width:16px;height:16px;flex:none;transition:transform .2s}
@@ -76,10 +76,12 @@ body{overflow-x:clip}
 .tpf .tp-sizing svg{width:22px;height:22px}
 .tpf .tp-pkg-title{display:flex;align-items:center;gap:16px;margin-top:15px;font-size:14px;font-weight:700;line-height:20px;color:#000}
 .tpf .tp-pkg-title:before,.tpf .tp-pkg-title:after{content:"";flex:1;height:1px;background:rgba(0,0,0,.25)}
-.tpf .tp-dmb{margin-top:14.8px;font-family:Inter,sans-serif;font-size:16px;line-height:1.6;letter-spacing:normal;color:var(--dm-foreground);background:none}
-.tpf .tp-dmb img{max-width:none}
-.tpf .tp-dmb dm-bundle-units [data-bundle-unit]{flex-wrap:nowrap}
-.tpf .tp-dmb dm-bundle-units select{flex:1 1 auto;min-width:0}
+/* Bundle picker keeps DropMagic's own typography. */
+.pfl-dmb{margin-top:4px;font-family:Inter,sans-serif;font-size:16px;line-height:1.6;letter-spacing:normal;color:var(--dm-foreground);background:none}
+.pfl-dmb img{max-width:none}
+.pfl-dmb dm-bundle-units [data-bundle-unit]{flex-wrap:nowrap}
+.pfl-dmb dm-bundle-units select:not([data-unit-proxy]){flex:1 1 auto;min-width:0}
+.pfl-dmb dm-bundle-units [data-unit-opt]{flex:0 0 auto;flex-wrap:nowrap}
 .tpf .tp-stock{display:flex;align-items:center;gap:8px;margin-top:15.7px;font-family:Arial,sans-serif;font-size:15px;color:rgb(230,149,0);line-height:27px}
 .tpf .tp-dot{position:relative;width:12px;height:12px;border-radius:50%;background:rgb(255,165,0);flex:none}
 .tpf .tp-dot:after{content:"";position:absolute;inset:0;border-radius:50%;background:rgb(255,165,0);animation:tpPulse 1.8s ease-out infinite}
@@ -223,22 +225,1032 @@ sides: {{ product.options_with_values[1].values | json }}
 <div class="tp-pills" id="tpSide"></div>
 <button type="button" class="tp-sizing" data-open="tpSizeDlg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>Sizing chart</button>
 <div class="tp-pkg-title">Select a package</div>
-{{ 'dm-theme.css' | asset_url | stylesheet_tag }}{{ 'dm-theme-vars.css' | asset_url | stylesheet_tag }}
-{%- assign tp_o0 = product.options_with_values[0] -%}{%- assign tp_o1 = product.options_with_values[1] -%}
-{%- capture tp_opts0 -%}{%- for v in tp_o0.values -%}<option value="{{ v | escape }}">{{ v | escape }}</option>{%- endfor -%}{%- endcapture -%}
-{%- comment -%} id|sleeves|buy|get|title|save %|save $|price|compare at|badge {%- endcomment -%}
-{%- assign tp_bars = 'qb-1|1|0|0|1 Piece|50|$40.03|$39.97|$80.00,qb-2|2|0|0|2 Pieces|69|$110.03|$49.97|$160.00|2-Pack Special,bxgy-2-2|4|2|2|2 + 2 FREE|78|$250.03|$69.97|$320.00|Best Offer' | split: ',' -%}
-<div class="tp-dmb" data-theme-combination="0"><dm-bundle data-dm-product-id="{{ product.id }}" data-bars='{"currency":"USD","items":[{"id":"qb-1","title":"1 Piece","isPreselected":false,"type":"quantity-breaks","quantity":1,"priceType":"fixedPrice","discountValue":3997},{"id":"qb-2","title":"2 Pieces","badge":"2-Pack Special","isPreselected":true,"type":"quantity-breaks","quantity":2,"priceType":"fixedPrice","discountValue":4997},{"id":"bxgy-2-2","title":"2 + 2 FREE","badge":"Best Offer","isPreselected":false,"type":"bxgy","buyQty":2,"getQty":2,"priceType":"fixedPrice","discountValue":6997,"getPriceType":"percent","getDiscountValue":100}]}' data-flex-direction="column" data-flex-gap="3" data-flex-align="stretch" data-flex-columns="auto" style="--dm-card-ring-color:color-mix(in oklch,var(--dm-border),var(--dm-foreground) 22%);--dm-card-ring-width:1px;--dm-radio-border-color:var(--dm-primary)">
-{%- for bar in tp_bars -%}{%- assign f = bar | split: '|' -%}{%- assign tp_n = f[1] | plus: 0 -%}{%- assign tp_buy = f[2] | plus: 0 -%}
-<div data-atom-type="card" data-bundle-bar data-bar-id="{{ f[0] }}" data-active="{% if f[0] == 'qb-2' %}true{% else %}false{% endif %}" data-card-padding="4" data-card-radius="md" data-shadow="none" data-atom-type="group" data-flex-direction="column" data-flex-gap="3" data-flex-align="stretch" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" data-custom-position{% if f[9] %} data-custom-padding-top{% endif %} style="--dm-custom-position:relative;{% if f[9] %}--dm-custom-padding-top:var(--dm-space-6){% endif %}">
-{%- if f[9] -%}<div data-atom-type="group" data-flex-direction="row" data-flex-gap="0" data-flex-align="center" data-flex-justify="center" data-flex-columns="auto" data-flex-wrap="nowrap" data-custom-top data-custom-right data-custom-padding data-custom-z-index data-custom-position style="--dm-custom-top:-8px;--dm-custom-right:12px;--dm-custom-padding:0 8px;--dm-custom-z-index:2;--dm-custom-position:absolute;background-size:8px 8px;background-image:linear-gradient(to bottom right,transparent 49.5%,color-mix(in oklch,var(--dm-primary) 70%,black) 50%),linear-gradient(to bottom left,transparent 49.5%,color-mix(in oklch,var(--dm-primary) 70%,black) 50%);background-repeat:no-repeat;background-position:0 0,100% 0"><span data-atom-type="badge" data-badge-variant="default" data-badge-size="sm" data-badge-radius="none" data-custom-padding style="--dm-badge-bg:var(--dm-primary);--dm-badge-color:var(--dm-primary-foreground);--dm-custom-padding:var(--dm-space-1_5) var(--dm-space-2);border-bottom-left-radius:var(--dm-radius-sm);border-bottom-right-radius:var(--dm-radius-sm)"><span data-atom-type="text" data-text-type="content" data-text-tag="span" data-text-align="left" data-text-size="content-xs" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color:inherit">{{ f[9] }}</span></span></div>{%- endif -%}
-<div data-atom-type="group" data-flex-direction="row" data-flex-gap="3" data-flex-align="center" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap"><span data-atom-type="radio-indicator" data-radio-size="md" aria-hidden="true"></span><div data-atom-type="group" data-flex-direction="column" data-flex-gap="0" data-flex-align="start" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" data-custom-min-width style="flex-grow:1;--dm-custom-min-width:0"><div data-atom-type="group" data-flex-direction="row" data-flex-gap="2" data-flex-align="center" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="wrap"><p data-atom-type="text" data-bind="bundle.title" data-text-type="content" data-text-tag="p" data-text-align="left" data-text-size="content-lg" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color:inherit">{{ f[4] }}</p><span data-atom-type="badge" data-badge-variant="primary" data-badge-size="sm" data-badge-radius="xl" style="border-radius:9999px"><span data-atom-type="text" data-text-type="content" data-text-tag="span" data-text-align="left" data-text-size="content-xs" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color:inherit">SAVE <span class="dm-hl" data-bind="bundle.discount_percentage">{{ f[5] }}%</span></span></span></div><p data-atom-type="text" data-text-type="content" data-text-tag="p" data-text-align="left" data-text-size="content-sm" data-text-weight="normal" data-text-decoration="none" style="--dm-text-color:var(--dm-muted-foreground)">Save <span class="dm-hl" data-bind="bundle.discount_value">{{ f[6] }}</span></p></div><div data-atom-type="group" data-flex-direction="column" data-flex-gap="0" data-flex-align="end" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" style="flex-shrink:0"><p data-atom-type="text" data-bind="bundle.tier_price" data-text-type="content" data-text-tag="p" data-text-align="right" data-text-size="content-xl" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color:var(--dm-foreground)">{{ f[7] }}</p><p data-atom-type="text" data-bind="bundle.compare_at" data-text-type="content" data-text-tag="p" data-text-align="right" data-text-size="content-md" data-text-weight="normal" data-text-decoration="line-through" style="--dm-text-color:var(--dm-muted-foreground)">{{ f[8] }}</p></div></div>
-<dm-bundle-units data-flex-direction="column" data-flex-gap="2" data-bundle-units-size="md" data-bar-id="{{ f[0] }}">
-{%- for i in (1..tp_n) -%}{%- assign k = forloop.index0 -%}{%- assign tp_sd = k | modulo: 2 -%}{%- assign tp_role = 'quantity-breaks' -%}{%- if tp_buy > 0 -%}{%- if k < tp_buy -%}{%- assign tp_role = 'buy' -%}{%- else -%}{%- assign tp_role = 'get' -%}{%- endif -%}{%- endif -%}
-<div data-bundle-unit data-unit-index="{{ k }}" data-bar-id="{{ f[0] }}" data-unit-role="{{ tp_role }}" data-flex-direction="row" data-flex-align="center" data-flex-gap="2"><span data-bundle-unit-media><img data-bundle-unit-thumb src="{{ product.featured_image | image_url: width: 96 }}" alt="" width="44" height="44" loading="lazy"><span data-bundle-unit-index>#{{ forloop.index }}</span></span><select data-dm-bundle-unit="{{ f[0] }}:{{ k }}" data-option-index="0" data-dm-product-id="{{ product.id }}" aria-label="{{ tp_o0.name | escape }}">{{ tp_opts0 }}</select><select data-dm-bundle-unit="{{ f[0] }}:{{ k }}" data-option-index="1" data-dm-product-id="{{ product.id }}" aria-label="{{ tp_o1.name | escape }}">{%- for v in tp_o1.values -%}<option value="{{ v | escape }}"{% if forloop.index0 == tp_sd %} selected{% endif %}>{{ v | escape }}</option>{%- endfor -%}</select></div>
-{%- endfor -%}</dm-bundle-units></div>
-{%- endfor -%}
-</dm-bundle></div>
+{%- assign current_variant = product.selected_or_first_available_variant -%}{%- if section.settings.show_bundle -%}{{ 'dm-theme.css' | asset_url | stylesheet_tag }}{{ 'dm-theme-vars.css' | asset_url | stylesheet_tag }}<div class="pfl-dmb" data-theme-combination="0"><dm-bundle
+  
+data-dm-product-id="{{ product.id }}"
+data-bars="{&quot;currency&quot;:&quot;USD&quot;,&quot;items&quot;:[{&quot;id&quot;:&quot;bxgy-tier-1&quot;,&quot;title&quot;:&quot;Buy 1, get 1 Free&quot;,&quot;isPreselected&quot;:true,&quot;type&quot;:&quot;bxgy&quot;,&quot;buyQty&quot;:1,&quot;getQty&quot;:1,&quot;priceType&quot;:&quot;fullPrice&quot;,&quot;discountValue&quot;:0,&quot;getPriceType&quot;:&quot;percent&quot;,&quot;getDiscountValue&quot;:100},{&quot;id&quot;:&quot;bxgy-tier-2&quot;,&quot;title&quot;:&quot;Buy 2, get 2 Free&quot;,&quot;badge&quot;:&quot;Most Popular&quot;,&quot;isPreselected&quot;:false,&quot;type&quot;:&quot;bxgy&quot;,&quot;buyQty&quot;:2,&quot;getQty&quot;:2,&quot;priceType&quot;:&quot;fullPrice&quot;,&quot;discountValue&quot;:0,&quot;getPriceType&quot;:&quot;percent&quot;,&quot;getDiscountValue&quot;:100}]}"
+  data-flex-direction="column"
+  
+  data-flex-gap="3"
+  
+  data-flex-align="stretch"
+  
+data-flex-columns="auto"
+  
+  
+  style="--dm-card-ring-color: color-mix(in oklch, var(--dm-border), var(--dm-foreground) 22%);--dm-card-ring-width: 1px;--dm-radio-border-color: var(--dm-primary);"
+  data-mt="3"
+  
+  
+>
+  {%- assign pfb_tier = current_variant.price | times: 1 -%}{%- assign pfb_unit_cmp = current_variant.compare_at_price | default: current_variant.price -%}{%- if pfb_unit_cmp < current_variant.price -%}{%- assign pfb_unit_cmp = current_variant.price -%}{%- endif -%}{%- assign pfb_cmp = pfb_unit_cmp | times: 2 -%}{%- assign pfb_save = pfb_cmp | minus: pfb_tier -%}{%- assign pfb_pct = pfb_save | times: 100 | divided_by: pfb_cmp | floor -%}<div
+  data-atom-type="card"
+  
+  
+data-bundle-bar data-bar-id="bxgy-tier-1" data-active="false"
+
+  data-card-padding="4"
+  
+  data-card-radius="md"
+data-shadow="none"
+  data-flex-direction="column"
+  
+  data-flex-gap="3"
+  
+  data-flex-align="stretch"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  data-custom-position
+  style="--dm-custom-position: relative;"
+  
+  
+  
+>
+  <div
+  data-atom-type="group"
+  
+  data-flex-direction="row"
+  
+  data-flex-gap="3"
+  
+  data-flex-align="center"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  
+  
+  
+  
+  
+><span
+  data-atom-type="radio-indicator"
+  data-radio-size="md"
+  
+  
+  aria-hidden="true"
+  
+></span>
+
+
+
+<div
+  data-atom-type="group"
+  
+  data-flex-direction="column"
+  
+  data-flex-gap="0"
+  
+  data-flex-align="start"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  data-custom-min-width
+  style="flex-grow: 1;--dm-custom-min-width: 0;"
+  
+  
+  
+><div
+  data-atom-type="group"
+  
+  data-flex-direction="row"
+  
+  data-flex-gap="2"
+  
+  data-flex-align="center"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="wrap"
+  
+  
+  
+  
+  
+  
+>
+  <p
+  data-atom-type="text"
+  
+  data-bind="bundle.title"
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="left"
+  
+  data-text-size="content-lg"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: inherit;"
+  
+  
+  
+>Buy 1, get 1 Free</p><span
+  data-atom-type="badge"
+  data-badge-variant="primary"
+  data-badge-size="sm"
+  data-badge-radius="xl"
+  
+  style="border-radius: 9999px;
+"
+  
+  
+  
+>
+  <span
+  data-atom-type="text"
+  
+  
+  
+  data-text-type="content"
+  data-text-tag="span"
+  data-text-align="left"
+  
+  data-text-size="content-xs"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: inherit;"
+  
+  
+  
+>SAVE <span class="dm-hl" data-bind="bundle.discount_percentage">{{ pfb_pct }}%</span></span>
+</span>
+
+
+</div>
+
+
+
+
+  
+
+</div>
+
+
+
+<div
+  data-atom-type="group"
+  
+  data-flex-direction="column"
+  
+  data-flex-gap="0"
+  
+  data-flex-align="end"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  
+  style="flex-shrink: 0;"
+  
+  
+  
+><p
+  data-atom-type="text"
+  
+  data-bind="bundle.tier_price"
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="right"
+  
+  data-text-size="content-xl"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: var(--dm-foreground);"
+  
+  
+  
+>{{ pfb_tier | money }}</p>
+
+
+<p
+  data-atom-type="text"
+  
+  data-bind="bundle.compare_at"
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="right"
+  
+  data-text-size="content-md"
+  
+  data-text-weight="normal"
+  
+  data-text-decoration="line-through"
+  
+  style="--dm-text-color: var(--dm-muted-foreground);"
+  
+  
+  
+>{{ pfb_cmp | money }}</p>
+
+
+
+  
+
+</div>
+
+
+
+
+  
+
+</div>
+
+
+
+<dm-bundle-units
+  data-flex-direction="column"
+  
+  data-flex-gap="2"
+  
+  data-bundle-units-size="md"
+  data-bar-id="bxgy-tier-1"
+  
+  
+  
+  
+  
+>{%- assign pfb_side = current_variant.options[1] -%}{%- assign pfb_opt2 = product.options_with_values[1].name | downcase -%}{%- if pfb_opt2 == 'side' and product.options_with_values[1].values.size > 1 -%}{%- assign pfb_side = product.options_with_values[1].values[0] -%}{%- endif -%}<div
+        data-bundle-unit
+        data-unit-index="0"
+        data-bar-id="bxgy-tier-1"
+        data-unit-role="buy"
+        data-flex-direction="row"
+        data-flex-align="center"
+        data-flex-gap="2"
+      ><span data-bundle-unit-media><img
+            data-bundle-unit-thumb
+            src="{{ product.featured_image | image_url: width: 96 }}"
+            alt=""
+            width="44"
+            height="44"
+            loading="lazy"
+          ><span data-bundle-unit-index>#1</span></span><select
+                data-dm-bundle-unit="bxgy-tier-1:0"
+                data-option-index="0"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[0].name | escape }}"
+                aria-label="{{ product.options_with_values[0].name | escape }}"
+                
+              >{%- for value in product.options_with_values[0].values -%}<option value="{{ value | escape }}"{% if current_variant.options[0] == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>
+{%- if product.options.size > 1 -%}<select
+                data-dm-bundle-unit="bxgy-tier-1:0"
+                data-option-index="1"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[1].name | escape }}"
+                aria-label="{{ product.options_with_values[1].name | escape }}"
+                
+              >{%- for value in product.options_with_values[1].values -%}<option value="{{ value | escape }}"{% if pfb_side == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>{%- endif -%}
+</div>{%- assign pfb_side = current_variant.options[1] -%}{%- assign pfb_opt2 = product.options_with_values[1].name | downcase -%}{%- if pfb_opt2 == 'side' and product.options_with_values[1].values.size > 1 -%}{%- assign pfb_side = product.options_with_values[1].values[1] -%}{%- endif -%}<div
+        data-bundle-unit
+        data-unit-index="1"
+        data-bar-id="bxgy-tier-1"
+        data-unit-role="get"
+        data-flex-direction="row"
+        data-flex-align="center"
+        data-flex-gap="2"
+      ><span data-bundle-unit-media><img
+            data-bundle-unit-thumb
+            src="{{ product.featured_image | image_url: width: 96 }}"
+            alt=""
+            width="44"
+            height="44"
+            loading="lazy"
+          ><span data-bundle-unit-index>#2</span></span><select
+                data-dm-bundle-unit="bxgy-tier-1:1"
+                data-option-index="0"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[0].name | escape }}"
+                aria-label="{{ product.options_with_values[0].name | escape }}"
+                
+              >{%- for value in product.options_with_values[0].values -%}<option value="{{ value | escape }}"{% if current_variant.options[0] == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>
+{%- if product.options.size > 1 -%}<select
+                data-dm-bundle-unit="bxgy-tier-1:1"
+                data-option-index="1"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[1].name | escape }}"
+                aria-label="{{ product.options_with_values[1].name | escape }}"
+                
+              >{%- for value in product.options_with_values[1].values -%}<option value="{{ value | escape }}"{% if pfb_side == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>{%- endif -%}
+</div></dm-bundle-units>
+
+
+
+
+  
+
+</div>
+
+
+
+{%- assign pfb_tier = current_variant.price | times: 2 -%}{%- assign pfb_unit_cmp = current_variant.compare_at_price | default: current_variant.price -%}{%- if pfb_unit_cmp < current_variant.price -%}{%- assign pfb_unit_cmp = current_variant.price -%}{%- endif -%}{%- assign pfb_cmp = pfb_unit_cmp | times: 4 -%}{%- assign pfb_save = pfb_cmp | minus: pfb_tier -%}{%- assign pfb_pct = pfb_save | times: 100 | divided_by: pfb_cmp | floor -%}<div
+  data-atom-type="card"
+  
+  
+data-bundle-bar data-bar-id="bxgy-tier-2" data-active="false"
+
+  data-card-padding="4"
+  
+  data-card-radius="md"
+data-shadow="none"
+  data-flex-direction="column"
+  
+  data-flex-gap="3"
+  
+  data-flex-align="stretch"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  data-custom-position data-custom-padding-top
+  style="--dm-custom-position: relative;--dm-custom-padding-top: var(--dm-space-6);"
+  
+  
+  
+>
+  <div
+  data-atom-type="group"
+  
+  data-flex-direction="row"
+  
+  data-flex-gap="0"
+  
+  data-flex-align="center"
+  
+  data-flex-justify="center"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  data-custom-top data-custom-right data-custom-padding data-custom-z-index data-custom-position
+  style="--dm-custom-top: -8px;--dm-custom-right: 12px;--dm-custom-padding: 0 8px;--dm-custom-z-index: 2;--dm-custom-position: absolute;background-size: 8px 8px;background-image: linear-gradient(to bottom right, transparent 49.5%, color-mix(in oklch, var(--dm-primary) 70%, black) 50%), linear-gradient(to bottom left, transparent 49.5%, color-mix(in oklch, var(--dm-primary) 70%, black) 50%);background-repeat: no-repeat;background-position: 0 0, 100% 0;"
+  
+  
+  
+><span
+  data-atom-type="badge"
+  data-badge-variant="default"
+  data-badge-size="sm"
+  data-badge-radius="none"
+  data-custom-padding
+  style="--dm-badge-bg: var(--dm-primary);--dm-badge-color: var(--dm-primary-foreground);--dm-custom-padding: var(--dm-space-1_5) var(--dm-space-2);border-bottom-left-radius: var(--dm-radius-sm);border-bottom-right-radius: var(--dm-radius-sm);
+"
+  
+  
+  
+>
+  <span
+  data-atom-type="text"
+  
+  
+  
+  data-text-type="content"
+  data-text-tag="span"
+  data-text-align="left"
+  
+  data-text-size="content-xs"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: inherit;"
+  
+  
+  
+>Most popular</span>
+
+
+
+  
+
+</span>
+
+
+
+
+  
+
+</div>
+
+
+
+<div
+  data-atom-type="group"
+  
+  data-flex-direction="row"
+  
+  data-flex-gap="3"
+  
+  data-flex-align="center"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  
+  
+  
+  
+  
+><span
+  data-atom-type="radio-indicator"
+  data-radio-size="md"
+  
+  
+  aria-hidden="true"
+  
+></span>
+
+
+
+<div
+  data-atom-type="group"
+  
+  data-flex-direction="column"
+  
+  data-flex-gap="0"
+  
+  data-flex-align="start"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  data-custom-min-width
+  style="flex-grow: 1;--dm-custom-min-width: 0;"
+  
+  
+  
+><div
+  data-atom-type="group"
+  
+  data-flex-direction="row"
+  
+  data-flex-gap="2"
+  
+  data-flex-align="center"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="wrap"
+  
+  
+  
+  
+  
+  
+>
+  <p
+  data-atom-type="text"
+  
+  data-bind="bundle.title"
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="left"
+  
+  data-text-size="content-lg"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: inherit;"
+  
+  
+  
+>Buy 2, get 2 Free</p><span
+  data-atom-type="badge"
+  data-badge-variant="primary"
+  data-badge-size="sm"
+  data-badge-radius="xl"
+  
+  style="border-radius: 9999px;
+"
+  
+  
+  
+>
+  <span
+  data-atom-type="text"
+  
+  
+  
+  data-text-type="content"
+  data-text-tag="span"
+  data-text-align="left"
+  
+  data-text-size="content-xs"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: inherit;"
+  
+  
+  
+>SAVE <span class="dm-hl" data-bind="bundle.discount_percentage">{{ pfb_pct }}%</span></span>
+</span>
+
+
+</div>
+
+
+
+<p
+  data-atom-type="text"
+  
+  
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="left"
+  
+  data-text-size="content-sm"
+  
+  data-text-weight="normal"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: var(--dm-muted-foreground);"
+  
+  
+  
+>Save <span class="dm-hl" data-bind="bundle.discount_value">{{ pfb_save | money }}</span></p>
+
+
+
+  
+
+</div>
+
+
+
+<div
+  data-atom-type="group"
+  
+  data-flex-direction="column"
+  
+  data-flex-gap="0"
+  
+  data-flex-align="end"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  
+  style="flex-shrink: 0;"
+  
+  
+  
+><p
+  data-atom-type="text"
+  
+  data-bind="bundle.tier_price"
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="right"
+  
+  data-text-size="content-xl"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: var(--dm-foreground);"
+  
+  
+  
+>{{ pfb_tier | money }}</p>
+
+
+<p
+  data-atom-type="text"
+  
+  data-bind="bundle.compare_at"
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="right"
+  
+  data-text-size="content-md"
+  
+  data-text-weight="normal"
+  
+  data-text-decoration="line-through"
+  
+  style="--dm-text-color: var(--dm-muted-foreground);"
+  
+  
+  
+>{{ pfb_cmp | money }}</p>
+
+
+
+  
+
+</div>
+
+
+
+
+  
+
+</div>
+
+
+
+<dm-bundle-units
+  data-flex-direction="column"
+  
+  data-flex-gap="2"
+  
+  data-bundle-units-size="md"
+  data-bar-id="bxgy-tier-2"
+  
+  
+  
+  
+  
+>{%- assign pfb_side = current_variant.options[1] -%}{%- assign pfb_opt2 = product.options_with_values[1].name | downcase -%}{%- if pfb_opt2 == 'side' and product.options_with_values[1].values.size > 1 -%}{%- assign pfb_side = product.options_with_values[1].values[0] -%}{%- endif -%}<div
+        data-bundle-unit
+        data-unit-index="0"
+        data-bar-id="bxgy-tier-2"
+        data-unit-role="buy"
+        data-flex-direction="row"
+        data-flex-align="center"
+        data-flex-gap="2"
+      ><span data-bundle-unit-media><img
+            data-bundle-unit-thumb
+            src="{{ product.featured_image | image_url: width: 96 }}"
+            alt=""
+            width="44"
+            height="44"
+            loading="lazy"
+          ><span data-bundle-unit-index>#1</span></span><select
+                data-dm-bundle-unit="bxgy-tier-2:0"
+                data-option-index="0"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[0].name | escape }}"
+                aria-label="{{ product.options_with_values[0].name | escape }}"
+                
+              >{%- for value in product.options_with_values[0].values -%}<option value="{{ value | escape }}"{% if current_variant.options[0] == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>
+{%- if product.options.size > 1 -%}<span data-unit-opt data-mode="text-button">
+                  <select
+                data-dm-bundle-unit="bxgy-tier-2:0"
+                data-option-index="1"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[1].name | escape }}"
+                aria-label="{{ product.options_with_values[1].name | escape }}"
+                data-unit-proxy
+              >{%- for value in product.options_with_values[1].values -%}<option value="{{ value | escape }}"{% if pfb_side == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>{%- for value in product.options_with_values[1].values -%}<button type="button" data-unit-value="{{ value | escape }}"{% if pfb_side == value %} data-selected{% endif %}>{{ value | escape }}</button>{%- endfor -%}</span>{%- endif -%}</div>{%- assign pfb_side = current_variant.options[1] -%}{%- assign pfb_opt2 = product.options_with_values[1].name | downcase -%}{%- if pfb_opt2 == 'side' and product.options_with_values[1].values.size > 1 -%}{%- assign pfb_side = product.options_with_values[1].values[1] -%}{%- endif -%}<div
+        data-bundle-unit
+        data-unit-index="1"
+        data-bar-id="bxgy-tier-2"
+        data-unit-role="buy"
+        data-flex-direction="row"
+        data-flex-align="center"
+        data-flex-gap="2"
+      ><span data-bundle-unit-media><img
+            data-bundle-unit-thumb
+            src="{{ product.featured_image | image_url: width: 96 }}"
+            alt=""
+            width="44"
+            height="44"
+            loading="lazy"
+          ><span data-bundle-unit-index>#2</span></span><select
+                data-dm-bundle-unit="bxgy-tier-2:1"
+                data-option-index="0"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[0].name | escape }}"
+                aria-label="{{ product.options_with_values[0].name | escape }}"
+                
+              >{%- for value in product.options_with_values[0].values -%}<option value="{{ value | escape }}"{% if current_variant.options[0] == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>
+{%- if product.options.size > 1 -%}<span data-unit-opt data-mode="text-button">
+                  <select
+                data-dm-bundle-unit="bxgy-tier-2:1"
+                data-option-index="1"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[1].name | escape }}"
+                aria-label="{{ product.options_with_values[1].name | escape }}"
+                data-unit-proxy
+              >{%- for value in product.options_with_values[1].values -%}<option value="{{ value | escape }}"{% if pfb_side == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>{%- for value in product.options_with_values[1].values -%}<button type="button" data-unit-value="{{ value | escape }}"{% if pfb_side == value %} data-selected{% endif %}>{{ value | escape }}</button>{%- endfor -%}</span>{%- endif -%}</div>{%- assign pfb_side = current_variant.options[1] -%}{%- assign pfb_opt2 = product.options_with_values[1].name | downcase -%}{%- if pfb_opt2 == 'side' and product.options_with_values[1].values.size > 1 -%}{%- assign pfb_side = product.options_with_values[1].values[0] -%}{%- endif -%}<div
+        data-bundle-unit
+        data-unit-index="2"
+        data-bar-id="bxgy-tier-2"
+        data-unit-role="get"
+        data-flex-direction="row"
+        data-flex-align="center"
+        data-flex-gap="2"
+      ><span data-bundle-unit-media><img
+            data-bundle-unit-thumb
+            src="{{ product.featured_image | image_url: width: 96 }}"
+            alt=""
+            width="44"
+            height="44"
+            loading="lazy"
+          ><span data-bundle-unit-index>#3</span></span><select
+                data-dm-bundle-unit="bxgy-tier-2:2"
+                data-option-index="0"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[0].name | escape }}"
+                aria-label="{{ product.options_with_values[0].name | escape }}"
+                
+              >{%- for value in product.options_with_values[0].values -%}<option value="{{ value | escape }}"{% if current_variant.options[0] == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>
+{%- if product.options.size > 1 -%}<span data-unit-opt data-mode="text-button">
+                  <select
+                data-dm-bundle-unit="bxgy-tier-2:2"
+                data-option-index="1"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[1].name | escape }}"
+                aria-label="{{ product.options_with_values[1].name | escape }}"
+                data-unit-proxy
+              >{%- for value in product.options_with_values[1].values -%}<option value="{{ value | escape }}"{% if pfb_side == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>{%- for value in product.options_with_values[1].values -%}<button type="button" data-unit-value="{{ value | escape }}"{% if pfb_side == value %} data-selected{% endif %}>{{ value | escape }}</button>{%- endfor -%}</span>{%- endif -%}</div>{%- assign pfb_side = current_variant.options[1] -%}{%- assign pfb_opt2 = product.options_with_values[1].name | downcase -%}{%- if pfb_opt2 == 'side' and product.options_with_values[1].values.size > 1 -%}{%- assign pfb_side = product.options_with_values[1].values[1] -%}{%- endif -%}<div
+        data-bundle-unit
+        data-unit-index="3"
+        data-bar-id="bxgy-tier-2"
+        data-unit-role="get"
+        data-flex-direction="row"
+        data-flex-align="center"
+        data-flex-gap="2"
+      ><span data-bundle-unit-media><img
+            data-bundle-unit-thumb
+            src="{{ product.featured_image | image_url: width: 96 }}"
+            alt=""
+            width="44"
+            height="44"
+            loading="lazy"
+          ><span data-bundle-unit-index>#4</span></span><select
+                data-dm-bundle-unit="bxgy-tier-2:3"
+                data-option-index="0"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[0].name | escape }}"
+                aria-label="{{ product.options_with_values[0].name | escape }}"
+                
+              >{%- for value in product.options_with_values[0].values -%}<option value="{{ value | escape }}"{% if current_variant.options[0] == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>
+{%- if product.options.size > 1 -%}<span data-unit-opt data-mode="text-button">
+                  <select
+                data-dm-bundle-unit="bxgy-tier-2:3"
+                data-option-index="1"
+                data-dm-product-id="{{ product.id }}"
+                data-variant-option-name="{{ product.options_with_values[1].name | escape }}"
+                aria-label="{{ product.options_with_values[1].name | escape }}"
+                data-unit-proxy
+              >{%- for value in product.options_with_values[1].values -%}<option value="{{ value | escape }}"{% if pfb_side == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>{%- for value in product.options_with_values[1].values -%}<button type="button" data-unit-value="{{ value | escape }}"{% if pfb_side == value %} data-selected{% endif %}>{{ value | escape }}</button>{%- endfor -%}</span>{%- endif -%}</div></dm-bundle-units>
+
+
+
+<div
+  data-atom-type="group"
+  
+  data-flex-direction="column"
+  
+  data-flex-gap="0"
+  
+  data-flex-align="stretch"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  data-dm-tag-bundle-booster
+  style="background: color-mix(in oklch, var(--dm-primary) 15%, var(--dm-card));"
+  
+  
+  
+><div
+  data-atom-type="group"
+  
+  data-flex-direction="row"
+  
+  data-flex-gap="2"
+  
+  data-flex-align="center"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  data-dm-tag-bundle-booster-row
+  style="border-top: 1px solid color-mix(in oklch, var(--dm-primary) 25%, transparent);"
+  
+  
+  
+><span
+  data-atom-type="icon"
+  data-icon-size="sm"
+  data-icon-size-sm="xl"
+  
+  style="display: inline-flex; line-height: 0; --dm-icon-color: var(--dm-primary);"
+  
+  
+  
+><img src="https://cdn.dropmagic.ai/medias/4d77cf60-af2b-4fa7-9145-adfb5d3ccc9f.webp" alt="" loading="lazy"></span>
+
+
+
+<p
+  data-atom-type="text"
+  
+  
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="left"
+  
+  data-text-size="content-sm"
+  data-text-size-sm="content-xs"
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  data-custom-min-width
+  style="--dm-text-color: hsla(0, 0%, 12.94%, 1);flex-grow: 1;--dm-custom-min-width: 0;"
+  
+  
+  
+>Stretching Strap With Your Order</p>
+
+
+<p
+  data-atom-type="text"
+  
+  
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="right"
+  
+  data-text-size="content-sm"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: var(--dm-primary);flex-shrink: 0;"
+  
+  
+  
+>FREE</p>
+
+
+
+  
+
+</div>
+
+
+
+<div
+  data-atom-type="group"
+  
+  data-flex-direction="row"
+  
+  data-flex-gap="2"
+  
+  data-flex-align="center"
+  
+  data-flex-justify="start"
+  
+  data-flex-columns="auto"
+  
+  data-flex-wrap="nowrap"
+  
+  data-dm-tag-bundle-booster-row
+  style="border-top: 1px solid color-mix(in oklch, var(--dm-primary) 25%, transparent);"
+  
+  
+  
+><span
+  data-atom-type="icon"
+  data-icon-size="sm"
+  data-icon-size-sm="xl"
+  
+  style="display: inline-flex; line-height: 0; --dm-icon-color: var(--dm-primary);"
+  
+  
+  
+><img src="https://cdn.dropmagic.ai/medias/c7691528-5f72-45cd-b661-70bbc425494d.webp" alt="" loading="lazy"></span>
+
+
+
+<p
+  data-atom-type="text"
+  
+  
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="left"
+  
+  data-text-size="content-sm"
+  data-text-size-sm="content-xs"
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  data-custom-min-width
+  style="--dm-text-color: hsla(0, 0%, 12.94%, 1);flex-grow: 1;--dm-custom-min-width: 0;"
+  
+  
+  
+>Fit & Comfort Guide</p>
+
+
+<p
+  data-atom-type="text"
+  
+  
+  
+  data-text-type="content"
+  data-text-tag="p"
+  data-text-align="right"
+  
+  data-text-size="content-sm"
+  
+  data-text-weight="bold"
+  
+  data-text-decoration="none"
+  
+  style="--dm-text-color: var(--dm-primary);flex-shrink: 0;"
+  
+  
+  
+>FREE</p>
+
+
+
+  
+
+</div>
+
+
+
+
+  
+
+</div>
+
+
+
+
+  
+
+</div>
+
+
+
+
+  
+
+</dm-bundle>
+</div>{%- endif -%}
 <div class="tp-stock"><span class="tp-dot"></span><span>In stock - few items available</span></div>
 <button type="button" class="tp-atc" id="tpAtc">Add to cart</button>
 <div class="tp-tbox">
@@ -289,6 +1301,59 @@ sides: {{ product.options_with_values[1].values | json }}
 </div>
 </div>
 <script>
+/* DropMagic-style bundle picker: card selection and text-button option toggles. */
+(function () {
+  if (window.__pflBundleLoaded) return;
+  window.__pflBundleLoaded = true;
+
+  function selectBar(bundle, card) {
+    bundle.querySelectorAll('[data-bundle-bar]').forEach(function (c) {
+      c.setAttribute('data-active', c === card ? 'true' : 'false');
+    });
+  }
+
+  function init(bundle) {
+    if (bundle.__pflReady) return;
+    bundle.__pflReady = true;
+    var cards = bundle.querySelectorAll('[data-bundle-bar]');
+    if (!cards.length) return;
+    var pre = null;
+    try {
+      var raw = JSON.parse(bundle.getAttribute('data-bars') || '[]');
+      (Array.isArray(raw) ? raw : raw.items || []).some(function (b) { return b.isPreselected && (pre = b.id); });
+    } catch (e) {}
+    var chosen = pre && bundle.querySelector('[data-bundle-bar][data-bar-id="' + pre + '"]');
+    selectBar(bundle, chosen || cards[0]);
+
+    bundle.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-unit-value]');
+      if (btn && bundle.contains(btn)) {
+        var wrap = btn.closest('[data-unit-opt]');
+        var sel = wrap && wrap.querySelector('select');
+        if (sel && sel.value !== btn.getAttribute('data-unit-value')) {
+          sel.value = btn.getAttribute('data-unit-value');
+          sel.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+      }
+      var card = e.target.closest('[data-bundle-bar]');
+      if (card && bundle.contains(card)) selectBar(bundle, card);
+    });
+
+    bundle.addEventListener('change', function (e) {
+      var wrap = e.target.closest && e.target.closest('[data-unit-opt]');
+      if (!wrap) return;
+      wrap.querySelectorAll('[data-unit-value]').forEach(function (b) {
+        if (b.getAttribute('data-unit-value') === e.target.value) b.setAttribute('data-selected', '');
+        else b.removeAttribute('data-selected');
+      });
+    });
+  }
+
+  function run() { document.querySelectorAll('.pfl-dmb dm-bundle').forEach(init); }
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', run) : run();
+})();
+</script>
+<script>
 (function(){
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var slides=$("#tpSlides"),thumbs=$("#tpThumbs");
@@ -306,16 +1371,10 @@ function pills(el,list,key){
 el.innerHTML=list.map(function(v,i){return '<button type="button"'+(i?'':' class="tp-on"')+'>'+v+'</button>'}).join("");
 $$("button",el).forEach(function(b){b.onclick=function(){
 sel[key]=b.textContent;$$("button",el).forEach(function(x){x.classList.toggle("tp-on",x===b)});
-$$('.tp-dmb select[data-option-index="'+(key==="size"?0:1)+'"]').forEach(function(s){s.value=sel[key]});
+$$('.pfl-dmb select[data-option-index="'+(key==="size"?0:1)+'"]').forEach(function(s){s.value=sel[key];s.dispatchEvent(new Event("change",{bubbles:true}))});
 }});
 }
 pills($("#tpSize"),TPF.sizes,"size");pills($("#tpSide"),TPF.sides,"side");
-var bundle=$(".tp-dmb dm-bundle");
-bundle.addEventListener("click",function(e){
-var card=e.target.closest("[data-bundle-bar]");
-if(!card||e.target.closest("select"))return;
-$$("[data-bundle-bar]",bundle).forEach(function(c){c.setAttribute("data-active",c===card?"true":"false")});
-});
 function openCart(){
 if(document.querySelector('dm-sheet[data-sheet-open-on="cart"]'))return;
 var hz=document.querySelector("cart-drawer-component");
@@ -330,9 +1389,10 @@ location.href=TPF.root+"cart";
 }
 var atc=$("#tpAtc");
 function addToCart(){
-var card=$('.tp-dmb [data-bundle-bar][data-active="true"]'),barId=card.getAttribute("data-bar-id"),items=[];
-$$("[data-bundle-unit]",card).map(function(u){
-var s=$$("select",u);return {id:TPF.variants[s[0].value+" / "+s[1].value],quantity:1,properties:{_bundle_type:u.getAttribute("data-unit-role"),_bar_id:barId}};
+var card=$('.pfl-dmb [data-bundle-bar][data-active="true"]'),barId=card&&card.getAttribute("data-bar-id"),items=[];
+if(!card){var v=TPF.variants[sel.size+" / "+sel.side];if(v)items.push({id:v,quantity:1})}
+(card?$$("[data-bundle-unit]",card):[]).map(function(u){
+var o=function(i){var x=$('select[data-option-index="'+i+'"]',u);return x?x.value:""};return {id:TPF.variants[o(0)+" / "+o(1)],quantity:1,properties:{_bundle_type:u.getAttribute("data-unit-role"),_bar_id:barId}};
 }).filter(function(l){return l.id}).sort(function(a,b){return (a.properties._bundle_type==="get"?0:1)-(b.properties._bundle_type==="get"?0:1)})
 .forEach(function(l){
 var m=items.filter(function(x){return x.id===l.id&&x.properties._bundle_type===l.properties._bundle_type})[0];
@@ -592,3 +1652,20 @@ t.addEventListener("scroll",function(){num.textContent=Math.min(3,Math.round(t.s
 })();
 </script>
 </div>
+{% schema %}
+{
+  "name": "PeakFlex product page",
+  "tag": "div",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_bundle",
+      "label": "Show bundle picker",
+      "default": true,
+      "info": "DropMagic Buy 1 get 1 / Buy 2 get 2 picker. Needs the DropMagic theme files and its Quantity Breaks discount."
+    }
+  ],
+  "presets": [{ "name": "PeakFlex product page" }]
+}
+{% endschema %}
