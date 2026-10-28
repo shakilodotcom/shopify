@@ -1,0 +1,7 @@
+{
+  "layout": "peakflex",
+  "sections": {
+    "main": { "type": "peakflex-product", "settings": { "discount_code": "" } }
+  },
+  "order": ["main"]
+}
