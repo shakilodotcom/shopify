@@ -1,0 +1,329 @@
+{%- comment -%}
+  PeakFlex product page — paste into a "Custom Liquid" section on the product template.
+  Set the discount code (optional) in window.PF.discountCode below.
+{%- endcomment -%}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.pf{--primary:oklch(.551 .221 264.8);      
+  --primary-dark:oklch(.477 .221 264.8);
+  --primary-soft:oklch(.898 .049 264.8);
+  --bg:oklch(.985 .001 73.74);           
+  --beige:oklch(.914 .012 81.11);        
+  --peach:oklch(.92 .03 40);             
+  --dark:oklch(.18 .003 73.74);          
+  --fg:oklch(.18 .003 73.74);
+  --muted:oklch(.457 .007 73.74);
+  --border:oklch(.894 .008 73.74);
+  --star:oklch(.766 .137 80.08);
+  --radius:.5rem;
+  --max:1200px;}.pf,.pf *{box-sizing:border-box;margin:0;padding:0}.pf{font-family:"Inter",sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;-webkit-font-smoothing:antialiased}.pf img{display:block;max-width:100%}.pf a{color:inherit;text-decoration:none}.pf button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}.pf .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}.pf .sec{padding:64px 0}.pf .title{font-weight:400;letter-spacing:-.03em;line-height:1.1;font-size:clamp(32px,4.5vw,53px)}.pf .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}.pf .lead{color:var(--muted);font-size:17px;margin-top:8px}.pf .stars{color:var(--star);letter-spacing:2px}.pf .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--primary);color:#fff;font-weight:600;border-radius:99rem;padding:14px 40px;transition:background .2s}.pf .btn:hover{background:var(--primary-dark)}.pf .pay{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}.pf .pay img{height:24px;width:auto}.pf .pf-hdr{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--border)}.pf .hdr{display:flex;align-items:center;justify-content:space-between;height:56px}.pf .logo{font-size:26px;font-weight:500;letter-spacing:-.02em}.pf .hdr nav{display:flex;gap:28px;font-size:15px}.pf .hdr .menu-btn{display:none}.pf .icon{width:22px;height:22px}.pf #mnav{display:none;flex-direction:column;gap:14px;padding:16px;border-top:1px solid var(--border)}.pf #mnav.open{display:flex}
+@media(max-width:749px){.pf .hdr nav{display:none}.pf .hdr .menu-btn{display:block}.pf .logo{position:absolute;left:50%;transform:translateX(-50%)}}
+.pf .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;padding-top:24px;padding-bottom:48px}
+@media(max-width:899px){.pf .hero{grid-template-columns:minmax(0,1fr);gap:24px}}
+.pf .hero>*{min-width:0}.pf .gallery{position:sticky;top:72px;align-self:start}
+@media(max-width:899px){.pf .gallery{position:static}}
+.pf .main-img{aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;background:#eee}.pf .main-img img{width:100%;height:100%;object-fit:cover}.pf .thumbs{display:flex;gap:8px;margin-top:8px;overflow-x:auto;scrollbar-width:none}.pf .thumbs button{flex:0 0 72px;aspect-ratio:1;border-radius:6px;overflow:hidden;border:2px solid transparent;opacity:.75}.pf .thumbs button.on{border-color:var(--primary);opacity:1}.pf .thumbs img{width:100%;height:100%;object-fit:cover}.pf .rating{display:flex;gap:8px;align-items:center;font-size:15px;margin-bottom:16px}.pf .pname{font-size:clamp(26px,3vw,34px);font-weight:500;letter-spacing:-.02em;line-height:1.2}.pf .psub{color:var(--muted);margin:14px 0 10px;font-size:15px}.pf .price{display:flex;align-items:center;gap:10px;font-size:20px}.pf .price s{color:var(--muted)}.pf .badge{font-size:13px;font-weight:500;color:var(--primary);background:var(--primary-soft);border:1px solid var(--primary);border-radius:6px;padding:2px 8px}.pf .divider{display:flex;align-items:center;gap:16px;margin:22px 0 18px;font-size:17px}.pf .divider:before,.pf .divider:after{content:"";flex:1;height:1px;background:var(--fg)}.pf .offer{position:relative;border:1px solid var(--border);border-radius:12px;background:#fff;margin-bottom:12px;overflow:hidden;cursor:pointer;transition:border-color .2s}.pf .offer.on{border:2px solid var(--primary);background:oklch(.97 .015 264.8)}.pf .offer-top{display:flex;gap:14px;align-items:center;padding:18px 16px}.pf .radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--primary);flex:none;display:grid;place-items:center}.pf .offer.on .radio:after{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}.pf .offer-info{flex:1}.pf .offer-title{font-weight:600;font-size:16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}.pf .offer-save{font-size:13px;color:var(--muted)}.pf .offer-price{text-align:right;font-weight:600;font-size:17px}.pf .offer-price s{display:block;font-weight:400;font-size:14px;color:var(--muted)}.pf .pill{background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:0 0 0 10px;position:absolute;top:0;right:0}.pf .units{display:none;padding:0 16px 16px 48px}.pf .offer.on .units{display:grid;gap:10px}.pf .unit{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.pf .unit .ut{position:relative;width:44px;height:44px;border-radius:6px;overflow:hidden;flex:none}.pf .unit .ut img{width:100%;height:100%;object-fit:cover}.pf .unit .ut span{position:absolute;bottom:0;left:0;font-size:11px;font-weight:600;background:#fff;padding:0 3px}.pf .unit select{appearance:none;border:1px solid var(--border);border-radius:8px;padding:9px 32px 9px 12px;font:inherit;font-size:15px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='14' viewBox='0 0 10 14' fill='none' stroke='%23555' stroke-width='1.5'%3E%3Cpath d='M2 5l3-3 3 3M2 9l3 3 3-3'/%3E%3C/svg%3E") no-repeat right 10px center}.pf .unit .sz{min-width:150px}.pf .gifts{background:var(--peach)}.pf .gift{display:flex;align-items:center;gap:14px;padding:12px 16px;border-top:1px solid oklch(.86 .04 40);font-size:14px;font-weight:600}.pf .gift .gi{width:44px;height:44px;border-radius:6px;background:#fff;display:grid;place-items:center;flex:none}.pf .gift b{margin-left:auto;color:var(--primary)}.pf .atc{width:100%;padding:16px;font-size:17px;margin:8px 0 14px}.pf .ship{text-align:center;font-size:14px;color:var(--muted);margin-top:8px}.pf .mini-review{display:flex;gap:14px;border:1px solid var(--border);border-radius:12px;padding:16px;margin:18px 0;background:#fff}.pf .avatar{width:48px;height:48px;border-radius:8px;background:var(--beige);display:grid;place-items:center;font-weight:600;flex:none}.pf .verified{display:inline-flex;gap:4px;align-items:center;font-size:12px;color:oklch(.5 .13 150);border:1px solid oklch(.7 .13 150);border-radius:99rem;padding:1px 8px;margin-left:8px}.pf details{border-bottom:1px solid var(--border)}.pf summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:500;cursor:pointer}.pf summary::-webkit-details-marker{display:none}.pf summary:after{content:"";width:9px;height:9px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);transition:transform .2s;flex:none;margin-right:4px}.pf details[open] summary:after{transform:rotate(-135deg)}.pf details p{padding:0 0 18px;color:var(--muted);font-size:15px}.pf .pain{background:var(--beige)}.pf .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+@media(max-width:749px){.pf .split{grid-template-columns:1fr;gap:24px}}
+.pf .split .media{aspect-ratio:1;border-radius:var(--radius);overflow:hidden}.pf .split .media img{width:100%;height:100%;object-fit:cover}.pf .pain p{font-size:18px;color:var(--muted);margin-top:16px}.pf .pain p b{display:block;color:var(--fg)}.pf .stories-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:32px;padding:0 16px}.pf .stories-track::-webkit-scrollbar,.pf .rev-track::-webkit-scrollbar{display:none}.pf .story{position:relative;flex:0 0 min(380px,85vw);aspect-ratio:9/16;border-radius:12px;overflow:hidden;scroll-snap-align:start}.pf .story img{width:100%;height:100%;object-fit:cover}.pf .story .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:12px 14px;font-size:14px}.pf .story .cap strong{display:block;font-size:16px;font-weight:500;margin-bottom:2px}.pf .arrows{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}.pf .arrows button{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--primary);color:var(--primary);display:grid;place-items:center}.pf .features{text-align:center}.pf .feat-grid{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:32px;align-items:center;margin-top:40px;text-align:left}.pf .feat-grid .media{border-radius:12px;overflow:hidden;aspect-ratio:4/5}.pf .feat-grid .media img{width:100%;height:100%;object-fit:cover}.pf .feat-col{display:grid;gap:36px}.pf .feat svg{width:30px;height:30px;stroke:var(--fg);fill:none;stroke-width:1.5;margin-bottom:10px}.pf .feat h3{font-weight:400;font-size:20px}.pf .feat p{color:var(--muted);font-size:15px}
+@media(max-width:899px){.pf .feat-grid{grid-template-columns:1fr 1fr}.pf .feat-grid .media{grid-column:1/-1;order:-1;aspect-ratio:16/10}.pf .feat-col{gap:24px}}
+.pf .stats{background:oklch(.477 .221 264.8);color:#fff;padding:48px 0}.pf .stats .wrap{display:flex;justify-content:space-around;gap:24px}.pf .stat{display:flex;align-items:center;gap:18px}.pf .stat b{font-size:clamp(32px,4vw,44px);font-weight:400;letter-spacing:-.03em}
+@media(max-width:749px){.pf .stats .wrap{flex-direction:column}.pf .stat+.stat{border-top:1px solid rgba(255,255,255,.25);padding-top:20px}}
+.pf .specs .accent{color:var(--primary)}.pf .spec-table{margin-top:40px}.pf .spec-row{display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);font-size:15px}.pf .spec-row span:first-child{color:var(--muted)}.pf .spec-row span:last-child{font-weight:500;text-align:right}
+@media(min-width:900px){.pf .specs .split{align-items:start}.pf .spec-table{margin-top:0}}
+.pf .howto{background:var(--beige)}.pf .howto details{border:0;border-bottom:1px solid oklch(.85 .015 81)}.pf .howto summary{font-size:15px}.pf .howto summary .n{background:oklch(.85 .015 81);border-radius:4px;padding:2px 6px;font-weight:600;margin-right:12px}.pf .howto details[open] summary{background:oklch(.88 .015 81);border-radius:8px;padding:14px 16px;margin-bottom:14px}.pf .howto summary{padding:16px}.pf .howto details p{padding:0 16px 18px}.pf .howto .media{aspect-ratio:4/5}.pf .rev-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:32px;padding-bottom:8px}.pf .rev{flex:0 0 min(360px,88vw);scroll-snap-align:start;background:oklch(.962 .002 73.74);border:1px solid var(--border);border-radius:12px;padding:20px}.pf .rev h4{font-weight:600;margin:12px 0 4px}.pf .rev p{font-size:15px}.pf .rev .who{margin-top:18px;font-weight:600}.pf .rev .meta{font-size:13px;color:var(--muted)}.pf .dots{display:flex;gap:6px;justify-content:center;margin-top:20px}.pf .dots i{width:8px;height:6px;border-radius:3px;background:var(--border);transition:width .2s}.pf .dots i.on{width:20px;background:var(--primary-soft)}.pf .faq{background:var(--dark);color:#fff;text-align:center}.pf .faq .lead{color:oklch(.733 .008 73.74)}.pf .faq-list{max-width:760px;margin:40px auto 0;text-align:left}.pf .faq details{border-color:rgba(255,255,255,.15)}.pf .faq summary{padding:22px 16px}.pf .faq details p{color:oklch(.8 .008 73.74);padding:0 16px 22px}.pf .cta{background:var(--beige);text-align:center}.pf .cta .rating{justify-content:center;color:var(--muted);font-size:14px}.pf .cta .btn{margin-top:32px}.pf footer{background:var(--dark);color:#fff;padding:56px 0 32px}.pf .foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}.pf .foot .logo{font-size:48px;font-weight:400}.pf .foot h5{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:16px}.pf .foot ul{list-style:none;display:grid;gap:8px;color:oklch(.85 .008 73.74)}.pf .foot-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;font-size:14px;color:oklch(.85 .008 73.74)}.pf .foot-bottom .pay{justify-content:flex-start;max-width:340px}
+@media(max-width:749px){.pf .foot{grid-template-columns:1fr}}
+.pf .sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:#fff;border-top:1px solid var(--border);padding:10px 16px;display:flex;gap:12px;align-items:center;transform:translateY(110%);transition:transform .25s}.pf .sticky-bar.show{transform:none}.pf .sticky-bar img{width:44px;height:44px;border-radius:6px;object-fit:cover}.pf .sticky-bar .t{flex:1;font-size:14px;font-weight:500;line-height:1.3}.pf .sticky-bar .btn{padding:10px 22px}
+.pf{font-family:"Inter",sans-serif;line-height:1.5}.pf .pay svg{height:24px;width:auto}
+</style>
+<div class="pf">
+<script>
+window.PF = {
+  root: {{ routes.root_url | append: '/' | replace: '//', '/' | json }},
+  discountCode: "",
+  variants: {
+    {%- for v in product.variants -%}
+      {{ v.title | json }}: {{ v.id }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  },
+  sizes: {{ product.options_with_values[0].values | json }},
+  sides: {{ product.options_with_values[1].values | json }}
+};
+</script>
+
+<!-- ============ PRODUCT HERO ============ -->
+<section class="wrap hero" id="buy">
+  <div class="gallery">
+    <div class="main-img"><img id="mainImg" src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}"></div>
+    <div class="thumbs" id="thumbs">
+      {%- for image in product.images -%}
+        <button{% if forloop.first %} class="on"{% endif %} data-src="{{ image | image_url: width: 1200 }}" aria-label="Image {{ forloop.index }}"><img src="{{ image | image_url: width: 160 }}" alt="" loading="lazy"></button>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div>
+    <div class="rating"><span class="stars">★★★★★</span> Rated 4.8 by 526 verified users</div>
+    <h1 class="pname">{{ product.title | escape }}</h1>
+    <p class="psub">Ergonomic Targeted Knee Compression Sleeve</p>
+    <div class="price"><span>{{ product.price | money }}</span>{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}<span class="badge">Save 50%</span></div>
+
+    <div class="divider">Single Pair Essential</div>
+
+    <div class="offer on" data-units="2" data-price="57.00">
+      <div class="offer-top">
+        <span class="radio"></span>
+        <div class="offer-info"><div class="offer-title">Buy 1, get 1 Free <span class="badge">SAVE 75%</span></div></div>
+        <div class="offer-price">$57.00<s>$226.00</s></div>
+      </div>
+      <div class="units"></div>
+    </div>
+
+    <div class="offer" data-units="4" data-price="114.00">
+      <span class="pill">Most popular</span>
+      <div class="offer-top">
+        <span class="radio"></span>
+        <div class="offer-info">
+          <div class="offer-title">Buy 2, get 2 Free</div>
+          <div><span class="badge">SAVE 75%</span></div>
+          <div class="offer-save">Save $338.00</div>
+        </div>
+        <div class="offer-price">$114.00<s>$452.00</s></div>
+      </div>
+      <div class="units"></div>
+      <div class="gifts">
+        <div class="gift"><span class="gi">🎁</span>Stretching Strap With Your Order<b>FREE</b></div>
+        <div class="gift"><span class="gi">📘</span>Fit &amp; Comfort Guide<b>FREE</b></div>
+      </div>
+    </div>
+
+    <button class="btn atc" id="atc">Add to cart</button>
+    <div class="pay">{%- for type in shop.enabled_payment_types -%}{{ type | payment_type_svg_tag }}{%- endfor -%}</div>
+    <p class="ship">Free shipping included on every order.</p>
+
+    <div class="mini-review">
+      <div class="avatar">AT</div>
+      <div>
+        <div class="stars">★★★★★</div>
+        <p>It is comfortable &amp; It actually stays up when I walk.</p>
+        <p style="font-size:14px;color:var(--muted);margin-top:4px">Amanda T. <span class="verified">✓ Verified buyer</span></p>
+      </div>
+    </div>
+
+    <details open><summary>How do I choose my size?</summary><p>Sizing is based on weight ranges from S to XXL to ensure a correct fit.</p></details>
+    <details><summary>What is the return policy?</summary><p>Every purchase is backed by a 90-day money-back guarantee.</p></details>
+  </div>
+</section>
+
+<!-- ============ PAIN POINT ============ -->
+<section class="sec pain">
+  <div class="wrap split">
+    <div>
+      <h2 class="title">When every step becomes uncomfortable</h2>
+      <p>Then come the moments when you suddenly feel your knee more acutely:
+        <b>-Standing up On stairs</b><b>-Sitting for a long time</b><b>- Walking or standing for extended periods</b></p>
+    </div>
+    <div class="media"><img src="https://cdn.shopify.com/s/files/1/1025/1812/8933/files/97fee8f0-77b8-48be-933e-b1f3b58bb876.webp" alt="Woman holding her knee on the stairs" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ============ STORIES CAROUSEL ============ -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="title">Movement<br>without hesitation.</h2>
+    <p class="lead">Reliable joint stability, tested daily by people who refuse to slow down.</p>
+  </div>
+  <div class="wrap" style="padding:0">
+    <div class="stories-track" id="stories">
+      <div class="story"><img src="https://cdn.shopify.com/s/files/1/1025/1812/8933/files/8b104e2c-4841-431c-af06-24c1a2889321.webp" alt="" loading="lazy"><div class="cap"><strong>Linda T. <span style="color:#60a5fa">✓</span></strong>"Finally walking more steadily. Left and right specific design stays firmly in place all day."</div></div>
+      <div class="story"><img src="https://cdn.shopify.com/s/files/1/1025/1812/8933/files/f57fa532-5843-45d8-8bf8-2641c1e140c3.webp" alt="" loading="lazy"><div class="cap"><strong>Susan K. <span style="color:#60a5fa">✓</span></strong>"Better traction on the stairs. Textured pad delivers focused stability right where it counts."</div></div>
+      <div class="story"><img src="https://cdn.shopify.com/s/files/1/1025/1812/8933/files/8ef8f6e8-9dcc-42a5-b3d1-2816e9965c04.webp" alt="" loading="lazy"><div class="cap"><strong>David R. <span style="color:#60a5fa">✓</span></strong>"Snug fit supports long walks without restricting natural movement."</div></div>
+    </div>
+    <div class="arrows" style="padding:0 16px">
+      <button aria-label="Previous" data-scroll="stories" data-dir="-1">←</button>
+      <button aria-label="Next" data-scroll="stories" data-dir="1">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="sec features">
+  <div class="wrap">
+    <h2 class="title">Engineered for<br>joint stability</h2>
+    <div class="feat-grid">
+      <div class="feat-col">
+        <div class="feat"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><h3>Adaptive pressure</h3><p>Regulates tension dynamically around the patella.</p></div>
+        <div class="feat"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.4 1.8 3-.2.9 2.9 2.5 1.7-1 2.8 1 2.9-2.5 1.7-.9 2.9-3-.2L12 21.5l-2.4-1.8-3 .2-.9-2.9-2.5-1.7 1-2.9-1-2.8 2.5-1.7.9-2.9 3 .2z"/><path d="m8.5 12 2.3 2.3 4.7-4.6"/></svg><h3>Textured support</h3><p>Cradles the kneecap for impact absorption.</p></div>
+        <div class="feat"><svg viewBox="0 0 24 24"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><h3>Left and right</h3><p>Separate shapes for each leg.</p></div>
+      </div>
+      <div class="media"><img src="https://cdn.shopify.com/s/files/1/1025/1812/8933/files/08c71de7-6a2b-448e-86dc-184477a1823c.webp" alt="Runner wearing the knee sleeve" loading="lazy"></div>
+      <div class="feat-col">
+        <div class="feat"><svg viewBox="0 0 24 24"><path d="M5 21c.5-4 2.5-7.5 7-10M11 20c-4-1-6-4.5-6-8 0-5 4-9 15-9 0 10-4 15-9 17z"/></svg><h3>Flexible textile</h3><p>Moves naturally with your leg during motion.</p></div>
+        <div class="feat"><svg viewBox="0 0 24 24"><path d="M3 3h18v8h-8v4H9v6H3z"/><path d="M7 3v4M11 3v4M15 3v4M3 15h3"/></svg><h3>Slim profile</h3><p>Fits cleanly under jeans without bunching.</p></div>
+        <div class="feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Daily support</h3><p>Maintains elasticity through regular wear.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><b>500+</b><span>Satisfied users</span></div>
+    <div class="stat"><b>4.8</b><span>Average rating</span></div>
+    <div class="stat"><b>90</b><span>Day guarantee</span></div>
+  </div>
+</section>
+
+<!-- ============ SPECIFICATIONS ============ -->
+<section class="sec specs">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Specifications</p>
+      <h2 class="title">Designed for your<br><span class="accent">exact leg shape</span></h2>
+      <p style="margin-top:16px">Review our precise technical specifications and weight-based sizing.</p>
+    </div>
+    <div class="spec-table">
+      <div class="spec-row"><span>Size Range</span><span>S to XXL (110lbs to 240lbs+)</span></div>
+      <div class="spec-row"><span>Side Specificity</span><span>Left and Right specific variants</span></div>
+      <div class="spec-row"><span>Key Components</span><span>Pressure-regulator and pad</span></div>
+      <div class="spec-row"><span>Guarantee</span><span>90-day money-back guarantee</span></div>
+      <div class="spec-row"><span>Form</span><span>Anatomical compression sleeve</span></div>
+      <div class="spec-row"><span>Color</span><span>White with gray accents</span></div>
+      <div class="spec-row"><span>Material</span><span>Supportive textile blend</span></div>
+      <div class="spec-row"><span>Care</span><span>Hand wash and air dry</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO USE ============ -->
+<section class="sec howto">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">How to use</p>
+      <h2 class="title" style="margin-bottom:24px">Simple daily integration</h2>
+      <div class="acc-group">
+        <details open><summary><span><span class="n">01</span>How do I clean the sleeve?</span></summary><p>Hand wash with mild detergent and air dry to preserve fabric integrity.</p></details>
+        <details><summary><span><span class="n">02</span>When should I put it on?</span></summary><p>Slip on the designated left or right sleeve before physical activity.</p></details>
+        <details><summary><span><span class="n">03</span>How does it fit initially?</span></summary><p>The left/right configuration contours cleanly without awkward bunching.</p></details>
+        <details><summary><span><span class="n">04</span>Will it hold up over time?</span></summary><p>Maintains elasticity through regular wear for dependable joint confidence.</p></details>
+      </div>
+    </div>
+    <div class="media"><img src="https://cdn.shopify.com/s/files/1/1025/1812/8933/files/84ae959f-1c2c-41cb-a79a-55d2976a2a76.webp" alt="Knee compression sleeve" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="sec">
+  <div class="wrap">
+    <h2 class="title">Verified buyer<br>experiences</h2>
+    <p class="lead">Read how our anatomical design eliminates constant adjustments for real users.</p>
+    <div class="rev-track" id="reviews">
+      <div class="rev"><div class="stars">★★★★★</div><h4>Stays up when I walk</h4><p>Having a specific left and right sleeve makes a huge difference. It actually stays up when I walk.</p><div class="who">Mark T.</div><div class="meta">Verified buyer · 2 weeks ago</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><h4>Great kneecap stability</h4><p>The textured pad right around the kneecap gives me just the right amount of stability I needed.</p><div class="who">Susan K.</div><div class="meta">Verified buyer · March 2026</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><h4>Snug and secure fit</h4><p>Took a couple of days to get used to the snug fit, but now I wear it every time I go on long walks.</p><div class="who">David R.</div><div class="meta">Verified buyer · Jan 14</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><h4>Fits cleanly under jeans</h4><p>It fits cleanly under my jeans without bunching up behind my knee. Very happy with the quality.</p><div class="who">Elena M.</div><div class="meta">Verified buyer · 3 weeks ago</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><h4>Spot on weight sizing</h4><p>The sizing chart based on weight was spot on for me. Great support without cutting off circulation.</p><div class="who">James P.</div><div class="meta">Verified buyer · Feb 2026</div></div>
+      <div class="rev"><div class="stars">★★★★★</div><h4>Easy decision to try</h4><p>Knowing there is a 90-day guarantee made trying it out an easy decision. It is staying in my routine.</p><div class="who">Rachel W.</div><div class="meta">Verified buyer · 1 month ago</div></div>
+    </div>
+    <div class="dots" id="revDots"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec faq">
+  <div class="wrap">
+    <h2 class="title">Common questions</h2>
+    <p class="lead">Everything you need to know about sizing, fit, and our guarantee.</p>
+    <div class="faq-list acc-group">
+      <details><summary>How do I know which size to pick if I fall between categories?</summary><p>Choose the size corresponding to your current weight range, leaning toward the larger size if you prefer a less restrictive fit.</p></details>
+      <details><summary>What if it doesn't fit right or help my knee?</summary><p>Every purchase is backed by a 90-day money-back guarantee so you can test it risk-free in your daily routine.</p></details>
+      <details><summary>Will it restrict my ability to bend my leg fully?</summary><p>The flexible material and targeted pad design allow full range of motion while offering supportive resistance.</p></details>
+      <details><summary>Why are there separate left and right variants?</summary><p>Left and right specific sizing ensures the sleeve contours to each leg naturally.</p></details>
+      <details><summary>Does the sleeve slide down during movement?</summary><p>The adaptive pressure-regulator keeps the fabric anchored without slipping.</p></details>
+      <details><summary>How do I clean my compression sleeve?</summary><p>Hand wash with mild detergent and air dry to maintain compression.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="sec cta">
+  <div class="wrap">
+    <div class="rating"><span class="stars">★★★★★</span> Rated 4.8 out of 5 by 526 users</div>
+    <h2 class="title" style="margin-top:20px">Move with absolute<br>joint confidence</h2>
+    <p class="lead">Secure your stay-put knee sleeve today and experience reliable joint stability.</p>
+    <a class="btn" href="#buy">Get yours</a>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* gallery */
+  var main=document.getElementById("mainImg"),thumbs=document.getElementById("thumbs");
+  var thumbImg=main.src;
+  thumbs.querySelectorAll("button").forEach(function(b){
+    b.onclick=function(){main.src=b.dataset.src;thumbs.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)})};
+  });
+
+  /* bundle offers: size + side picker per unit */
+  var opts=function(list){return list.map(function(v){return "<option>"+v+"</option>"}).join("")};
+  document.querySelectorAll(".offer").forEach(function(offer){
+    var html="";
+    for(var i=1;i<=+offer.dataset.units;i++){
+      html+='<div class="unit"><div class="ut"><img src="'+thumbImg+'" alt=""><span>#'+i+'</span></div>'+
+            '<select class="sz" aria-label="Size #'+i+'">'+opts(PF.sizes)+'</select>'+
+            '<select class="sd" aria-label="Side #'+i+'">'+opts(PF.sides)+'</select></div>';
+    }
+    offer.querySelector(".units").innerHTML=html;
+    offer.addEventListener("click",function(e){
+      if(e.target.closest("select"))return;
+      document.querySelectorAll(".offer").forEach(function(o){o.classList.toggle("on",o===offer)});
+    });
+  });
+
+  /* add to cart: AJAX add, then go to cart */
+  var atcBtn=document.getElementById("atc");
+  atcBtn.onclick=function(){
+    var offer=document.querySelector(".offer.on"),qty={};
+    offer.querySelectorAll(".unit").forEach(function(u){
+      var id=PF.variants[u.querySelector(".sz").value+" / "+u.querySelector(".sd").value];
+      if(id)qty[id]=(qty[id]||0)+1;
+    });
+    var items=Object.keys(qty).map(function(id){return {id:+id,quantity:qty[id]}});
+    atcBtn.disabled=true;atcBtn.textContent="Adding…";
+    fetch(PF.root+"cart/add.js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({items:items})})
+      .then(function(r){if(!r.ok)throw r;return r.json()})
+      .then(function(){window.location.href=PF.discountCode?PF.root+"discount/"+encodeURIComponent(PF.discountCode)+"?redirect="+PF.root+"cart":PF.root+"cart"})
+      .catch(function(){atcBtn.disabled=false;atcBtn.textContent="Add to cart";alert("Sorry, that size is unavailable. Please choose another.")});
+  };
+
+  /* accordions in a group: one open at a time */
+  document.querySelectorAll(".acc-group").forEach(function(g){
+    g.querySelectorAll("details").forEach(function(d){
+      d.addEventListener("toggle",function(){if(d.open)g.querySelectorAll("details").forEach(function(o){if(o!==d)o.open=false})});
+    });
+  });
+
+  /* carousel arrows */
+  document.querySelectorAll("[data-scroll]").forEach(function(b){
+    b.onclick=function(){var t=document.getElementById(b.dataset.scroll);t.scrollBy({left:+b.dataset.dir*t.firstElementChild.offsetWidth+16*+b.dataset.dir,behavior:"smooth"})};
+  });
+
+  /* review dots */
+  var rev=document.getElementById("reviews"),dots=document.getElementById("revDots");
+  for(var i=0;i<rev.children.length;i++)dots.appendChild(document.createElement("i"));
+  function syncDots(){var w=rev.firstElementChild.offsetWidth+16,n=Math.round(rev.scrollLeft/w);[].forEach.call(dots.children,function(d,i){d.classList.toggle("on",i===n)})}
+  rev.addEventListener("scroll",syncDots,{passive:true});syncDots();
+
+  /* sticky bar once the buy box scrolls away */
+  var bar=document.getElementById("stickyBar"),atc=document.getElementById("atc");
+  new IntersectionObserver(function(e){bar.classList.toggle("show",!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(atc);
+})();
+</script>
+
+<div class="sticky-bar" id="stickyBar">
+  <img src="{{ product.featured_image | image_url: width: 120 }}" alt="">
+  <div class="t">{{ product.title | escape }}<br><span style="color:var(--muted)">{{ product.price | money }}</span></div>
+  <a class="btn" href="#buy">Get yours</a>
+</div>
+</div>
