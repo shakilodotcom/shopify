@@ -6,7 +6,7 @@
     2+ items: $29.97 off   (2 x $39.97 = $49.97)        4+ items: $89.91 off   (4 x $39.97 = $69.97)
   Keep tp_off2 / tp_off4 below equal to those amounts (in cents) so the page shows what checkout charges.
   Each sleeve is added as its own cart line (hidden _unit property), so 2 + 2 shows 4 lines.
-  Card images (and the first gallery image, which follows the selected package) load from Content > Files by name:
+  The first gallery image follows the selected package; the images load from Content > Files by name:
   pf-bundle-1-piece.jpg, pf-bundle-2-pieces.jpg, pf-bundle-2-plus-2.jpg (upload the full-size versions).
 {%- endcomment -%}
 {%- assign tp_cdn = 'https://cdn.shopify.com/s/files/1/1011/0720/4439/files/' -%}
@@ -82,7 +82,6 @@ body{overflow-x:clip}
 .tpf .tp-rib{position:absolute;top:-8px;right:12px;z-index:2;display:flex;padding:0 8px;background:linear-gradient(to bottom right,transparent 49.5%,oklch(.386 .155 264.8) 50%) 0 0/8px 8px no-repeat,linear-gradient(to bottom left,transparent 49.5%,oklch(.386 .155 264.8) 50%) 100% 0/8px 8px no-repeat}
 .tpf .tp-rib span{padding:6px 8px;background:var(--b-pri);color:oklch(.985 .007 264.8);border-radius:0 0 7px 7px;font-size:12.65px;font-weight:700;line-height:17.96px;letter-spacing:.06325px}
 .tpf .tp-thead{display:flex;align-items:center;gap:12px}
-.tpf .tp-timg{width:64px;height:64px;max-width:none;flex:none;object-fit:cover;border-radius:8px;background:#fff}
 .tpf .tp-radio{position:relative;width:18px;height:18px;flex:none;border:2px solid var(--b-pri);border-radius:50%}
 .tpf .tp-on .tp-radio:before{content:"";position:absolute;inset:2.5px;border-radius:50%;background:var(--b-pri)}
 .tpf .tp-tinfo{flex:1;min-width:0}
@@ -158,7 +157,6 @@ body{overflow-x:clip}
 .tpf .tp-sticky .tp-pr s{font-size:16px;color:var(--text);margin-left:4px}
 .tpf .tp-sticky button{width:176px;height:52px;background:var(--ink);color:rgb(253,251,247);border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px}
 @media (max-width:749px){
-.tpf .tp-timg{width:56px;height:56px}
 .tpf .tp-tname{font-size:16px}
 .tpf .tp-gift img{width:44px;height:44px}
 .tpf .tp-gift p{font-size:12.65px}
@@ -266,7 +264,7 @@ sides: {{ product.options_with_values[1].values | json }}
 {%- assign tp_cmp = tp_c | times: tp_n -%}{%- assign tp_sv = tp_cmp | minus: tp_tier -%}{%- assign tp_pct = tp_sv | times: 100 | divided_by: tp_cmp | floor -%}
 <div class="tp-tier{% if tp_k == 2 %} tp-on{% endif %}{% if tp_k == 3 %} tp-ribbon{% endif %}" data-qty="{{ tp_n }}" data-hero="{{ tp_img | file_img_url: '1200x' }}" data-thumb="{{ tp_img | file_img_url: '200x' }}">
 {%- if tp_k == 3 -%}<div class="tp-rib"><span>Most popular</span></div>{%- endif -%}
-<div class="tp-thead"><span class="tp-radio"></span><img class="tp-timg" src="{{ tp_img | file_img_url: '160x' }}" alt="{{ tp_t }}" width="64" height="64" loading="lazy"><div class="tp-tinfo"><div class="tp-tline"><p class="tp-tname">{{ tp_t }}</p><span class="tp-save">SAVE {{ tp_pct }}%</span></div>{%- if tp_k == 3 -%}<p class="tp-tsub">Save {{ tp_sv | money }}</p>{%- endif -%}</div><div class="tp-tprice"><p>{{ tp_tier | money }}</p><s>{{ tp_cmp | money }}</s></div></div>
+<div class="tp-thead"><span class="tp-radio"></span><div class="tp-tinfo"><div class="tp-tline"><p class="tp-tname">{{ tp_t }}</p><span class="tp-save">SAVE {{ tp_pct }}%</span></div>{%- if tp_k == 3 -%}<p class="tp-tsub">Save {{ tp_sv | money }}</p>{%- endif -%}</div><div class="tp-tprice"><p>{{ tp_tier | money }}</p><s>{{ tp_cmp | money }}</s></div></div>
 <div class="tp-units">
 {%- for tp_u in (1..tp_n) -%}{%- assign tp_m = forloop.index0 | modulo: 2 -%}{%- assign tp_side = tp_o1.values[tp_m] | default: tp_o1.values[0] -%}
 <div class="tp-unit"><span class="tp-um"><img src="{{ product.featured_image | image_url: width: 96 }}" alt="" width="44" height="44" loading="lazy"><span>#{{ forloop.index }}</span></span><select class="tp-usz" aria-label="{{ product.options_with_values[0].name | escape }} #{{ forloop.index }}">{%- for v in product.options_with_values[0].values -%}<option value="{{ v | escape }}"{% if tp_v.options[0] == v %} selected{% endif %}>{{ v | escape }}</option>{%- endfor -%}</select><span class="tp-usd">{%- for v in tp_o1.values -%}<button type="button" data-v="{{ v | escape }}"{% if v == tp_side %} class="tp-on"{% endif %}>{{ v | escape }}</button>{%- endfor -%}</span></div>
