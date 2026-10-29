@@ -206,7 +206,7 @@ sides: {{ product.options_with_values[1].values | json }}
 <div class="tp-slides" id="tpSlides">
 {%- assign tp_gallery = 'AB.webp,01_1.webp,AC.webp,02.webp,6_1.webp,2_1.webp,3_2.webp,4_1.webp' | split: ',' -%}
 {%- for f in tp_gallery -%}
-{%- if forloop.first -%}<img src="{{ 'pf-bundle-2-pieces.jpg' | file_img_url: '1200x' }}" alt="{{ product.title | escape }}">{%- else -%}<img src="{{ tp_cdn }}{{ f }}" alt="{{ product.title | escape }}" loading="lazy">{%- endif -%}
+{%- if forloop.first -%}<img src="{{ 'pf-bundle-2-pieces.jpg' | file_url }}" alt="{{ product.title | escape }}">{%- else -%}<img src="{{ tp_cdn }}{{ f }}" alt="{{ product.title | escape }}" loading="lazy">{%- endif -%}
 {%- endfor -%}
 </div>
 <div class="tp-thumbrow">
@@ -262,7 +262,7 @@ sides: {{ product.options_with_values[1].values | json }}
 {%- endcase -%}
 {%- if tp_tier < 0 -%}{%- assign tp_tier = 0 -%}{%- endif -%}
 {%- assign tp_cmp = tp_c | times: tp_n -%}{%- assign tp_sv = tp_cmp | minus: tp_tier -%}{%- assign tp_pct = tp_sv | times: 100 | divided_by: tp_cmp | floor -%}
-<div class="tp-tier{% if tp_k == 2 %} tp-on{% endif %}{% if tp_k == 3 %} tp-ribbon{% endif %}" data-qty="{{ tp_n }}" data-hero="{{ tp_img | file_img_url: '1200x' }}" data-thumb="{{ tp_img | file_img_url: '200x' }}">
+<div class="tp-tier{% if tp_k == 2 %} tp-on{% endif %}{% if tp_k == 3 %} tp-ribbon{% endif %}" data-qty="{{ tp_n }}" data-hero="{{ tp_img | file_url }}" data-thumb="{{ tp_img | file_img_url: '200x' }}">
 {%- if tp_k == 3 -%}<div class="tp-rib"><span>Most popular</span></div>{%- endif -%}
 <div class="tp-thead"><span class="tp-radio"></span><div class="tp-tinfo"><div class="tp-tline"><p class="tp-tname">{{ tp_t }}</p><span class="tp-save">SAVE {{ tp_pct }}%</span></div>{%- if tp_k == 3 -%}<p class="tp-tsub">Save {{ tp_sv | money }}</p>{%- endif -%}</div><div class="tp-tprice"><p>{{ tp_tier | money }}</p><s>{{ tp_cmp | money }}</s></div></div>
 <div class="tp-units">
