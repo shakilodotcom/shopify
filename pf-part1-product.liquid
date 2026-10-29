@@ -1,9 +1,10 @@
 {%- comment -%}
-  PeakFlex page PART 1 of 2: product area with the DropMagic Buy 1 get 1 / Buy 2 get 2 bundle + sticky bar.
+  PeakFlex page PART 1 of 2: product area with a native bundle picker (no apps) + sticky bar.
   Paste into a Custom Liquid section on the product template; Part 2 goes in a second one below it.
-  The bundle needs the DropMagic theme files and its Quantity Breaks discount.
-  Tiers: 1 Piece (qb-1, full price) / 2 Pieces (bxgy-tier-1: buy 1, get 1 at $10.00) /
-  2 + 2 (bxgy-tier-2: buy 2 at $69.97 total, get 2 free). Match these in DropMagic.
+  Prices come from two Shopify automatic discounts on this product (Discounts > Amount off products,
+  "Only apply discount once per order", not combined with other product discounts):
+    2+ items: $29.97 off   (2 x $39.97 = $49.97)        4+ items: $89.91 off   (4 x $39.97 = $69.97)
+  Keep tp_off2 / tp_off4 below equal to those amounts (in cents) so the page shows what checkout charges.
 {%- endcomment -%}
 {%- assign tp_cdn = 'https://cdn.shopify.com/s/files/1/1011/0720/4439/files/' -%}
 {%- assign tp_cdn2 = 'https://cdn.shopify.com/s/files/1/0789/7651/6423/files/' -%}
@@ -14,15 +15,15 @@
 .tpf{--ink:rgb(18,18,18);--text:rgba(18,18,18,.9);--navy:rgb(11,46,89);--grey:rgb(95,94,90);--line:rgba(18,18,18,.08);--orange:rgb(207,89,5);--badge:rgb(240,123,22);--green:rgb(0,150,0)}
 body{overflow-x:clip}
 .tpf,.tpf *{box-sizing:border-box}
-.tpf,.tpf :where(:not(.pfl-dmb *)){margin:0;padding:0}
+.tpf,.tpf {margin:0;padding:0}
 .tpf{position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);background:#fff}
 .tpf{font-family:"Poppins",sans-serif;font-size:16px;line-height:1.8;letter-spacing:.06em;color:var(--text);text-align:left;-webkit-font-smoothing:antialiased}
-.tpf :where(h1,h2,h3,h4,h5,h6,p):where(:not(.pfl-dmb *)){font:inherit;color:inherit;letter-spacing:inherit;text-transform:none}
+.tpf :where(h1,h2,h3,h4,h5,h6,p){font:inherit;color:inherit;letter-spacing:inherit;text-transform:none}
 .tpf summary,.tpf summary:hover{color:inherit}
-.tpf a:where(:not(.pfl-dmb *)){color:inherit}
-.tpf svg:where(:not(.pfl-dmb *)){display:inline-block;vertical-align:middle}
-.tpf img:where(:not(.pfl-dmb *)){display:block;max-width:100%}
-.tpf button:where(:not(.pfl-dmb *)){font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit;text-transform:none;min-height:0;box-shadow:none}
+.tpf a{color:inherit}
+.tpf svg{display:inline-block;vertical-align:middle}
+.tpf img{display:block;max-width:100%}
+.tpf button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;letter-spacing:inherit;text-transform:none;min-height:0;box-shadow:none}
 .tpf details>summary{list-style:none;cursor:pointer}
 .tpf details>summary::-webkit-details-marker{display:none}
 .tpf .tp-chev{width:16px;height:16px;flex:none;transition:transform .2s}
@@ -76,12 +77,38 @@ body{overflow-x:clip}
 .tpf .tp-sizing svg{width:22px;height:22px}
 .tpf .tp-pkg-title{display:flex;align-items:center;gap:16px;margin-top:15px;font-size:14px;font-weight:700;line-height:20px;color:#000}
 .tpf .tp-pkg-title:before,.tpf .tp-pkg-title:after{content:"";flex:1;height:1px;background:rgba(0,0,0,.25)}
-/* Bundle picker keeps DropMagic's own typography. */
-.pfl-dmb{margin-top:4px;font-family:Inter,sans-serif;font-size:16px;line-height:1.6;letter-spacing:normal;color:var(--dm-foreground);background:none}
-.pfl-dmb img{max-width:none}
-.pfl-dmb dm-bundle-units [data-bundle-unit]{flex-wrap:nowrap}
-.pfl-dmb dm-bundle-units select:not([data-unit-proxy]){flex:1 1 auto;min-width:0}
-.pfl-dmb dm-bundle-units [data-unit-opt]{flex:0 0 auto;flex-wrap:nowrap}
+.tpf .tp-bnd{--b-fg:oklch(.18 .003 73.74);--b-pri:oklch(.551 .221 264.8);--b-bg:oklch(.962 .002 73.74);--b-muted:oklch(.457 .007 73.74);--b-line:oklch(.917 .006 73.74);--b-field:oklch(.985 .001 73.74);display:flex;flex-direction:column;gap:12px;margin-top:16px;font-family:Inter,sans-serif;font-size:16px;line-height:1.6;letter-spacing:normal;color:var(--b-fg)}
+.tpf .tp-tier{position:relative;display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:var(--b-bg);border:1px solid oklch(.755 .005 73.74);border-radius:12px;cursor:pointer}
+.tpf .tp-tier.tp-on{border-color:var(--b-pri)}
+.tpf .tp-tier.tp-ribbon{padding-top:24px}
+.tpf .tp-rib{position:absolute;top:-8px;right:12px;z-index:2;display:flex;padding:0 8px;background:linear-gradient(to bottom right,transparent 49.5%,oklch(.386 .155 264.8) 50%) 0 0/8px 8px no-repeat,linear-gradient(to bottom left,transparent 49.5%,oklch(.386 .155 264.8) 50%) 100% 0/8px 8px no-repeat}
+.tpf .tp-rib span{padding:6px 8px;background:var(--b-pri);color:oklch(.985 .007 264.8);border-radius:0 0 7px 7px;font-size:12.65px;font-weight:700;line-height:17.96px;letter-spacing:.06325px}
+.tpf .tp-thead{display:flex;align-items:center;gap:12px}
+.tpf .tp-radio{position:relative;width:18px;height:18px;flex:none;border:2px solid var(--b-pri);border-radius:50%}
+.tpf .tp-on .tp-radio:before{content:"";position:absolute;inset:2.5px;border-radius:50%;background:var(--b-pri)}
+.tpf .tp-tinfo{flex:1;min-width:0}
+.tpf .tp-tline{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.tpf .tp-tname{font-size:17px;font-weight:700;line-height:23.29px}
+.tpf .tp-save{padding:2px 6px;border:1px solid oklch(.551 .221 264.8 / .45);border-radius:9999px;background:oklch(.551 .221 264.8 / .15);color:var(--b-pri);font-size:12.65px;font-weight:700;line-height:17.96px;letter-spacing:.06325px}
+.tpf .tp-tsub{font-size:13.5px;line-height:19.17px;color:var(--b-muted)}
+.tpf .tp-tprice{flex:none;text-align:right}
+.tpf .tp-tprice p{font-size:19px;font-weight:700;line-height:25.08px}
+.tpf .tp-tprice s{display:block;font-size:15px;line-height:21.3px;color:var(--b-muted)}
+.tpf .tp-units{display:flex;flex-direction:column;gap:8px}
+.tpf .tp-tier:not(.tp-on) .tp-units{display:none}
+.tpf .tp-unit{display:flex;align-items:center;gap:8px}
+.tpf .tp-um{position:relative;width:44px;height:44px;flex:none}
+.tpf .tp-um img{width:44px;height:44px;max-width:none;object-fit:cover;border-radius:7px;background:var(--b-bg)}
+.tpf .tp-um span{position:absolute;left:-3px;bottom:-3px;padding:2px 4px;border-radius:4px;background:var(--b-bg);box-shadow:0 .5px 0 oklch(.22 .02 260 / .04);font-size:12.65px;line-height:12.65px}
+.tpf .tp-usz{flex:1 1 auto;min-width:0;height:37.2px;padding:8px 24px 8px 12px;appearance:none;-webkit-appearance:none;border:1px solid var(--b-line);border-radius:7px;background:var(--b-field) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23717680' d='M181.66 170.34a8 8 0 0 1 0 11.32l-48 48a8 8 0 0 1-11.32 0l-48-48a8 8 0 0 1 11.32-11.32L128 212.69l42.34-42.35a8 8 0 0 1 11.32 0Zm-96-84.68L128 43.31l42.34 42.35a8 8 0 0 0 11.32-11.32l-48-48a8 8 0 0 0-11.32 0l-48 48a8 8 0 0 0 11.32 11.32Z'/%3E%3C/svg%3E") no-repeat right 8px center/12px;font:16px/19.2px Inter,sans-serif;color:var(--b-fg);cursor:pointer}
+.tpf .tp-usd{display:flex;gap:4px;flex:none}
+.tpf .tp-usd button{padding:4px 8px;border:1px solid var(--b-line);border-radius:7px;background:var(--b-field);font:16px/19.2px Inter,sans-serif;color:var(--b-fg);letter-spacing:normal}
+.tpf .tp-usd button.tp-on{border-color:var(--b-pri);background:oklch(.933 .027 53.47)}
+.tpf .tp-gifts{display:flex;flex-direction:column;margin:4px -20px -16px;background:oklch(.9 .035 48.4);border-radius:0 0 10px 10px}
+.tpf .tp-gift{display:flex;align-items:center;gap:8px;padding:12px 20px;border-top:1px solid oklch(.551 .221 264.8 / .25)}
+.tpf .tp-gift img{width:18px;height:18px;max-width:none;object-fit:contain}
+.tpf .tp-gift p{flex:1;font-size:13.5px;font-weight:700;line-height:19.17px;color:rgb(33,33,33)}
+.tpf .tp-gift b{font-size:13.5px;line-height:19.17px;color:var(--b-pri)}
 .tpf .tp-stock{display:flex;align-items:center;gap:8px;margin-top:15.7px;font-family:Arial,sans-serif;font-size:15px;color:rgb(230,149,0);line-height:27px}
 .tpf .tp-dot{position:relative;width:12px;height:12px;border-radius:50%;background:rgb(255,165,0);flex:none}
 .tpf .tp-dot:after{content:"";position:absolute;inset:0;border-radius:50%;background:rgb(255,165,0);animation:tpPulse 1.8s ease-out infinite}
@@ -132,6 +159,9 @@ body{overflow-x:clip}
 .tpf .tp-sticky .tp-pr s{font-size:16px;color:var(--text);margin-left:4px}
 .tpf .tp-sticky button{width:176px;height:52px;background:var(--ink);color:rgb(253,251,247);border-radius:8px;font-size:19px;font-weight:700;letter-spacing:1px}
 @media (max-width:749px){
+.tpf .tp-tname{font-size:16px}
+.tpf .tp-gift img{width:44px;height:44px}
+.tpf .tp-gift p{font-size:12.65px}
 .tpf{font-size:15px;letter-spacing:.06em}
 .tpf .tp-wrap{padding:0 15px}
 .tpf .tp-hero{padding:16px 0 30px}
@@ -225,7 +255,32 @@ sides: {{ product.options_with_values[1].values | json }}
 <div class="tp-pills" id="tpSide"></div>
 <button type="button" class="tp-sizing" data-open="tpSizeDlg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>Sizing chart</button>
 <div class="tp-pkg-title">Select a package</div>
-{%- assign current_variant = product.selected_or_first_available_variant -%}{{ 'dm-theme.css' | asset_url | stylesheet_tag }}{{ 'dm-theme-vars.css' | asset_url | stylesheet_tag }}<div class="pfl-dmb" data-theme-combination="0"><dm-bundle data-dm-product-id="{{ product.id }}" data-bars='{"currency":"USD","items":[{"id":"qb-1","title":"1 Piece","isPreselected":false,"type":"quantity-breaks","quantity":1,"priceType":"fullPrice","discountValue":0},{"id":"bxgy-tier-1","title":"2 Pieces","isPreselected":true,"type":"bxgy","buyQty":1,"getQty":1,"priceType":"fullPrice","discountValue":0,"getPriceType":"fixedPrice","getDiscountValue":1000},{"id":"bxgy-tier-2","title":"2 + 2 FREE","badge":"Most popular","isPreselected":false,"type":"bxgy","buyQty":2,"getQty":2,"priceType":"fixedPrice","discountValue":6997,"getPriceType":"percent","getDiscountValue":100}]}' data-flex-direction="column" data-flex-gap="3" data-flex-align="stretch" data-flex-columns="auto" style="--dm-card-ring-color: color-mix(in oklch, var(--dm-border), var(--dm-foreground) 22%);--dm-card-ring-width: 1px;--dm-radio-border-color: var(--dm-primary);" data-mt="3" > {%- assign pfb_p = current_variant.price -%}{%- assign pfb_unit_cmp = current_variant.compare_at_price | default: current_variant.price -%}{%- if pfb_unit_cmp < current_variant.price -%}{%- assign pfb_unit_cmp = current_variant.price -%}{%- endif -%}{%- for pfb_k in (1..3) -%}{%- assign pfb_badge = '' -%}{%- case pfb_k -%}{%- when 1 -%}{%- assign pfb_id = 'qb-1' -%}{%- assign pfb_title = '1 Piece' -%}{%- assign pfb_n = 1 -%}{%- assign pfb_buy = 0 -%}{%- assign pfb_tier = pfb_p -%}{%- when 2 -%}{%- assign pfb_id = 'bxgy-tier-1' -%}{%- assign pfb_title = '2 Pieces' -%}{%- assign pfb_n = 2 -%}{%- assign pfb_buy = 1 -%}{%- assign pfb_tier = pfb_p | plus: 1000 -%}{%- else -%}{%- assign pfb_id = 'bxgy-tier-2' -%}{%- assign pfb_title = '2 + 2 FREE' -%}{%- assign pfb_n = 4 -%}{%- assign pfb_buy = 2 -%}{%- assign pfb_badge = 'Most popular' -%}{%- assign pfb_tier = pfb_p | times: 2 -%}{%- if pfb_tier > 6997 -%}{%- assign pfb_tier = 6997 -%}{%- endif -%}{%- endcase -%}{%- assign pfb_cmp = pfb_unit_cmp | times: pfb_n -%}{%- assign pfb_save = pfb_cmp | minus: pfb_tier -%}{%- assign pfb_pct = pfb_save | times: 100 | divided_by: pfb_cmp | floor -%}<div data-atom-type="card" data-bundle-bar data-bar-id="{{ pfb_id }}" data-active="false" data-card-padding="4" data-card-radius="md" data-shadow="none" data-flex-direction="column" data-flex-gap="3" data-flex-align="stretch" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" data-custom-position{% if pfb_badge != blank %} data-custom-padding-top{% endif %} style="--dm-custom-position: relative;{% if pfb_badge != blank %}--dm-custom-padding-top: var(--dm-space-6);{% endif %}" > {%- if pfb_badge != blank -%}<div data-atom-type="group" data-flex-direction="row" data-flex-gap="0" data-flex-align="center" data-flex-justify="center" data-flex-columns="auto" data-flex-wrap="nowrap" data-custom-top data-custom-right data-custom-padding data-custom-z-index data-custom-position style="--dm-custom-top: -8px;--dm-custom-right: 12px;--dm-custom-padding: 0 8px;--dm-custom-z-index: 2;--dm-custom-position: absolute;background-size: 8px 8px;background-image: linear-gradient(to bottom right, transparent 49.5%, color-mix(in oklch, var(--dm-primary) 70%, black) 50%), linear-gradient(to bottom left, transparent 49.5%, color-mix(in oklch, var(--dm-primary) 70%, black) 50%);background-repeat: no-repeat;background-position: 0 0, 100% 0;" ><span data-atom-type="badge" data-badge-variant="default" data-badge-size="sm" data-badge-radius="none" data-custom-padding style="--dm-badge-bg: var(--dm-primary);--dm-badge-color: var(--dm-primary-foreground);--dm-custom-padding: var(--dm-space-1_5) var(--dm-space-2);border-bottom-left-radius: var(--dm-radius-sm);border-bottom-right-radius: var(--dm-radius-sm); " > <span data-atom-type="text" data-text-type="content" data-text-tag="span" data-text-align="left" data-text-size="content-xs" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color: inherit;" >{{ pfb_badge }}</span> </span> </div>{%- endif -%} <div data-atom-type="group" data-flex-direction="row" data-flex-gap="3" data-flex-align="center" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" ><span data-atom-type="radio-indicator" data-radio-size="md" aria-hidden="true" ></span> <div data-atom-type="group" data-flex-direction="column" data-flex-gap="0" data-flex-align="start" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" data-custom-min-width style="flex-grow: 1;--dm-custom-min-width: 0;" ><div data-atom-type="group" data-flex-direction="row" data-flex-gap="2" data-flex-align="center" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="wrap" > <p data-atom-type="text" data-bind="bundle.title" data-text-type="content" data-text-tag="p" data-text-align="left" data-text-size="content-lg" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color: inherit;" >{{ pfb_title }}</p><span data-atom-type="badge" data-badge-variant="primary" data-badge-size="sm" data-badge-radius="xl" style="border-radius: 9999px; " > <span data-atom-type="text" data-text-type="content" data-text-tag="span" data-text-align="left" data-text-size="content-xs" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color: inherit;" >SAVE <span class="dm-hl" data-bind="bundle.discount_percentage">{{ pfb_pct }}%</span></span> </span> </div> {%- if pfb_badge != blank -%}<p data-atom-type="text" data-text-type="content" data-text-tag="p" data-text-align="left" data-text-size="content-sm" data-text-weight="normal" data-text-decoration="none" style="--dm-text-color: var(--dm-muted-foreground);" >Save <span class="dm-hl" data-bind="bundle.discount_value">{{ pfb_save | money }}</span></p>{%- endif -%} </div> <div data-atom-type="group" data-flex-direction="column" data-flex-gap="0" data-flex-align="end" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" style="flex-shrink: 0;" ><p data-atom-type="text" data-bind="bundle.tier_price" data-text-type="content" data-text-tag="p" data-text-align="right" data-text-size="content-xl" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color: var(--dm-foreground);" >{{ pfb_tier | money }}</p> <p data-atom-type="text" data-bind="bundle.compare_at" data-text-type="content" data-text-tag="p" data-text-align="right" data-text-size="content-md" data-text-weight="normal" data-text-decoration="line-through" style="--dm-text-color: var(--dm-muted-foreground);" >{{ pfb_cmp | money }}</p> </div> </div> <dm-bundle-units data-flex-direction="column" data-flex-gap="2" data-bundle-units-size="md" data-bar-id="{{ pfb_id }}" >{%- for pfb_u in (1..pfb_n) -%}{%- assign pfb_i = forloop.index0 -%}{%- assign pfb_role = 'quantity-breaks' -%}{%- if pfb_buy > 0 -%}{%- if pfb_i < pfb_buy -%}{%- assign pfb_role = 'buy' -%}{%- else -%}{%- assign pfb_role = 'get' -%}{%- endif -%}{%- endif -%}{%- assign pfb_side = current_variant.options[1] -%}{%- assign pfb_opt2 = product.options_with_values[1].name | downcase -%}{%- if pfb_opt2 == 'side' and product.options_with_values[1].values.size > 1 -%}{%- assign pfb_m = pfb_i | modulo: 2 -%}{%- assign pfb_side = product.options_with_values[1].values[pfb_m] -%}{%- endif -%}<div data-bundle-unit data-unit-index="{{ pfb_i }}" data-bar-id="{{ pfb_id }}" data-unit-role="{{ pfb_role }}" data-flex-direction="row" data-flex-align="center" data-flex-gap="2" ><span data-bundle-unit-media><img data-bundle-unit-thumb src="{{ product.featured_image | image_url: width: 96 }}" alt="" width="44" height="44" loading="lazy" ><span data-bundle-unit-index>#{{ forloop.index }}</span></span><select data-dm-bundle-unit="{{ pfb_id }}:{{ pfb_i }}" data-option-index="0" data-dm-product-id="{{ product.id }}" data-variant-option-name="{{ product.options_with_values[0].name | escape }}" aria-label="{{ product.options_with_values[0].name | escape }}" >{%- for value in product.options_with_values[0].values -%}<option value="{{ value | escape }}"{% if current_variant.options[0] == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select> {%- if product.options.size > 1 -%}<span data-unit-opt data-mode="text-button"> <select data-dm-bundle-unit="{{ pfb_id }}:{{ pfb_i }}" data-option-index="1" data-dm-product-id="{{ product.id }}" data-variant-option-name="{{ product.options_with_values[1].name | escape }}" aria-label="{{ product.options_with_values[1].name | escape }}" data-unit-proxy >{%- for value in product.options_with_values[1].values -%}<option value="{{ value | escape }}"{% if pfb_side == value %} selected{% endif %}>{{ value | escape }}</option>{%- endfor -%}</select>{%- for value in product.options_with_values[1].values -%}<button type="button" data-unit-value="{{ value | escape }}"{% if pfb_side == value %} data-selected{% endif %}>{{ value | escape }}</button>{%- endfor -%}</span>{%- endif -%}</div>{%- endfor -%}</dm-bundle-units>{%- if pfb_k == 3 -%} <div data-atom-type="group" data-flex-direction="column" data-flex-gap="0" data-flex-align="stretch" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" data-dm-tag-bundle-booster style="background: color-mix(in oklch, var(--dm-primary) 15%, var(--dm-card));" ><div data-atom-type="group" data-flex-direction="row" data-flex-gap="2" data-flex-align="center" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" data-dm-tag-bundle-booster-row style="border-top: 1px solid color-mix(in oklch, var(--dm-primary) 25%, transparent);" ><span data-atom-type="icon" data-icon-size="sm" data-icon-size-sm="xl" style="display: inline-flex; line-height: 0; --dm-icon-color: var(--dm-primary);" ><img src="https://cdn.dropmagic.ai/medias/4d77cf60-af2b-4fa7-9145-adfb5d3ccc9f.webp" alt="" loading="lazy"></span> <p data-atom-type="text" data-text-type="content" data-text-tag="p" data-text-align="left" data-text-size="content-sm" data-text-size-sm="content-xs" data-text-weight="bold" data-text-decoration="none" data-custom-min-width style="--dm-text-color: hsla(0, 0%, 12.94%, 1);flex-grow: 1;--dm-custom-min-width: 0;" >Stretching Strap With Your Order</p> <p data-atom-type="text" data-text-type="content" data-text-tag="p" data-text-align="right" data-text-size="content-sm" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color: var(--dm-primary);flex-shrink: 0;" >FREE</p> </div> <div data-atom-type="group" data-flex-direction="row" data-flex-gap="2" data-flex-align="center" data-flex-justify="start" data-flex-columns="auto" data-flex-wrap="nowrap" data-dm-tag-bundle-booster-row style="border-top: 1px solid color-mix(in oklch, var(--dm-primary) 25%, transparent);" ><span data-atom-type="icon" data-icon-size="sm" data-icon-size-sm="xl" style="display: inline-flex; line-height: 0; --dm-icon-color: var(--dm-primary);" ><img src="https://cdn.dropmagic.ai/medias/c7691528-5f72-45cd-b661-70bbc425494d.webp" alt="" loading="lazy"></span> <p data-atom-type="text" data-text-type="content" data-text-tag="p" data-text-align="left" data-text-size="content-sm" data-text-size-sm="content-xs" data-text-weight="bold" data-text-decoration="none" data-custom-min-width style="--dm-text-color: hsla(0, 0%, 12.94%, 1);flex-grow: 1;--dm-custom-min-width: 0;" >Fit & Comfort Guide</p> <p data-atom-type="text" data-text-type="content" data-text-tag="p" data-text-align="right" data-text-size="content-sm" data-text-weight="bold" data-text-decoration="none" style="--dm-text-color: var(--dm-primary);flex-shrink: 0;" >FREE</p> </div> </div> {%- endif -%}</div>{%- endfor -%}</dm-bundle> </div>
+{%- comment -%} Must match the Shopify automatic discounts (cents): 2+ items / 4+ items {%- endcomment -%}
+{%- assign tp_off2 = 2997 -%}{%- assign tp_off4 = 8991 -%}
+{%- assign tp_v = product.selected_or_first_available_variant -%}{%- assign tp_p = tp_v.price -%}
+{%- assign tp_c = tp_v.compare_at_price | default: tp_p -%}{%- if tp_c < tp_p -%}{%- assign tp_c = tp_p -%}{%- endif -%}
+{%- assign tp_o1 = product.options_with_values[1] -%}
+<div class="tp-bnd" id="tpBundle">
+{%- for tp_k in (1..3) -%}
+{%- case tp_k -%}
+{%- when 1 -%}{%- assign tp_t = '1 Piece' -%}{%- assign tp_n = 1 -%}{%- assign tp_tier = tp_p -%}
+{%- when 2 -%}{%- assign tp_t = '2 Pieces' -%}{%- assign tp_n = 2 -%}{%- assign tp_tier = tp_p | times: 2 | minus: tp_off2 -%}
+{%- else -%}{%- assign tp_t = '2 + 2 FREE' -%}{%- assign tp_n = 4 -%}{%- assign tp_tier = tp_p | times: 4 | minus: tp_off4 -%}
+{%- endcase -%}
+{%- if tp_tier < 0 -%}{%- assign tp_tier = 0 -%}{%- endif -%}
+{%- assign tp_cmp = tp_c | times: tp_n -%}{%- assign tp_sv = tp_cmp | minus: tp_tier -%}{%- assign tp_pct = tp_sv | times: 100 | divided_by: tp_cmp | floor -%}
+<div class="tp-tier{% if tp_k == 2 %} tp-on{% endif %}{% if tp_k == 3 %} tp-ribbon{% endif %}" data-qty="{{ tp_n }}">
+{%- if tp_k == 3 -%}<div class="tp-rib"><span>Most popular</span></div>{%- endif -%}
+<div class="tp-thead"><span class="tp-radio"></span><div class="tp-tinfo"><div class="tp-tline"><p class="tp-tname">{{ tp_t }}</p><span class="tp-save">SAVE {{ tp_pct }}%</span></div>{%- if tp_k == 3 -%}<p class="tp-tsub">Save {{ tp_sv | money }}</p>{%- endif -%}</div><div class="tp-tprice"><p>{{ tp_tier | money }}</p><s>{{ tp_cmp | money }}</s></div></div>
+<div class="tp-units">
+{%- for tp_u in (1..tp_n) -%}{%- assign tp_m = forloop.index0 | modulo: 2 -%}{%- assign tp_side = tp_o1.values[tp_m] | default: tp_o1.values[0] -%}
+<div class="tp-unit"><span class="tp-um"><img src="{{ product.featured_image | image_url: width: 96 }}" alt="" width="44" height="44" loading="lazy"><span>#{{ forloop.index }}</span></span><select class="tp-usz" aria-label="{{ product.options_with_values[0].name | escape }} #{{ forloop.index }}">{%- for v in product.options_with_values[0].values -%}<option value="{{ v | escape }}"{% if tp_v.options[0] == v %} selected{% endif %}>{{ v | escape }}</option>{%- endfor -%}</select><span class="tp-usd">{%- for v in tp_o1.values -%}<button type="button" data-v="{{ v | escape }}"{% if v == tp_side %} class="tp-on"{% endif %}>{{ v | escape }}</button>{%- endfor -%}</span></div>
+{%- endfor -%}
+</div>
+{%- if tp_k == 3 -%}<div class="tp-gifts"><div class="tp-gift"><img src="https://cdn.dropmagic.ai/medias/4d77cf60-af2b-4fa7-9145-adfb5d3ccc9f.webp" alt="" loading="lazy"><p>Stretching Strap With Your Order</p><b>FREE</b></div><div class="tp-gift"><img src="https://cdn.dropmagic.ai/medias/c7691528-5f72-45cd-b661-70bbc425494d.webp" alt="" loading="lazy"><p>Fit &amp; Comfort Guide</p><b>FREE</b></div></div>{%- endif -%}
+</div>
+{%- endfor -%}
+</div>
 
 <div class="tp-stock"><span class="tp-dot"></span><span>In stock - few items available</span></div>
 <button type="button" class="tp-atc" id="tpAtc">Add to cart</button>
@@ -277,59 +332,6 @@ sides: {{ product.options_with_values[1].values | json }}
 </div>
 </div>
 <script>
-/* DropMagic-style bundle picker: card selection and text-button option toggles. */
-(function () {
-  if (window.__pflBundleLoaded) return;
-  window.__pflBundleLoaded = true;
-
-  function selectBar(bundle, card) {
-    bundle.querySelectorAll('[data-bundle-bar]').forEach(function (c) {
-      c.setAttribute('data-active', c === card ? 'true' : 'false');
-    });
-  }
-
-  function init(bundle) {
-    if (bundle.__pflReady) return;
-    bundle.__pflReady = true;
-    var cards = bundle.querySelectorAll('[data-bundle-bar]');
-    if (!cards.length) return;
-    var pre = null;
-    try {
-      var raw = JSON.parse(bundle.getAttribute('data-bars') || '[]');
-      (Array.isArray(raw) ? raw : raw.items || []).some(function (b) { return b.isPreselected && (pre = b.id); });
-    } catch (e) {}
-    var chosen = pre && bundle.querySelector('[data-bundle-bar][data-bar-id="' + pre + '"]');
-    selectBar(bundle, chosen || cards[0]);
-
-    bundle.addEventListener('click', function (e) {
-      var btn = e.target.closest('button[data-unit-value]');
-      if (btn && bundle.contains(btn)) {
-        var wrap = btn.closest('[data-unit-opt]');
-        var sel = wrap && wrap.querySelector('select');
-        if (sel && sel.value !== btn.getAttribute('data-unit-value')) {
-          sel.value = btn.getAttribute('data-unit-value');
-          sel.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-      }
-      var card = e.target.closest('[data-bundle-bar]');
-      if (card && bundle.contains(card)) selectBar(bundle, card);
-    });
-
-    bundle.addEventListener('change', function (e) {
-      var wrap = e.target.closest && e.target.closest('[data-unit-opt]');
-      if (!wrap) return;
-      wrap.querySelectorAll('[data-unit-value]').forEach(function (b) {
-        if (b.getAttribute('data-unit-value') === e.target.value) b.setAttribute('data-selected', '');
-        else b.removeAttribute('data-selected');
-      });
-    });
-  }
-
-  function run() { document.querySelectorAll('.pfl-dmb dm-bundle').forEach(init); }
-  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', run) : run();
-})();
-</script>
-<script>
 (function(){
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var slides=$("#tpSlides"),thumbs=$("#tpThumbs");
@@ -347,10 +349,17 @@ function pills(el,list,key){
 el.innerHTML=list.map(function(v,i){return '<button type="button"'+(i?'':' class="tp-on"')+'>'+v+'</button>'}).join("");
 $$("button",el).forEach(function(b){b.onclick=function(){
 sel[key]=b.textContent;$$("button",el).forEach(function(x){x.classList.toggle("tp-on",x===b)});
-$$('.pfl-dmb select[data-option-index="'+(key==="size"?0:1)+'"]').forEach(function(s){s.value=sel[key];s.dispatchEvent(new Event("change",{bubbles:true}))});
+if(key==="size")$$("#tpBundle .tp-usz").forEach(function(s){s.value=sel.size});else $$("#tpBundle .tp-usd button").forEach(function(x){x.classList.toggle("tp-on",x.dataset.v===sel.side)});
 }});
 }
 pills($("#tpSize"),TPF.sizes,"size");pills($("#tpSide"),TPF.sides,"side");
+var bnd=$("#tpBundle");
+bnd.addEventListener("click",function(e){
+var b=e.target.closest(".tp-usd button");
+if(b)$$("button",b.parentNode).forEach(function(x){x.classList.toggle("tp-on",x===b)});
+var t=e.target.closest(".tp-tier");
+if(t&&!e.target.closest("select"))$$(".tp-tier",bnd).forEach(function(x){x.classList.toggle("tp-on",x===t)});
+});
 function openCart(){
 if(document.querySelector('dm-sheet[data-sheet-open-on="cart"]'))return;
 var hz=document.querySelector("cart-drawer-component");
@@ -365,15 +374,9 @@ location.href=TPF.root+"cart";
 }
 var atc=$("#tpAtc");
 function addToCart(){
-var card=$('.pfl-dmb [data-bundle-bar][data-active="true"]'),barId=card&&card.getAttribute("data-bar-id"),items=[];
-if(!card){var v=TPF.variants[sel.size+" / "+sel.side];if(v)items.push({id:v,quantity:1})}
-(card?$$("[data-bundle-unit]",card):[]).map(function(u){
-var o=function(i){var x=$('select[data-option-index="'+i+'"]',u);return x?x.value:""};return {id:TPF.variants[o(0)+" / "+o(1)],quantity:1,properties:{_bundle_type:u.getAttribute("data-unit-role"),_bar_id:barId}};
-}).filter(function(l){return l.id}).sort(function(a,b){return (a.properties._bundle_type==="get"?0:1)-(b.properties._bundle_type==="get"?0:1)})
-.forEach(function(l){
-var m=items.filter(function(x){return x.id===l.id&&x.properties._bundle_type===l.properties._bundle_type})[0];
-m?m.quantity++:items.push(l);
-});
+var tier=$("#tpBundle .tp-tier.tp-on"),qty={},items=[];
+$$(".tp-unit",tier).forEach(function(u){var b=$(".tp-usd .tp-on",u),id=TPF.variants[$(".tp-usz",u).value+" / "+(b?b.dataset.v:sel.side)];if(id)qty[id]=(qty[id]||0)+1});
+Object.keys(qty).forEach(function(id){items.push({id:+id,quantity:qty[id]})});
 atc.disabled=true;atc.textContent="Adding…";
 (TPF.discountCode?fetch(TPF.root+"discount/"+encodeURIComponent(TPF.discountCode)):Promise.resolve())
 .then(function(){return fetch(TPF.root+"cart/add.js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({items:items})})})
