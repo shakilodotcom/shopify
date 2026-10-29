@@ -6,7 +6,8 @@
     2+ items: $29.97 off   (2 x $39.97 = $49.97)        4+ items: $89.91 off   (4 x $39.97 = $69.97)
   Keep tp_off2 / tp_off4 below equal to those amounts (in cents) so the page shows what checkout charges.
   Each sleeve is added as its own cart line (hidden _unit property), so 2 + 2 shows 4 lines.
-  Card images load from Content > Files by name: pf-bundle-1-piece.jpg, pf-bundle-2-pieces.jpg, pf-bundle-2-plus-2.jpg.
+  Card images (and the first gallery image, which follows the selected package) load from Content > Files by name:
+  pf-bundle-1-piece.jpg, pf-bundle-2-pieces.jpg, pf-bundle-2-plus-2.jpg (upload the full-size versions).
 {%- endcomment -%}
 {%- assign tp_cdn = 'https://cdn.shopify.com/s/files/1/1011/0720/4439/files/' -%}
 {%- assign tp_cdn2 = 'https://cdn.shopify.com/s/files/1/0789/7651/6423/files/' -%}
@@ -207,14 +208,14 @@ sides: {{ product.options_with_values[1].values | json }}
 <div class="tp-slides" id="tpSlides">
 {%- assign tp_gallery = 'AB.webp,01_1.webp,AC.webp,02.webp,6_1.webp,2_1.webp,3_2.webp,4_1.webp' | split: ',' -%}
 {%- for f in tp_gallery -%}
-<img src="{{ tp_cdn }}{{ f }}" alt="{{ product.title | escape }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+{%- if forloop.first -%}<img src="{{ 'pf-bundle-2-pieces.jpg' | file_img_url: '1200x' }}" alt="{{ product.title | escape }}">{%- else -%}<img src="{{ tp_cdn }}{{ f }}" alt="{{ product.title | escape }}" loading="lazy">{%- endif -%}
 {%- endfor -%}
 </div>
 <div class="tp-thumbrow">
 <button class="tp-arr" data-thumbs="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
 <div class="tp-thumbs" id="tpThumbs">
 {%- for f in tp_gallery -%}
-<button{% if forloop.first %} class="tp-on"{% endif %} data-i="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}"><img src="{{ tp_cdn }}{{ f }}?width=200" alt="" loading="lazy"></button>
+<button{% if forloop.first %} class="tp-on"{% endif %} data-i="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}"><img src="{% if forloop.first %}{{ 'pf-bundle-2-pieces.jpg' | file_img_url: '200x' }}{% else %}{{ tp_cdn }}{{ f }}?width=200{% endif %}" alt="" loading="lazy"></button>
 {%- endfor -%}
 </div>
 <button class="tp-arr" data-thumbs="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
@@ -263,9 +264,9 @@ sides: {{ product.options_with_values[1].values | json }}
 {%- endcase -%}
 {%- if tp_tier < 0 -%}{%- assign tp_tier = 0 -%}{%- endif -%}
 {%- assign tp_cmp = tp_c | times: tp_n -%}{%- assign tp_sv = tp_cmp | minus: tp_tier -%}{%- assign tp_pct = tp_sv | times: 100 | divided_by: tp_cmp | floor -%}
-<div class="tp-tier{% if tp_k == 2 %} tp-on{% endif %}{% if tp_k == 3 %} tp-ribbon{% endif %}" data-qty="{{ tp_n }}">
+<div class="tp-tier{% if tp_k == 2 %} tp-on{% endif %}{% if tp_k == 3 %} tp-ribbon{% endif %}" data-qty="{{ tp_n }}" data-hero="{{ tp_img | file_img_url: '1200x' }}" data-thumb="{{ tp_img | file_img_url: '200x' }}">
 {%- if tp_k == 3 -%}<div class="tp-rib"><span>Most popular</span></div>{%- endif -%}
-<div class="tp-thead"><span class="tp-radio"></span><img class="tp-timg" src="{{ tp_img | file_url }}" alt="{{ tp_t }}" width="64" height="64" loading="lazy"><div class="tp-tinfo"><div class="tp-tline"><p class="tp-tname">{{ tp_t }}</p><span class="tp-save">SAVE {{ tp_pct }}%</span></div>{%- if tp_k == 3 -%}<p class="tp-tsub">Save {{ tp_sv | money }}</p>{%- endif -%}</div><div class="tp-tprice"><p>{{ tp_tier | money }}</p><s>{{ tp_cmp | money }}</s></div></div>
+<div class="tp-thead"><span class="tp-radio"></span><img class="tp-timg" src="{{ tp_img | file_img_url: '160x' }}" alt="{{ tp_t }}" width="64" height="64" loading="lazy"><div class="tp-tinfo"><div class="tp-tline"><p class="tp-tname">{{ tp_t }}</p><span class="tp-save">SAVE {{ tp_pct }}%</span></div>{%- if tp_k == 3 -%}<p class="tp-tsub">Save {{ tp_sv | money }}</p>{%- endif -%}</div><div class="tp-tprice"><p>{{ tp_tier | money }}</p><s>{{ tp_cmp | money }}</s></div></div>
 <div class="tp-units">
 {%- for tp_u in (1..tp_n) -%}{%- assign tp_m = forloop.index0 | modulo: 2 -%}{%- assign tp_side = tp_o1.values[tp_m] | default: tp_o1.values[0] -%}
 <div class="tp-unit"><span class="tp-um"><img src="{{ product.featured_image | image_url: width: 96 }}" alt="" width="44" height="44" loading="lazy"><span>#{{ forloop.index }}</span></span><select class="tp-usz" aria-label="{{ product.options_with_values[0].name | escape }} #{{ forloop.index }}">{%- for v in product.options_with_values[0].values -%}<option value="{{ v | escape }}"{% if tp_v.options[0] == v %} selected{% endif %}>{{ v | escape }}</option>{%- endfor -%}</select><span class="tp-usd">{%- for v in tp_o1.values -%}<button type="button" data-v="{{ v | escape }}"{% if v == tp_side %} class="tp-on"{% endif %}>{{ v | escape }}</button>{%- endfor -%}</span></div>
@@ -344,7 +345,11 @@ bnd.addEventListener("click",function(e){
 var b=e.target.closest(".tp-usd button");
 if(b)$$("button",b.parentNode).forEach(function(x){x.classList.toggle("tp-on",x===b)});
 var t=e.target.closest(".tp-tier");
-if(t&&!e.target.closest("select"))$$(".tp-tier",bnd).forEach(function(x){x.classList.toggle("tp-on",x===t)});
+if(t&&!e.target.closest("select")&&!t.classList.contains("tp-on")){
+$$(".tp-tier",bnd).forEach(function(x){x.classList.toggle("tp-on",x===t)});
+var s0=$("img",slides),t0=$("img",thumbs);if(t.dataset.hero){s0.src=t.dataset.hero;t0.src=t.dataset.thumb}
+slides.scrollTo({left:0,behavior:"smooth"});
+}
 });
 function openCart(){
 if(document.querySelector('dm-sheet[data-sheet-open-on="cart"]'))return;
