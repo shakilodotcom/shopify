@@ -69,11 +69,6 @@ body{overflow-x:clip}
 .tpf .tp-benefits ul{list-style:none;margin-top:10px;display:grid;gap:7.8px}
 .tpf .tp-benefits li{display:flex;gap:11.4px;line-height:1.35}
 .tpf .tp-benefits li img{width:19px;height:19px;flex:none;margin-top:1px}
-.tpf .tp-optlabel{display:block;font-size:13px;font-weight:600;letter-spacing:.4px;line-height:19.5px;width:fit-content;margin-top:15.4px;margin-bottom:4px}
-.tpf .tp-optlabel2{margin-top:14.1px;margin-bottom:9px}
-.tpf .tp-pills{display:flex;flex-wrap:wrap;gap:9px 10px}
-.tpf .tp-pills button{height:36px;padding:0 20px;border:1px solid rgba(18,18,18,.55);border-radius:40px;background:#fff;color:var(--ink);font-size:14px;letter-spacing:1px;transition:background .15s,color .15s}
-.tpf .tp-pills button.tp-on{background:var(--ink);color:#fff}
 .tpf .tp-sizing{display:flex;width:fit-content;align-items:center;gap:8px;margin-top:17px;font-family:Arial,sans-serif;font-size:17px;color:var(--ink);letter-spacing:0;line-height:25px}
 .tpf .tp-sizing svg{width:22px;height:22px}
 .tpf .tp-pkg-title{display:flex;align-items:center;gap:16px;margin-top:15px;font-size:14px;font-weight:700;line-height:20px;color:#000}
@@ -184,7 +179,6 @@ body{overflow-x:clip}
 .tpf .tp-hsa{flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:0 6px;height:80.8px;padding:14px 10px;font-size:11px;line-height:19.8px}
 .tpf .tp-hsa button{flex-basis:100%;margin:6px 0 0;font-size:11px;line-height:19.8px}
 .tpf .tp-hsa .tp-save svg{width:15px;height:15px}
-.tpf .tp-pills{padding-right:6px}
 .tpf .tp-sticky .tp-wrap{height:auto;padding:12px 15px}
 .tpf .tp-sticky img,.tpf .tp-sticky .tp-meta{display:none}
 .tpf .tp-sticky button{width:100%;height:46px}
@@ -250,10 +244,6 @@ sides: {{ product.options_with_values[1].values | json }}
 <li><img src="{{ tp_cdn2 }}Design_ohne_Titel_6.webp" alt="">Fast relief for a better quality of life in everyday situations.</li>
 </ul>
 </div>
-<span class="tp-optlabel">Size</span>
-<div class="tp-pills" id="tpSize"></div>
-<span class="tp-optlabel tp-optlabel2">Side</span>
-<div class="tp-pills" id="tpSide"></div>
 <button type="button" class="tp-sizing" data-open="tpSizeDlg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>Sizing chart</button>
 <div class="tp-pkg-title">Select a package</div>
 {%- comment -%} Must match the Shopify automatic discounts (cents): 2+ items / 4+ items {%- endcomment -%}
@@ -346,14 +336,6 @@ $$("[data-thumbs]").forEach(function(b){b.onclick=function(){
 var n=slides.children.length,i=Math.round(slides.scrollLeft/slides.clientWidth)+(+b.dataset.thumbs);go((i+n)%n);
 thumbs.scrollBy({left:+b.dataset.thumbs*112})}});
 var sel={size:TPF.sizes[0],side:TPF.sides[0]};
-function pills(el,list,key){
-el.innerHTML=list.map(function(v,i){return '<button type="button"'+(i?'':' class="tp-on"')+'>'+v+'</button>'}).join("");
-$$("button",el).forEach(function(b){b.onclick=function(){
-sel[key]=b.textContent;$$("button",el).forEach(function(x){x.classList.toggle("tp-on",x===b)});
-if(key==="size")$$("#tpBundle .tp-usz").forEach(function(s){s.value=sel.size});else $$("#tpBundle .tp-usd button").forEach(function(x){x.classList.toggle("tp-on",x.dataset.v===sel.side)});
-}});
-}
-pills($("#tpSize"),TPF.sizes,"size");pills($("#tpSide"),TPF.sides,"side");
 var bnd=$("#tpBundle");
 bnd.addEventListener("click",function(e){
 var b=e.target.closest(".tp-usd button");
